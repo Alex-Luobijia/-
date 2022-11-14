@@ -1,0 +1,1784 @@
+\documentclass[lang=en, 12pt]{elegantbook}
+
+
+\title{{\Huge{\textbf{Real Analysis}}}}
+\author{Alex Luo}
+\date{\today}
+\cover{cover}
+
+\newcommand{\vt}[1]{\textit{\textbf{#1}}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\lmf}[1]{$\mathcal{M} \mathfrak{F} \{#1\}$}
+
+\begin{document}
+\frontmatter
+\maketitle
+\tableofcontents
+
+\mainmatter
+    \chapter{Why We Need Lebesgue Integral}
+        In the previous sections, we have already developed the theory of Riemann integral. But Riemann integral dose not 
+    close after taking limit. If ${f_n}$ is a sequence of Riemann integrable functions, and it's limit function may not be Riemann integrable.   
+    \begin{example}
+        Let ${f_n}$ be a sequence of integrable function over $[0,1]$ and $f$ be its limit function. 
+    \begin{enumerate}
+        \item We already know that if $f_n$ converge uniformly, then $f$ must be integrable and 
+        \begin{equation}
+        \lim_{n \to \infty} \int_a^b f_n = \int_a^b \lim_{n \to \infty}f_n = \int_a^b f \label{limint}
+        \end{equation}
+        by the theory of uniform Convergence.
+        \item ${f_n}$ pointwise converge to $f$ but $f$ isn't integrable.
+        Let ${r_k}$ be the sequence which consits of all the rationals( $\mathbb{Q}$ is countable, so this sequence exists).
+        Let $f_n(x) = 1 \mbox{ if } x = r_k $ for some $k < n$, and for other cases, $f_n(x) = 0$. For any $n$, $f_n$ has only 
+        finite discontinuity, thus it is integrable. ${f_n}$ converge to the dirichlet functions, which we know isn't integrable.
+        \item ${f_n}$ pointwise converge to $f$ and $f$ is integrable. Let $f_n = x^n$, then ${f_n}$ converge to 
+        $f: f(x)= 1 $ if $ x = 1 ; f(x) = 0 $ if $ x \in [0,1)$. The integral exist and satisfies (\ref*{limint}).
+    \end{enumerate} 
+    \end{example} \par
+        Riemann integral functions is in the exactly situation of rational number, if you take limit, you probably got something
+    else. An integral like real number, with the completeness,  is desired.
+    \par
+        One of the motivation of the developing the theory of integration is to calculate the area, and the method we use basicly is to cut
+    a whole thing into pieces. For Riemann integral, to calculate the area under a function, one take a partition the domain, and build up 
+    a "step function". If the step function converge to the original function as partition gets finer, we say the integral exist.\par
+        For Lebesgue integral, we also take partition, but instead of on it's domain, we take it on the range. Let $f:E\to \mathbb{R}$ be a real value function
+    $P_{M_n} = \{\frac{2iM}{2^n} -M : i \in [0,2^n] \cap \mathbb{Z} \}$ be a partition of $f(E) \in \mathbb{R}$. The integral under this partition will be 
+    look like 
+    \begin{equation}
+    \int_E{f(x)} = \lim_{n \to \infty} \sum_{i=1}^{2^n} [(\frac{2iM}{2^n} - M )m(E_i)] = \lim_{n \to \infty} \sum_{i=1}^{2^n} [(\frac{2(i+1)M}{2^n} - M )m(E_i)] \label{li1} 
+    \end{equation}
+    where $E_i=\{x:f(x) \in [\frac{2iM}{2^n} -M,\frac{2(i+1)M}{2^n}-M]\}$, $m(E_i)$ is it's lenth.\par
+        One may find as $n \to \infty$, the last equal sign in \eqref{li1} is true no matter what the intergrand is, but this doesn't means all the functions
+    are Lebesgue integrable. Because without defining the lenth of a set(or volume, for higher dimension), the equation above is meaningless.
+    So, in order to develop the theory of Lebesgue integral, we need to find a set function $m$, which is called Lebesgue measure, mapping 
+    a general set into $[0,+\infty]$. We also hope $m$, has the following properties(in order to fit in our notion of lenth):
+        \begin{enumerate}
+            \item (Monotonicity) If $E \subset F$, $m(E) \leq m(F)$. This is inherited from the intuitive notion of volume.
+            \item $m([a,b]) = b - a$. The lenth of integral is agree with its measure.
+            \item (Countable additivity) Let ${E_i}$ be a disjoint collection of set, then $$m(\bigcap_{i=1}^{\infty} E_i) = \sum_{i=1}^{\infty}m(E_i)$$
+            which enable us doing integral.
+        \end{enumerate} \par
+        We will first discuss Lebesgue's theory on $\RR$, and for most sets that occurs will be subsets of $\RR$. In next section, we will focus 
+    measure theory, which solves the problems above.
+
+    \chapter{Lebesgue Measure}
+        To define a such measure function(the Lebesgue measure) we have discussed in the previous section, we need to first define a function
+    which is called \emph{Lebesgue outer measure}. This is because countable additivity is really a rigorous property. Outer measure is defined
+    for all set, but is doesn't have the countable additivity. The true Lebesgue measure only is defined on a certain collection of sets, which
+    we called measurable set. Basicly, we ristrict the Lebesgue outer measure on the measurable sets to obtain the Lebesgue measure. In the 
+    general measure theory, there are many measures, and Lebesgue measure is just one of them. Since we will only talk about Lebesgue measure,
+    for convenience, we will just call the Lebesgue as measure(also the concepts measurable).
+        \section{Lebesgue Outer Measure}
+            \begin{definition}[Lebesgue outer measure]
+                Given a set $A$, let $\{I_n\}$ be a countable open interval cover of $A$, namely $A \subset \bigcap_{n=1}^{\infty}I_n$ and
+            ${I_n}$ is a countable collection of open intervals. Let $m^*(A) = \inf\{\sum_{n=1}^{\infty}I_n:\{I_n\} \mbox{is a open interval cover of }A\}$,  
+            We call the function $m^*$ Lebesgue outer measure. 
+            \end{definition} % is {{I_k}: union I_k contains A} a set ?
+            Since for every set such collection of number(can be infinity) is nonempty, so the outer measure of every set on $\RR$ is well defined. 
+            \begin{proposition}[Properties of Lebesgue outer measure]
+                Let $A,B,\{A_n\}$ be any sets and countable collection of sets. The following properties is satisfied.
+            \begin{enumerate}
+                \item Positivity: $m^*(A) \geq 0$.
+                \item Monotonicity: $B \subset A \Rightarrow m^{*}(A) \geq m^{*}(b) $
+                \item Countable Subadditivity: $\sum_{n=1}^{\infty} m^*(A_n) \geq m^*(\bigcap_{n=1}^{\infty}A_n)$
+                \item Translation Invariance: For any number $y$, $m^*(A+y) = m^*(A)$ where $A+y = {a+y:a\in A}$ 
+            \end{enumerate} 
+
+            \end{proposition}
+            \begin{proof}
+                Positivity: Since for every open interval cover $\{I_n\}$, $\sum_{n=1}^{\infty}|I_n|$ is a positive series, $m^*(A) \geq 0$. \par    
+                Monotonicity: If $B \subset A$, every open interval cover of $A$ is also that of $B$. Thus by the property of $\inf$,
+                $m^*(B) \leq m^*(A)$. \par
+                Countable subadditivity: Suppose $\sum_{n=1}^{\infty}m^*(A_n) < +\infty$(the $+\infty$ case is trivial). For each $\{A_n\}$,
+            let $\{I_{n_k}\}$ be its open interval cover, and we can choose a $\{I_{n_k}\}$ such that 
+                $$\sum_{n=1}^{\infty}\{I_{n_k}\} - m^*(A_n) \leq \frac{\epsilon}{2^n}$$ \par
+                Then we know 
+                $$\bigcap_{n=1}^{\infty}A_n \subset \bigcap_{n=1}^{\infty}\{I_{n_k}\},\ \sum_{n,k=1}^{\infty}|I_{n_k}| \leq \sum_{n=1}^{\infty}m^*(A_n) + \epsilon$$
+                Let $\epsilon \to 0$, the desired proposition is proved.\par 
+                (This is something called coset. You may have run into this concept in algebra, but if you haven't, never mind it)\par
+                
+                Translation invariance: For every open interval cover $\{I_n\}$ of $A$, $\{I_n+y\}$ is a open interval cover of $A+y$, and at the same time, 
+                for every open cover $\{I_n\}$ of $A+y$, $\{I_n+y\}$ is a open cover of $A$. Since invervals is translation invariant,
+                $$\sum_{n=1}^{\infty}|I_n| =\sum_{n=1}^{\infty}I_n+y$$ 
+                Given any countable open interval cover $\{I_n\}$ of $A$,
+                \begin{equation}
+                    m^*(A+y) \leq \sum_{n=1}^{\infty}I_n+y = \sum_{n=1}^{\infty}I_n
+                \end{equation}
+                Then we can see that $m^*(A+y) \leq  m^*(A+y)$, since the former one is a lower bound and the latter one is the greatest lower bound.
+                The inequality in the other way can be proved in the came way, then we conclude that $m^*(A)=m^*(A+y)$.  
+            \end{proof}
+            \begin{example}[The outer measure of $\varnothing$]
+                Since $\varnothing \subset E$ for any set $E$, let $I_{n_k} = (0,\frac{1}{n 2^k})$, then 
+            the collection $\{I_{n_k}\}_{k=1}^{\infty}$ is certain a open interval cover of $\varnothing$ and 
+            $\sum_{k=1}^{\infty}|I_{n_k}|= \frac{1}{n}$. Let $n\to \infty$, then $\sum_{k=1}^{\infty}|I_{n_k}| \to 0$. 
+            Thus $m^*(\varnothing) \leq 0$(remember $m^*$ of a set is a lower bound). By the positivity of outer measure, $m^*(\varnothing) = 0$
+            \end{example}
+            \begin{example}[The outer measure of countable set is $0$]
+                Give any countable set $ A = \{a_k\}$, let $I_{n_k} = (a_k-\frac{1}{n2^{k+1}},a_k+\frac{1}{n2^{k+1}})$. For each $n$, $\{I_{n_k}\}$
+            is a open interval cover of $A$, and 
+                $$\sum_{k=1}^{\infty}|I_{n_k}|=\sum_{k=1}^{\infty}\frac{1}{n2^k}=\frac{1}{n}$$ \par
+                Let $n \to \infty$, we arrive at the conclusion: $m^*(A) = 0$.
+            \end{example}
+            \begin{proposition}[The outer measure of intervals]
+                The outer measure of an interval is its lenth. Let $I = [a,b]$, then $$m^*(I) = b-a $$
+                The similar statements for $[a,b), (a,b], (a,b)$ are also true.\par
+                
+            \end{proposition}
+            \begin{proof}
+                For every close interval $[a,b]$, one can find an open interval $(a-\epsilon,b+\epsilon)$ cover it, which has the lenth 
+            $b-a+2\epsilon$. Since episilon can be chosen freely, $m^*([a,b]) \leq b-a$. \par
+                It remains to show $m^*([a,b]) \geq b-a$, which is
+            equivalence to show for all countable open interval covers $\{I_n\}$, 
+            \begin{equation}
+                \sum_{n=1}^{\infty}I_n \geq b-a \label{tomoi1}
+            \end{equation}
+                Because we are dealing a
+            close interval on $\RR$, which is a compat set, Heine-Borel theorem tells us it has a finite subcover for each open cover. So 
+            \begin{equation}
+                \sum_{n=1}^{N}I_n \geq b-a \label{tomoi2}
+            \end{equation}
+            will indicate \eqref{tomoi1}. \par
+                Since $a$ is in $\bigcap_{n=1}^{N} I_n$, there exist a $I_{n_1}$ contains $a$. If $I_{n_1}$ contains b, $|I_{n_1}|>b-a$;
+            if not, $I_{n_1} = (c,d) \ , \ c<a<d<b$, then $d$ is in $[a,b]$, which means exist  $I_{n_2}$ such that $d \in I_{n_2}$; if
+            $b \in I_{n_2}$, then $|I_{n_1}|+|I_{n_2}|>b-a$; if not, $I_{2} = (f,g) \ , \ f<d,g<b$, \dots There must be a $I_{n_i}$ such that 
+            $b \in I_{n_i}$, and since we have only finite $I_n$, so this process will be eventually ended. After doing this for enough times,
+            one will find out that 
+            $$\sum_{i=1}{N}|I_{n_i}|>b-a$$ \par
+                For other intervals, since they are subsets of closed interval, by monotonicity, we have $m^*(I)\leq b-a$. By the subadditivity
+            and our previous conculsion on the outer measure of countable set, $$m^*([a,b])=m^*((a,b)\cap \{a,b\})\leq m^*((a,b))+m^*(\{a,b\})=b-a$$
+            The proof for $[a,b)$ and $(a,b]$ is simialr.
+            \end{proof}
+        \section{Lebesgue Measure}
+            \begin{definition}[Measurable sets and Lebesgue measure]
+                Let $E$ be a set, if for any set $A$, 
+                \begin{equation}
+                    m^*(A) = m^*(A \cap E) + m^* (A \cap E^c) \label{ms}
+                \end{equation}
+                then we say $E$ is a measuralbe set. The collection of all the measurable sets is denoted $\mathcal{M}$.\par
+                If $E$ is a measurable set, we define its Lebesgue measure $m(E) := m^*(E)$. 
+            \end{definition}
+            \begin{example}[The sets with outer measure zero are measurable]
+                First, notice that, if one wants to check whether a set $E$ is measurable, the only thing is to show is 
+            $$m^*(A) \geq m^*(A \cap E) + m^* (A \cap E^c)$$
+            since the other inequality is guaranteened by the subadditivity.\par 
+                For the set $E$ whose outer measure is zero, and any set $A$, by monotonicity of outer measure, we have 
+                \begin{equation*}
+                    \begin{aligned}
+                        &m^*(A \cap E = 0) \ , \ \ m^*(A \cap E^c) \leq m^*(A) \\
+                        \Rightarrow &m^*(A) \geq  m^*(A \cap E) + m^* (A \cap E^c)  
+                    \end{aligned}
+                \end{equation*} 
+                And together the subadditivity of outer measure, we have 
+                $$m^*(A) = m^*(A \cap E) + m^* (A \cap E^c)$$
+                which shows that $E$ is measurable.
+            \end{example}
+            In our expectation of the measure function, it should have the countable additivity. So we know that the set must satisfied 
+        \eqref{ms}, because $(A \cap E) \cap (A \cap E^c) = \varnothing$ and $(A \cap E) \cup (A \cap E^c) = A$, which is a special case 
+        of finite additivity. The Lebesgue measure define above is just the ristriction of $m^*$ on the collection of measurable sets. 
+        At last, we will show that the measure defined above have all the good properties we want. Before that, we first would like to 
+        prove some properties of the measurable sets.
+            \begin{proposition}[Properties of measurable sets] 
+                Let $E_1, E_2 \in \mathcal{M}$,and $\{E_i\} \subset \mathcal{M}$\par
+                \begin{enumerate}
+                    \item $\varnothing \in \mathcal{M}$
+                    \item $E_1^c \in \mathcal{M}$.
+                    \item $E_1 \cap E_2, \ E_1 \cup E_2, \ E_1/E_2 \in \mathcal{M}$. From this one can easily derive the closedness of finite 
+                intersection and union.
+                    \item If for any $i \neq j$, $E_i \cap E_j = \varnothing$, then 
+                    $$m(A \cap \bigcup_{i=1}^{N}E_i) = \sum_{i=1}^{N}m(A \cap E_i)$$
+                    The finite additivity among measurable sets is a special case of this proposition, taking $A=\mathbb{R}$. 
+                    \item $\bigcap_{i=1}^{\infty} E_i, \ \bigcup_{i=1}^{\infty} E_i \in \mathcal{M}$
+                \end{enumerate}\par
+                
+            \end{proposition}
+            \begin{proof}
+                1. This is true because we have show that measure zero sets are measurable.\par
+                2. Since $(E^c)^c = E$, so 
+                \begin{equation*}
+                    \begin{aligned}
+                        m^*(A) &= m^*(A\cap E) + m^*(A \cap E^c) \\
+                               &= m^*(A\cap(E^c)^c) + m^*(A \cap E^c)
+                    \end{aligned}
+                \end{equation*}
+                which shows that $E^c$ is measurable.\par
+                3. Here we first prove the union of measurable sets is measurable. Since $E_1, \ E_2 \in \mathcal{M}$, for any set $A$
+                \begin{equation*}
+                    \begin{aligned}
+                        m^*(A) &= m^*(A \cap E_1) + m^*(A \cap E_1^c)\\
+                               &= m^*(A \cap E_1) + m^*((A \cap E_1^c) \cap E_2) + m^*((A \cap E_1^c) \cap E_2^c)  
+                    \end{aligned}
+                \end{equation*}
+                By basic set identities,
+                \begin{equation*}
+                    \begin{aligned}
+                        (A \cap E_1^c) \cap E_2^c = A \cap (E_1 \cup E_2) ^c\\
+                        [A \cap E_1] \cup [(A \cap E_1^c) \cap E_2] = A \cap (E_1 \cup E_2)
+                    \end{aligned}
+                \end{equation*}
+                and by the subadditivity of outer measure,
+                \begin{equation*}
+                    \begin{aligned}
+                        m^*(A) &\geq m^*([A \cap E_1] \cup [(A \cap E_1^c) \cap E_2]) + m^*((A \cap E_1^c) \cap E_2^c)\\
+                               &= m^*(A \cap (E_1 \cup E_2)) + m^*(A \cap (E_1 \cup E_2)^c)
+                    \end{aligned}
+                \end{equation*}
+                is true. Thus the union of measurable set is measurable.\par
+                4. The proof proceeds by induction on $N$. It is clear true for $N = 1$. Suppose it is true for $N-1$. By the measurability
+            of $E_N$, and the fact that $\{E_n\}$ is disjoint sequence of sets, 
+            \begin{equation*}
+                \begin{aligned}
+                m^*(A \cap (\bigcup_{n=1}^{N}E_n)) &= m^*( [A \cap (\bigcup_{n=1}^{N}E_n)] \cap E_N) + m^*([A \cap (\bigcup_{n=1}^{N}E_n)] \cap E_N^c)\\
+                &= m^*(A \cap E_N) + m^*(A \cap \bigcup_{n=1}^{N-1}E_n) \\
+                &= \sum_{n=1}^{N}E_n
+                \end{aligned}
+            \end{equation*}\par
+                5. Let $E$ be the union of countable collection of measurable set, say $\{A_k\}$. By defining a new sequence of sets,
+            $$ E_1 = A_1, \ \ \ E_n = A_n/E_{n-1} $$ 
+            one can express $E$ as a union of disjoint sequence of measurable sets. Let $A$ be any set. Observing that $E^c \subset (\bigcup_{k=1}^N E_k)^c$
+                \begin{equation*}
+                    \begin{aligned}
+                        m^*(A) &\geq m^*(A \cap \bigcup_{k=1}^N E_k) + m^*(A\cap (\bigcup_{k=1}^N E_k)^c\\
+                               &\geq m^*(A\cap \bigcup_{k=1}^N E_k) + m^*(A\cap E^c)\\
+                               &= \sum_{k=1}^N m^*(A\cap E_k) +m^*(A\cap E^c)
+                    \end{aligned}
+                \end{equation*}
+                Since the relation is regardless of $N$
+                \begin{equation*}
+                    \begin{aligned}
+                        m^*(A) &\geq \sum_{k=1}^{\infty} m^*(A\cap E_k) +m^*(A\cap E^c)\\
+                            &\geq m^*(A\cap E) + m^*(A\cap E^c) 
+                    \end{aligned}
+                \end{equation*}
+                Then the desired conclusion is proved.
+            \end{proof}
+            \begin{proposition}[Intervals are measurable]
+                For every $a, \ b$ in $\mathbb{R}^*$, $[a,b], \ (a,b), \ [a,b), \ (a,b]$ are measurable.\par
+                
+            \end{proposition}
+            \begin{proof}
+                First, we show that $(a,\infty)$ is measurable. Give any set $A$, we need to show that
+                $$m^*(A) \geq m^*(A\cap (a,+\infty)) + m^*(A \cap (-\infty,a))$$
+            since $m^*(A)$ is a infimum, it is surffice to show
+                \begin{equation}
+                    m^*(A\cap (a,+\infty)) + m^*(A \cap (-\infty,a)) \leq \sum_{n=1}^{\infty} |I_{n}| \label{iim}
+                \end{equation}
+            where $I_n$ is a open interval cover of $A$.
+                For each $n$, we define $J_n = I_n \cap (a, +\infty)$, $k_n = I_n \cap (-\infty, a)$. Then 
+                \begin{equation*}
+                    \begin{aligned}
+                        |I_n| &= |J_n| + |K_n|\\
+                        \sum_{n=1}^{\infty}|I_n| &= \sum_{n=1}^{\infty} |J_n| + |K_n| = \sum_{n=1}^{\infty} |J_n| + \sum_{n=1}^{\infty}|K_n|
+                    \end{aligned}
+                \end{equation*}
+            Observing that $\sum_{n=1}^{\infty} |J_n|$ and $\sum_{n=1}^{\infty}|K_n|$ are open interval covers of $A \cap (a, +\infty)$ and $A \cap (-\infty, a)$,
+        So \eqref{iim} is varified, then we proved that $(a,+\infty)$ is measurable. \par
+            Since $\mathcal{M}$ is closed under complement, $(-\infty, a]$ is measurable; Since $\mathcal{M}$ is closed under countable,
+        union, 
+        $$(-\infty, a) = \bigcup_{n=1}^{\infty} (-\infty, a-\frac{1}{n}]$$ 
+        is measurable, and also its complement $[a, \infty)$. Let $a \leq b$. 
+        $$[a, b] = [a, \infty) \cap (-\infty, b)$$
+        is measurable. Other intervals are measurable can be shown in the same manner.
+        \end{proof}
+            \begin{definition}[Algebra and $\sigma$ algebra]
+                Let $A$ be a collection of sets, if $\forall F, \ E \in A$ 
+                \begin{enumerate}
+                    \item $\varnothing \in \mathcal{M}$
+                    \item $F^c \in \mathcal{M}$.
+                    \item $F \cap E \in \mathcal{M}$
+                \end{enumerate}
+                then, we say $A$ is an algebra.\par
+                If a algebra $A$ is closed under countable intersection, namely if a countable collection of sets ${E_n} \in A$, then $\bigcap_{n=1}^{\infty}E_n \in A$,
+            we call $A$ a $\sigma$ algebra.\par
+                Given a collection of set $A$, we call the smallest algebra contains $A$(if you remove any part of it, it won't be an algebra or it won't 
+            contains $A$ anymore) the algebra generate by $A$.                  
+            \end{definition}
+            By Demorgan identity, we can see that a algebra is also close under intersection and difference, and a $\sigma$ algebra is close under 
+        countable intersection. The collection of all measurable set is a algebra. The collection of set with this particularstructure is 
+        quite useful in analysis. One need to be careful not to mix up this concept with algebra in Algebra. 
+            \begin{example}[Borel sets]
+                We call the $\sigma$ algebra generated by the collection of open sets in $\RR$ Borel sets. Before Lebesgue, Borel had already built
+            up a measure theory, but not in the purpose of defining an integral. We use $\mathcal{B}$ to denote the collection of Borel sets. 
+            \end{example}
+            \begin{definition}[$F_{\sigma}$ set and $G_{\delta}$ set]
+                For a countable collection of close sets $\{F_n\}$, we say $F = \bigcup_{n=1}^{\infty}F_n$ is a $F_{\sigma}$ set; for any countable collection of 
+            open sets $\{G_n\}$, we call the set $G = \bigcap_{n=1}^{\infty}$ a $G_{\delta}$ set. Also you can have an $F_{\sigma \delta}$ set
+            and $G_{\delta \sigma}$ set, which are intersection of countable $F_{\sigma}$ sets and union of countable $G_{\delta}$ sets.   
+            \end{definition}
+            \begin{proposition}[The properties of Borel sets]
+                \begin{enumerate}
+                    \item Open sets, close sets, $G_{\delta}$ sets, $F_{\sigma}$ sets \dots, in $\mathbb{R}$ are all Borel sets.
+                    \item $\mathcal{B} \subset \mathcal{M}$, the collection of Borel sets is contained in the collection of measuralbe set,
+                    namely, every Borel sets are measuralbe.
+                    %\item Any strickly monotonic increasing function on $\mathbb{R}$ maps Borel sets to Borel sets.
+                \end{enumerate}
+                
+            \end{proposition}
+            \begin{proof}\par
+                1. By definition, all the open sets should be Borel set, and so are close sets, which are complement of open sets.
+            $G_{\delta}, \ F_{\sigma}$ are countable intersection, countable union of Borel sets, so they are also Borel sets. \par
+                2. By open set construction theorem, every open set $O = \bigcup_{n=1}^{\infty} I_n$, where $\{I_n\}$ is a countable collection
+            of open intervals. Since $I_n$ is measurable, so is open sets. Because Borel set is the smallest $\sigma$ algebra contains
+            all the open sets, thus $\mathcal{B} \subset \mathcal{M}$.  
+            \end{proof}
+            We end this section with the most important property of Lebesgue measure: countable additivity.
+            \begin{proposition}
+                Given a countable collection of disjoint measurable sets $\{E_n\}$, 
+                \begin{equation}
+                    m^*(\bigcup_{n=1}^{\infty} E_n) = \sum_{n=1}^{\infty} E_n \label{ca}
+                \end{equation}
+                
+            \end{proposition}
+            \begin{proof}
+                We know that $\bigcup_{n=1}^{\infty} E_n$ is measurable. Since outer measure has subadditivity, it remains to show 
+                \begin{equation}
+                    m^*(\bigcup_{n=1}^{\infty} E_n) \geq \sum_{n=1}^{\infty} E_n \label{caa}
+                \end{equation}
+                For each number $N$, by finite additivity of measurable sets, 
+                $$ m^*(\bigcup_{n=1}^{N} E_n) = \sum_{n=1}{N} E_n$$
+                And we have $\bigcup_{n=1}^{N} E_n \subset \bigcup_{n=1}^{\infty} E_n$. By monotonicity of outer measure,
+                \begin{equation*}
+                    \begin{aligned}
+                        m^*(\bigcup_{n=1}^{\infty} E_n) &\geq m^*(\bigcup_{n=1}^{N} E_n)\\
+                        &= \sum_{n=1}{N} E_n
+                    \end{aligned}
+                \end{equation*}
+                Let $N \to \infty$, then the proposition is proved.
+            \end{proof}
+        \section{Outer and Inner Approximation of Measurable Sets}
+            One can find out a easy fact from the definition of measurable set, that is for a finite measuralbe set $E \subset B$ 
+        we have the excision property
+            \begin{equation*}
+                m^*(B/E) = m^*(B) - m^*(E)
+            \end{equation*}
+            which is a quite useful obsevation. 
+
+            \begin{theorem}[Use open sets, close sets, $G_{\delta}$, $F_{\sigma}$ to approximate measurable set]
+                Let $E$ be a subset of $\RR$. The following assertions are equivalent to measurability of $E$.
+                \begin{enumerate}
+                    \item $\forall \epsilon > 0$, $\exists O \supset E$ is a open set, such that $m^*(O/E) \leq \epsilon$.
+                    \item $\exists G \supset E$ is a $G_{\delta}$ set, such that $m^*(G/E) = 0$
+                    \item $\forall \epsilon > 0$, $\exists C \subset E$ is a close set, such that $m^*(E/C) \leq \epsilon$.
+                    \item $\exists F \subset E$ is a $F_{\sigma}$ set, such that $m^*(E/F) = 0$
+                \end{enumerate} 
+            \end{theorem}
+            \begin{proof}\par
+                1. Suppose $E$ is measurable. Since the measure of $E$ is a supremum, so given $\epsilon > 0$, there exists a open interval 
+            cover, such that 
+                \begin{equation}
+                    m^*(E) + \epsilon \geq \sum_{n=1}^{\infty} |I_n| \geq m^*(E) 
+                \end{equation}
+                Let $O = \bigcup_{n=1}^{\infty} I_n$, then $O$ is a open set and $O \supset E$, it remains to show that 
+                $$m^*(O/E) \leq \epsilon$$
+                By definition of outer measure 
+                $$m^*(O) \leq \sum_{n=1}^{\infty} |I_n| \leq m^*(E) + \epsilon$$
+                which suggest that 
+                $$m^*(O)-m^*(E) \leq \epsilon$$\par
+                From the observation we made in the beginning of this section, we know the proposition will be true if $m^*(E) < +\infty$.
+            For the case that $m^*(E) = \infty$, oen can express $E$ as countable disjoint collection of measurable sets of finite measure, say $\{E_K\}$.
+            For instance, one construction of $\{E_k\}$ could be 
+            $$E_{k} = [\frac{k}{2}-1, \frac{k}{2}) \cap E \mbox{ while } k=2z $$
+            $$E_{k} = [-\frac{k+1}{2}, -\frac{k+1}{2}+1) \cap E \mbox{ while } k=2z+1$$
+            Then we can find a sequence of open sets $\{O_k\}$ such that $O_k \supset E_k$ and $m^*(O_k/E_k) \leq \frac{\epsilon}{2^k}$.
+            Since $O/E$ is a subset of $\bigcup_{k=1}^{\infty} O_k/E_k$, by monotonicity and subadditivity,
+            $$m^*(O/E) \leq m^*(\bigcup_{k=1}^{\infty} O_k/E_k) \leq \sum_{k=1}^{\infty} m^*(O_k/E_k) \leq \epsilon$$
+            Thus part 1 is proved.\par
+                2. By 1., for every $n$, we can find a open set $O_n \supset E$ such that $m^*(O/E) \leq \frac{1}{n}$. Let 
+            $G = \bigcap_{n=1}^{\infty} O_n$. It is clear that $G \supset E$, and $G$ is a $G_{\delta}$ set. Since $G/E \subset O_n/E$
+            for every $n$,
+            \begin{equation*}
+                \begin{aligned}
+                    m*(G/E) &\leq m^*(O_n /E)\\
+                            &\leq \frac{1}{n}
+                \end{aligned}
+            \end{equation*}
+            Let $n \to \infty$, we have $m^*(G/E) = 0$.\par
+                Suppose 2. holds. We know $G$ and $G/E$ are measurable (one is $G_{\delta}$, one has out measure zero), so $E$ must be 
+            measurable.\par
+            3. $E^c$ is clearly measurable, so for every $\epsilon > 0$, we can find a $O \supset E^c$ which is a open set such that 
+        $m^*(O/E^c) \leq \epsilon$. It is not hard to see that $O^c \subset E$ is a close set, and it remains to show that $m^*(E/O^c) \leq \epsilon$.
+        $$E/O^c = E \cap O = O/E^c$$ Thus part 3 is proved.\par
+            4. For every $n$, we can find a $C_n \subset E$ which is a close set, such that $m^*(E/C_n) \leq \frac{1}{n}$. Let 
+        $F=\bigcup_{n=1}^{\infty} C_n$, then F is a $F_{\sigma}$ set in $E$. Since $E/\bigcup_{n=1}^{\infty}C_n$ is a subset of $E/C_n$,
+        $m^*(E/F)=0$.\par
+            Suppose 4. holds. Then $F$ and $E/F$ are measurable, so is $E$.
+            \end{proof}
+            This theorem indicated that every measurable set is nearly a simple set. Proving the next theorem, we push this idea futher.
+            \begin{theorem}[Measurable sets are nearly finite disjoint union of open intervals]\label{LittlewoodFirstPrinciple}
+                Given a measuralbe set $E$ of finite measure, for each $\epsilon > 0$, there is a finite collection of disjoint open intervals
+            $\{I_n\}_{n=1}^N$, for which if $O = \bigcup_{n=1}^{N} I_n$,
+                \begin{equation}
+                    m^*(E/O)+m^*(O/E) < \epsilon
+                \end{equation} \par
+            \end{theorem}
+            \begin{proof}
+                $\forall \epsilon > 0$, $\exists O'$ is a open set such that $O' \supset E$ and 
+                \begin{equation*}
+                    m^*(O'/E) < \frac{\epsilon}{2} 
+                \end{equation*}
+                Every open set can be expressed as a countable collection of disjoint open intervals, so is $O'$. Let $O' = \bigcup_{n=1}^{\infty} I_n$.
+            From $m^*(E)$ is finite, we can know that $m^*(O')$ is finite. So
+            $$\sum_{n=1}^{\infty}|I_n|=m^*(O')$$
+            is a converge positive series. Thus there exists a $N$ such that 
+            $$\sum_{n=N}^{\infty}|I_n| < \frac{\epsilon}{2}$$
+                We define $O =\bigcup_{n=1}^{N}I_n$. Since $O/E \subset O'/E$, and $E/O \subset O'/O$
+                \begin{equation*}
+                    \begin{aligned}
+                        m^*(E/O)+m^*(O/E) &\leq  m^*(O'/O)+m^*(O'/E)\\
+                        &< \sum_{n=N}^{\infty}|I_n| + \frac{\epsilon}{2}\\
+                        &< \epsilon
+                    \end{aligned}
+                \end{equation*}
+            \end{proof}
+            Notice that we used the excision property of measurable set($m^*(B/E) = m^*(B) - m^*(E)$) in the previous theorems, thus they only
+        apply to finite measure sets. One should pay attention to the difference between $m^*(O/E) < \epsilon$ and $m^*(O)-m^*(E)<\epsilon$, 
+        as the later one is true for any set $E$. In the next proposition, we show that none measurable sets doesn't possess the excersion 
+        property.
+            \begin{proposition}
+                Suppose $E$ is not measurable, and has finite out measure. Then there exist a open set $O$, such that 
+                $$m^*(O/E) > m^*(O) - m^*(E)$$
+            \end{proposition}
+            \begin{proof}
+                Since $E$ is not measurable, there exists a set $A$, such that 
+                \begin{equation}\label{excision}
+                    m^*(A) < m^*(E \cap A) + m^*(A / E)
+                \end{equation}
+                Given $\epsilon > 0$, let $I_n$ be an open interval cover of $A \cup E$, and $O = \bigcup_{n=1}^{\infty} I_n$, where
+            $$m^*(A \cup E) \leq m^*(O) \leq m^*(A \cup E) + \epsilon$$ 
+                We only need to show $m^*(O)<m^*(O/E) + m^*(E)$. Since \eqref{excision}, $\exists \epsilon$ such that  
+                \begin{equation*}
+                    \begin{aligned}
+                        m^*(O) &< m^*(A \cup E) + \epsilon \\
+                        &< m^*(A) + m^*(E)
+                        &< m^*(O/E) + m^*(E)
+                    \end{aligned}
+                \end{equation*}
+                Thus the proposition is proved.
+            \end{proof}
+
+    \chapter{Lebesgue Measuralbe Functions}
+            Remembering that our purpose is to define Lebesgue integral, integral is an operator on functions, so the concept of measurable function
+        is needed. In the first chapter, the range of the function $f$ which we want to integrate is cut into small intervals, and we want to 
+        measure the size of their inverse image(of course using the Lebesgue measure). Generaly, the inverse image of these small intervals are not
+        measurable, so we make compromise, by working with a specific type of function. 
+            In this chapter, we would see three interesting and importent properties of measurable function, called Littlewood's three principle. It
+        says \textbf{measurable sets are nearly finite union of open intervals}; \textbf{measurable functions are nearly continuous functions};
+        \textbf{a sequence of measurable functions which converge pointwisely is almost converge uniformly}. The first Priciple has already 
+        shown by \eqref{LittlewoodFirstPrinciple}. We will show the latter two by Egoroff's theorem and Lusin's theorem. Although the 
+        utterance of the principles are not in the rigourous mathematic laguagues, it is still important since it provide a intuitive 
+        understanding of those theorems. In my opinion, this kind of understanding is more in need in the mathematic learning, rather than
+        the rigourous proof.
+
+        \section{Definition and basic properties}
+            Although we want to have $f^{-1}[a,b]$ to be measurable, it turned out that the following condition is equivalent to that.
+            \begin{definition}[Lebesgue measuralbe functions]
+                Given an extended real value function $f: E \to \mathbb{R}^*$ while $E\in \mathcal{M}$, We define $$E\{f>\alpha\}:=\{x\in E:f(x) > \alpha\}$$. \par
+                If $\forall \alpha, \ E\{f>\alpha\} \in \mathcal{M}$ 
+                then we say $f$ is measuralbe. We denote the set of all Lebesgue measuralbe functionson a measurable set E by \lmf{E}
+            \end{definition}
+            \begin{proposition}
+                Let the function $f$ have measurable domain. Then the following condition are equivalent to the measurability of $f$.
+                \begin{enumerate}
+                    \item For each $\alpha$, $E\{f \geq \alpha\}$ is measurable.
+                    \item For each $\alpha$, $E\{f < \alpha\}$ is measurable.
+                    \item For each $\alpha$, $E\{f \leq \alpha\}$ is measurable.
+                \end{enumerate}
+            \end{proposition}
+            \begin{proof}
+                Suppose $f:E \to \RR$ is measurable, which means $\forall \alpha \in \RR, \ E\{f>\alpha\}$ is measurable. Observing that
+            $$E\{f \geq \alpha\} = \bigcap_{n=1}^{\infty} E\{f > \alpha + \frac{1}{n}\}$$
+            which indicate $\forall \alpha \in \RR, \ E\{f \geq \alpha\}$ is measuralbe.\par
+                Suppose $\forall \alpha \in \RR, \ E\{f \geq \alpha\}$ are measuralbe. 
+                $$E\{f < \alpha\} = E\{f \geq \alpha\}^c \cap E$$
+            Thus $\forall \alpha \in \RR, \ E\{f < \alpha\}$ is measurable.\par
+                Suppose $\forall \alpha \in \RR, \ E\{f < \alpha\}$ are measuralbe.
+                $$E\{f \leq \alpha\} = \bigcap_{n=1}^{\infty} E\{f < \alpha - \frac{1}{n}\}$$
+            Thus $\forall \alpha \in \RR, \ E\{f \leq \alpha\}$ is measurable.\par 
+                And by the similar trick, one can show if $\forall \alpha \in \RR, \ E\{f\leq \alpha\}$ is measurable, then 
+                $$E\{f > \alpha\} = E\{f \leq \alpha\}^c \cap E$$
+            is measurable. 
+            \end{proof}\par
+            Let's see some examples of measurable functions.
+            \begin{proposition}
+                $f$ is define on $E \in \mathcal{M}$. 
+                \begin{enumerate}
+                    \item If $f$ is continued on $E$, $f \in$ \lmf{E}.
+                    \item If f is monotonic on $E$, $f \in$ \lmf{E}.
+                    \item Define $\chi_E:\mathbb{R} \to \mathbb{R}$ by following ristriction: if $x \in E$, $\chi_E(x)=1$; 
+                otherwise, $\chi_E(x)=0$. Then $E \in \mathcal{M} \Longleftrightarrow\ \chi_E \in$ \lmf{E}. 
+                \end{enumerate}
+            \end{proposition}
+            \begin{proof}
+                1. Since the inverse image of open set is open(relative open), given $O \in \RR$, we have $f^{-1}(O) = E \cap U$, where $U$ is open.
+            Being the intersection of measurable sets, $f^{-1}(O)$ is measurable. Since each $\{x \in E:x > \alpha\}$ is open, thus $E\{f > \alpha\}$
+            is measurable.\par
+                2. Let $x_0 = \inf( E\{f > \alpha\})$, then for any $x>x_0, \ x \in E$, 
+                $$f(x) \geq f(x_0) > \alpha$$
+                Thus $E\{f> \alpha \}$ can only be $[\alpha,\infty) \cap E$ or $(\alpha,\infty) \cap E$. Both of them are measurable.\par
+                3. Notice that the range of $f$ only contains two points, $1$ and $0$. If $\alpha < 0$, $E\{ f > \alpha \} = \RR$;
+                if $\alpha \geq 1$, $E\{ f > \alpha \} = \varnothing$; if $ 0 \leq \alpha < 1$,$E\{ f > \alpha \} = E$, thus 
+                $\chi_E$ is measurable if and only if $E$ is measurable.
+            \end{proof}
+            In some sense, a set with measure zero is very small. Suppose $P$ is a property, $E$ is a set and $E_0$ is a measure zero subset. 
+        It turned out that the condition \textsl{for all $x \in E-E_0$, $P(x)$ is true} is strong enough to derive many desirable conclusion.  
+        For conveniency, we say \textsl{$P$ is true almost everywhere on $E$} to mean that for all $x \in E$ but a set of measure zero, $P(x)$ 
+        is true. And it's abbriviation is \textsl{$P$ is true on E a.e.} 
+            \begin{proposition}\label{MZS}
+                Let $f:E \to \RR^*$ be a extended real value function, while $E$ is a measurable set. 
+                \begin{enumerate}
+                    \item If $f$ is measurable and $f = g$ a.e. on $E$, then $g$ is measurable.
+                    \item For a measurable subset $D \subset E$, $f$ is measurable if and only if it's restriction on $D$ and $E-D$ are 
+                    measurable.
+                \end{enumerate}
+            \end{proposition}
+            \begin{proof}
+                1. Suppose $f \neq g$ on $E_0$, which is measure zero. 
+                \begin{equation*}
+                    \begin{aligned}
+                        E\{g < \alpha\} &= (E-E_0)\{g < \alpha\} \cup E_0\{g < \alpha\}\\
+                        &= (E-E_0)\{f < \alpha\} \cup (E\{g < \alpha\} \cap E_0)\\
+                        &= (E\{f < \alpha\} - E_0) \cup (E\{g < \alpha\} \cap E_0)\\
+                    \end{aligned}
+                \end{equation*}
+                $(E\{g < \alpha\} \cap E_0)$ is a subset of $E_0$, thus it is measure zero, thus measurable; $E\{f < \alpha\} - E_0$
+            is the difference of two measurable set. Since the collection of all measurable sets is a $\sigma$ algebra, so it is measurable.
+            The union of two measurable set are still measurable, thus $E\{g < \alpha\}$ is measurable. \par
+                2. Suppose $f$ is measurable. Then 
+                \begin{equation*}
+                    \begin{aligned}
+                        D\{f|_D < \alpha\} &= D \cap E\{f < \alpha\}\\
+                        (E-D)\{f|_{D-E} < \alpha\} &= (E-D) \cap E\{f < \alpha\}
+                    \end{aligned}
+                \end{equation*}
+                So $f|_D$ and $f|_{E-D}$ are measurable.\par
+                On the other hand, if $f|_D$ and $f|_{E-D}$ are measurable, 
+                \begin{equation*}
+                    \begin{aligned}
+                        E\{f < \alpha \} &= (E-D)\{f < \alpha\} \cup D\{f < \alpha\}\\
+                        &= (E-D)\{f|_{E-D} < \alpha\} \cup D\{f|_D < \alpha\}
+                    \end{aligned}
+                \end{equation*}
+                Thus the proposition is proved.
+            \end{proof}
+            Just as what is done when studing continuous function, we want to know that whether the sum, product and composition of 
+        measurable functions are still measurable. But in general, the sum of two extended real valued is not even well defined. For example,
+        if $f(x) = +\infty$ while $g(x) = -\infty$, then $f(x) + g(x)$ is not well defined. If we ask $f$ and $g$ to be finite a.e. in there 
+        domain, then we can know the set of points which are not well defined is measure zero. By the former proposition, the value of a 
+        function in a measure zero set don't influence the fact whether it is measurable. So we are allowed to talk about whether $f + g$ is 
+        measurable in a slightly different condition.
+            \begin{theorem}[Linear combinenation and mutlpilication]
+                Let $f:E \to \RR^*, \ g: E \to \RR^*$ be measurable and finite a.e. on $E$, $r \in \RR$, then 
+                \begin{enumerate}
+                    \item $r \cdot f$ is measurable.
+                    \item $f+g$ is measurable.
+                    \item $f \cdot g$ is measurable.
+                \end{enumerate}  
+            \end{theorem}
+            \begin{proof}
+                One can easily find out that $f + g$ is well defined and finite a.e. on $E$. Let $E_0$ be the set that $f + g$ is well defined and 
+            finite a.e.. Then by the prec
+                1. Since $f$ is measurable, 
+            $$E{f>\frac{\alpha}{r}} = E{f>\alpha}$$ is measurable.
+                2. The element in $E\{f(x)+g(x) < c\}$ has the following property:
+                \begin{equation*}
+                    \begin{aligned}
+                        f(x) + g(x) &< c\\
+                        f(x) &< c - g(x)\\
+                    \end{aligned}
+                \end{equation*}
+                Since the rational number are dense in $\RR$, so for each $x \in E$, we can find a $q \in \QQ$ such that
+                $$f(x) < q < c-g(x)$$
+                which is equivalence to 
+                \begin{equation*}
+                    \begin{aligned}
+                        f(x) &< q \\
+                        g(x) &< c-q
+                    \end{aligned}
+                \end{equation*}
+                So 
+                $$ E\{f(x) + g(x) < c \} = \bigcup_{q \in Q} E\{f(x) < c\} \cap E\{g(x) < c-q\}$$
+                The intersection and countable union of measurable sets are still measurable, thus $E\{f(x) + g(x) < c \}$ is measurable.
+                3. Observing that $fg = \frac{1}{2} (f + g)^2$, by 1. and 2., we only need to show that if f is measurable, then $f^2$ is 
+            measurable. $\forall x \in E\{f^2(x)< c\}$, by elementary algebra, 
+            $$-c^{\frac{1}{2}}< f(x)<c^{\frac{1}{2}}$$
+            Thus $E\{f^2(x)<c\} = E\{f(x) > -c^{\frac{1}{2}}\} \cap E\{f(x)<c^{\frac{1}{2}}\}$, which is measurable. 
+            \end{proof}
+            Many properties such as continuity or differentiability, are preserved under the composition of functions. Howerver, in general,the 
+        composition of measurable functions are not measurable. The counter-example is provided in the appendix. The basic idea of the counter 
+        example is to prove that there exsit a measurable function which maps a measurable set to a non-measurable set, then composite it with
+        a characteristic functio. To get the composition measurable, one more condition is needed.
+            \begin{theorem}[Composition]
+                Let $g$ be a measurable real valued function on a measurable $E$ and $f$ a continuous real valued function defined on $\RR$ 
+            Then $f \circ g$ is measurable. 
+            \end{theorem}
+            We first prove a lemma.
+            \begin{lemma}
+                Let $f:E \to \RR$ be a function defined on a measurable set $E$. $f$ is measurable if and only if for each open sets $O$,
+            $f^{-1}(O)$ is measurable.
+            \end{lemma}
+            \begin{proof}
+                Suppose the inverse image of each open sets are measurable, then since $(a, +\infty)$ is open,
+                $$E\{f(x)>a\} = f^{-1}(a,+\infty)$$ 
+            is measurable, which suggests that $f$ is measurable.\par
+                Suppose $f$ is measurable. Given any open sets, we can express it by a countable union of open intervals $\{I_n\}$.
+            Suppose $I_n = (a_n, b_n)$. Then
+            \begin{equation*}
+                \begin{aligned}
+                    f^{-1}(O) &= f^{-1}(\bigcup_{n=1}^{\infty} I_n)\\
+                    &= \bigcup_{n=1}^{\infty} (f^{-1}(I_n))\\
+                    &= \bigcup_{n=1}^{\infty} (E\{f>a_n\} \cap E\{f< b_n\})
+                \end{aligned}
+            \end{equation*}
+            so the inverse image of $O$ is measurable 
+            \end{proof}
+            \begin{proof} (Proof of the Composition Theorem)
+                Let $O \subset \RR$ be open, then we only need to show the inverse image of $O$ under $f \circ g$ is measurable. 
+                $$(f \circ g )^{-1}(O) = g^{-1} (f^{-1}(O))$$
+                Since $f$ is continuous, $f^{-1}(O)$ is open. By the measurability of $g$, $g^{-1}(f^{-1}(O))$ is measurable. By the 
+            upper lemma, the proposition is proved.
+            \end{proof}
+            At the last of this section, we show that for finite many functions, their maximum function is still measurable.
+            \begin{proposition}
+                For a set of finite functions $\{f_n\}_{n=1}^{N}$, $max(f_1, \ f_2, \dots f_n)$ is measurable. 
+            \end{proposition} 
+            \begin{proof}
+                We prove the case of $n=2$, and use the mathematic induction. 
+                $$E\{max(f, \ f')< c \} = E\{f< c \} \cap E\{f'< c \}$$
+                So it is measurable. The part of induction is rather trivial.
+            \end{proof}
+                The proposition for minimum can be proved in a simialr way. From the upper proposition, one can know 
+                $$|f| = max(f, 0) - min(f,0)$$
+                is measurable.
+
+        \section{Simple function approximation of measurable function}
+                \begin{definition}[Characteristic functions]
+                    Given a subset $A$ of $\RR$, the function $\chi_A: \RR \to \RR$ defined by 
+                    \begin{equation*}
+                        \chi_A(x) = \left\{ \begin{matrix}
+                            1  \ \ \ \ x \in A\\
+                            0  \ \ \ \ x \notin A
+                        \end{matrix} \right.
+                    \end{equation*}
+                    is called the characteristic function of $A$.
+                \end{definition}
+                It is clear that $\chi_A$ is measurable if and only if $A$ is measurable.
+                \begin{proposition}[Some basic properties of characteristic function]
+                    Let $A, \ B$ be sets, then 
+                    \begin{equation*}
+                        \begin{aligned}
+                            &1. \ \ \chi_{A \cap B} = \chi_A \cdot \chi_B \\
+                            &2.  \ \ \chi_{A \cup B} = \chi_A + \chi_B - \chi_A \cdot \chi_B\\
+                            &3. \ \ \chi_{A^c} = 1 - \chi_A 
+                        \end{aligned}
+                    \end{equation*}\par
+                \end{proposition}
+                \begin{proof}
+                    Here we prove only the first equality, the rest can be proved in the same manner, leaving as an exercise to the readers.\par
+                    If $\chi_{A \cap B}(x) = 1$, then $x \in A$ and $x\in B$, so 
+                $$\chi_A \cdot \chi_B = 1 \cdot 1 = 1$$
+                If $\chi_{A \cap B}(x) = 0$, then $x \notin A \cap B$. So one of $\chi_A$, $\chi_B$ would be zero, which suggest 
+                $$\chi_A \cdot \chi_B = 0$$ \par                   
+                \end{proof}
+                \begin{definition}[Simple function]
+                    A real valued measurable function is \textbf{simple} if and only if it takes only finite values.
+                Or in another word, a simple function is measurable and it's image is a finite subset of $\RR$.
+                \end{definition}
+                One can see immediately that $\chi_A$ is a simple function if it is measurable. We can express any simple function by sum 
+            of characteristic functions.
+                \begin{proposition}[Canonical representation of simple function]
+                    If $\phi:E \to \RR$ is a simple function, then there exist a finite distinct sequence of numbers $\{a_n\}$ and a finite sequence of disjiont measurable sets $\{A_n\}$,
+                such that 
+                    \begin{equation}
+                        \phi(x) = \sum_{n=1}^{N} a_n \chi_{A_n}(x) \label{sa}
+                    \end{equation} 
+                \end{proposition}
+                \begin{proof}
+                    Since $\phi$ takes only finite real values, we arrange these number into a sequence $\{a_n\}$. 
+                Let $A_n$ be the set contains all the $x \in E$ such that $\phi(x) = a_n$. Because $\phi$ is measurable, so is $A_n$.
+                \eqref{sa} is true for those sequence we have just found.
+                \end{proof}
+                It isn't hard to see that finite sum of simple functions is still simple function, scaler multiple of simple function is still simple 
+            function. The proof of next proposition is left to the readers.
+                \begin{proposition}[The linearity of simple functions]
+                    Let $\varphi:E \to \RR, \ \psi:E \to \RR $ be simple functions, and $r$ be a real number. Then 
+                    \begin{equation}
+                            \varphi + \psi \ , \  \ c \cdot \varphi \mbox{ are simple function}
+                    \end{equation}
+                \end{proposition}
+                \begin{lemma}[Simple approximation lemma]
+                    Let $f:E \to \RR$ be a bounded measurable function. For all $\epsilon >0$, there exist
+                simple functions $\varphi:E \to \RR, \ \psi:E \to \RR$, such that 
+                    \begin{equation}
+                        \begin{aligned}
+                            \varphi \leq f \leq \psi\\
+                            \psi - \varphi \leq \epsilon 
+                        \end{aligned} \label{spl}
+                    \end{equation} \par
+                \end{lemma}
+                \begin{proof}
+                    Let $[c,d]$ be a close bounded interval, whose interior contains $f(E)$ and let $P = \{c=y_0, y_1, y_2, \dots y_n=d\}$ 
+                be a partition of $[c,d]$ such that $y_i-y_{i-1} < \epsilon$. We define $E_i = E\{y_{i-1}\leq f<y_i\}$, and 
+                \begin{equation}
+                    \begin{aligned}
+                        \varphi(x) &= \sum_{i=1}^{n} y_{i-1} \chi{E_i}(x)\\
+                        \psi(x) &=  \sum_{i=1}^{n} y_{i} \chi_{E_i}(x)
+                    \end{aligned}
+                \end{equation} 
+                Then it is easy to varify that these two functions satisfy \eqref{spl}
+                \end{proof}
+                \begin{theorem}[Simple approximation Theorem]
+                    A extended real value function on a measuralbe set, say $f:E \to \RR^*$, is measurable if and only if there exists a 
+                sequence of simple functions $\{\varphi_n\}$ which converge to $f$ on $E$ pointwisely, and has the property that
+                $$|\varphi_n| \leq |f| \mbox{ on $E$ for all $n$}$$
+                    More over, if the function is bounded, $\{\varphi_n\}$ can converge uniformly; if the function is nonegative, $\{\varphi_n\}$
+                can converge increasingly.
+                \end{theorem}
+                \begin{proof}
+                    Since each simple functions are measurable, and sequence of measurable functions converge to measurable function, so
+                the "if" is proved. \par 
+                    Assume f is measurable, and also assume $f\geq 0$ on $E$. Let $E_n = \{x \in E : f(x) \leq n\}$, then $f$ is nonegative bounded measurable function
+                on $E_n$. So by simple approximation lemma, there exist $\varphi_n , \ \psi_n$, such that 
+                $$\varphi_n \leq f \leq \psi_n$$
+                $$\psi_n - \varphi_n \leq \frac{1}{n}$$ 
+                on $E_n$. So 
+                $$f - \varphi_n \leq \frac{1}{n}$$
+                on $E_n$. We extend $\varphi_n$ on all $E$ by setting $\varphi_n(x) = n$ for $x$ such that $f(x) \geq n$.\par
+                \textbf{Claim:} $\{\varphi_n\}$ converge to $f$. \par
+                    If $f(x)$ is finite, then exists a $N$ such that $f(x) < N$. Then 
+                    $$0< f(x) - \varphi_n(x) <\frac{1}{n} \mbox{ for $ n \geq N$}$$
+                Thus $\varphi_n(x)$ converge to $f(x)$.\par
+                    If $f(x) = \infty$, then $\varphi_n(x) = n$, thus we also have $\lim_{n\to \infty}\varphi_n(x) = \infty$.
+                    Replacing each $\varphi_n$ by $max(\{\varphi_i\}_{i=1}^{n})$, then we have $\varphi_n$ converge increasingly.\par
+                    If $f$ is not nonegative, let $f_+=max(f, 0), \ f_-= -min(f, 0)$, then $f = f_+ - f_-$. Since $f_+, \ f_-$ are nonegative 
+                measurable functions, one can find two sequences of simple functions $\{\varphi_n\}, \ \{\psi_n\}$, whose limit are 
+                $f_+$ and $f_-$ separately. Thus
+                    \begin{equation}
+                        \begin{aligned}
+                            f &= f_+ - f_-\\
+                            &= \lim_{n\to \infty} \varphi_n -lim_{n \to \infty} \psi_n\\
+                            &= \lim_{n \to \infty} \varphi_n - \psi_n
+                        \end{aligned}
+                    \end{equation}
+                    Since the sum of simple functions are still simple function, we find a sequence of simple function which converge to 
+                $f$ pointwisely. \par
+                    If $f$ is bounded, there exist a $M > |f|$. So $f(E) \subset [-M,M]$. Given $n>0$, We can choose a partition of $M, \ P=\{y_i\}_{i=1}^{n}$ 
+                which is finer enough, such that $y_{i}-y_{i-1} <\frac{1}{n}$, and define $\varphi_n$ in the same manner. Then $\forall \epsilon > 0, \ \exists N$
+                such that $\forall n \geq N, \ x \in E, \ |\varphi_n - f| \leq \epsilon$. 
+                \end{proof}
+        
+        \section{Egoroff's Theorem \& Lusin's Theorem}
+            Now we are able to prove the last two principles which have been mentioned in the beginning of this chapter. The result is 
+        quite amazing. We will first deal with the Egoroff's theorem, which shows the thrid principle. In some sense, sequences of measurable 
+        functions which converge pointwisely are nearly converge uniformly. To prove this theorem, we first need to know more about the
+        convergence of measurable functions and measurable sets.
+            \begin{proposition}[Continuity of measure]
+                Let $\{A_n\}$ be a ascending sequence of sets, which means $A_1 \subset A_2 \subset \dots A_n \subset \dots$.
+            Let $A = \bigcup_{n=1}^{\infty} A_n$. Then $$m(A) = \lim_{n \to \infty} m(A_n)$$
+                If $\{B_n\}$ is descending, then let $B = \bigcap_{n=1}^{\infty} B_n$. We have 
+                $$m(B) = \lim_{n \to \infty} m(B_n)$$
+
+            \end{proposition}
+            \begin{proof}
+                We first prove the part of ascending sequence. If there is a index $k$ such that $m(A_{k}) = \infty$, then by the monotonicity of 
+            measure $m(A) = \infty$, thus the inequality holds. If all $A_k$ are finite, we define $A_0 = \varnothing$, and $C_n = A_n -A_{n-1}$.
+            Then$$A = \bigcup_{n=1}^{\infty} A_n =\bigcup_{n=1}^{\infty} C_n$$ 
+            and $\{C_n\}$ are disjoint. For disjoint union of sets of finite measure, we can apply the countable additivity of measure, 
+            and the excirsion property of the measurable set, 
+            \begin{equation*}
+                \begin{aligned}
+                    m(A) = m(\bigcup_{n=1}^{\infty} C_n) &= \sum_{n=1}^{\infty} m(A_n - A_{n-1})\\
+                    &= \sum_{n=1}^{\infty} m(A_n) - m(A_{n-1})
+                    &= \lim_{n \to \infty} m(A_n) - m(A_0)
+                    &=\lim_{n \to \infty} m(A_n)
+                \end{aligned}
+            \end{equation*}
+                For descending sequence $\{B_n\}$, if for all $n$, $m(B_n) = \infty$, then?????????????? 
+            
+            \end{proof}
+            \begin{proposition}[Pointwise limit of measurable functions]
+                If a sequence of measurable functions $\{f_n\}$ converge pointwise a.e. on $E$, where $E$ is their domain. Then the limit 
+            function $f$ to which $\{f_n\}$ converge, is measurable.     
+            \end{proposition}
+            \begin{proof}
+                Suppose the $E_0$ is the subset which $f$ doesn't converge. By proposition \ref{MZS}, $f$ is measurable if and only if it's 
+            ristriction on $E - E_0$ is measurable. So it is reasonable to assume that $\{f_n\}$ converge on $E$. 
+                For all $x \in E\{f< c\}$, since $f$ is the pointwise limit, there exist a N and m such that 
+            $$\forall n \geq N, \ f_n(x) < c - \frac{1}{m}$$
+                Since $E\{f_n< c-\frac{1}{m}\}$ is measurable for all $m, \ n$, thus 
+            $$\bigcap_{n=N}^{\infty} E\{f_n < c -\frac{1}{m}\}$$
+            is measurable. Consequently, 
+            $$E\{f(x)<c\} = \bigcup_{1 \leq N, m < \infty}(\bigcap_{n=N}^{\infty} E\{f_n < c -\frac{1}{m}\})$$
+            is measurable. 
+            \end{proof}
+            \begin{theorem}[Egoroff's Theorem]
+                If a sequence of measurable functions $\{f_n\}$ converge pointwise a.e. on $E$, where $E$ is their domain which has finite
+            measure. Then $\forall \epsilon > 0$, there exist a closed $F \subset E$, such that $\{f_n\}$ converge uniformly on $F$, and
+            $m(E-F) < \epsilon$. 
+            \end{theorem}
+            Since we want to prove the uniform convergence, the estimation $|f_n - f|< a$ will be important. Also, we need to find a closed
+        set which is good enough. We will first find a measurable set which is good enough(which is easier), and then use closed set to approximate it. 
+        To these purposes, it is conveneint to establish the following lemma.
+            \begin{lemma}
+                Under the assumptions of Egoroff's theorem, for each $a, b > 0 $, there is a measurable subset $A \subset E$ and a $N'$ such
+            that 
+            $$|f_n - f| < a \mbox{ on $A$ for all $n>N$ where } m(E -A) <b $$
+            \end{lemma}
+            \begin{proof}
+                We can simplely assume $f_n \to f$ on $E$. By the previous discussion, one can know that $|f_n-f|$ is measurable function. 
+            Let $$E_N = \bigcap_{n=N}^{\infty} E\{|f_n-f|<a\}$$
+            which is a measurable subset of $E$. Since $\{f_n\}$ converge pointwisely to $f$, $\{E_N\}$ converge to $E$ as $n$ goes 
+            to infinity. So by excirsion property, there exists a $N'$ such that $m(E - E_{N'}) = m(E) - m(E_{N'}) = b$. For the same $E_{N'}$, pick any $x$ in $E_{N'}$, we have 
+            $$\forall n \geq N', \ |f_n - f| < a$$ 
+            So $A = E_{N'}$ is the set we want. 
+            \end{proof}
+                \begin{proof}\textbf{(Proof of the Egoroff's Theorem)}
+                Given $\epsilon > 0$, let $A = \bigcap_{m=1}^{\infty} A_m$, where $A_m$ is the set in the above lemma 
+            such that there exists a $N$, for $n\geq N$, $|f_n -f|< \frac{1}{m}$ on $A_m$, and $m(E - A_m)< \frac{\epsilon}{2^{m+1}}$.
+            It is easy to see that $A$ is measurable subset of $E$. And we also have 
+            $$m(E-A) = m(E-(\bigcap_{m=1}^{\infty}A_m)) = m(\bigcap_{m=1}^{\infty} (E-A_m)) \leq \sum_{m=1}^{\infty} m(E - A_m)< 
+            \sum_{m=1}^{\infty} \frac{\epsilon}{2^{m+1}} = \frac{\epsilon}{2}$$    
+            $$m(E-A)< \frac{\epsilon}{2}, \ \ \ \forall \epsilon' >0, \ \forall x \in A, \ \exists N \ s.t. \
+            \forall n >N , \ |f_n(x) - f(x)|< \epsilon' $$
+            which means $f_n$ converge uniformly on $A$. Using the close inner approximation of measurable set, we can find a close 
+        subset of $A$, say $F$, such that, $m(A-F) = \frac{\epsilon}{2}$
+            Finally
+            $$m(E-F) = m((E-A) \cup (A - F)) = m(E - A) +m(A - F) = \epsilon$$
+            and $\{f_n\}$ converge uniformly on $F$.
+            \end{proof}
+            This amazing theorem is very powerful. For pointwise converge sequence of functions, you can use Egoroff's theorem to get a 
+        strong condition on a very big subset. One thing need to be paid attention on is that we can only apply Egoroff's theorem 
+        on the functions which are defined on finite measure sets. In mathematic analysis, uniform converge can preserve the integrability, continuity.
+        The next theorem is the proof of the Littlewood second principle, which is related to continuity. We will see how Egoroff's theorem 
+        work. \par
+            The main idea of the prove of Lusin's theorem is to first prove the case of simple function, then use simple functions to 
+        approximate measurable functions. Since for 
+            \begin{theorem}[Lusin's Theorem]
+                Let $f$ be a measurable function which is finite a.e. on $E$, a measurable set. Then given $\delta > 0$, 
+            there exist a closed subset $F \subset E$, such that $m(E-F)< \delta$, $f$ is conintuous on $F$.
+            \end{theorem}
+            \begin{proof}
+                Suppose $f$ is finite. First we consider the case of $f(x) = \sum_{n=1}^{N} a_n \chi_{E_n}(x)$ is a simple function,
+            where the sum is the canonical representation. 
+            Let $F_n$ be close subset of $E_n$, by inner approximation, we can require $m(E_n-F_n) = \frac{\delta}{n}$. On each $E_n$,
+            $f$ is a constant function, so is it on each $F_n$. Let $F = \bigcup_{n=1}^{N} F_n$. Being a finite union of close sets, $f$
+            is closed. Then
+                \begin{equation*}
+                    \begin{aligned}
+                        m(E-F) &= m(\bigcup_{n=1}^{N} E_n - \bigcup_{n=1}^{N} F_n)\\
+                        &\leq m(\bigcup_{n=1}^{N} E_n - F_n)\\
+                        &= \sum_{n=1}^{N} m(E_n - F_n)\\
+                        &\leq \sum_{n=1}^{N} \frac{\delta}{n} = \delta
+                    \end{aligned}
+                \end{equation*}
+            where the first inequality is come from the fact that $\bigcup_{n=1}^{N} E_n - \bigcup_{n=1}^{N} F_n \subset \bigcup_{n=1}^{N} E_n - F_n $.
+            Thus we proved the case of $f$ is simple functions. \par
+                Suppose $m(E)<+\infty$. By simple approximation of measurable function, we can find a sequence of simple functions $\{\varphi_i\}$,
+            which converge to $f$ pointwisely. By Egoroff's theorem, there exists a close subset $F \subset E$, such that $\{\varphi_i\}$ coneverge 
+            uniformly on $F$ to $f$, while $m(E-F) < \frac{\epsilon}{2}$. \par
+                From the previous part of this proof, for every $\{\varphi_i\}$, we can find a closed set of $E$, say $F_i$, 
+            such that $\varphi_i$ is continuous on $F_i$, while $m(E-F_i) < \frac{\epsilon}{2^{i+1}}$. We can see that, all $\varphi_i$
+            is continuous on $\bigcap_{i=1}^{\infty} F_i$, which is a close set, and we have 
+            \begin{equation*}
+                \begin{aligned}
+                    m(E - (\bigcap_{i=1}^{\infty} F_i)) &= m(\bigcup_{i=1}^{\infty} E - F_i)\\
+                    &\leq \sum_{i=1}^{\infty} m(E - F_i)\\
+                    &\leq \sum_{i=1}^{\infty} \frac{\epsilon}{2^{i +1}}\\
+                    &= \frac{\epsilon}{2}
+                \end{aligned}
+            \end{equation*}\par 
+                On $F \cap (\bigcap_{i=1}^{\infty} F_i)$, which is a close set, $\{\varphi_i\}$ is continuous and uniformly converge to
+            $f$. By knowledge from mathematic analysis, $f$ is continuous on $F \cap (\bigcap_{i=1}^{\infty} F_i)$. It only remains to show that 
+            $m (E - (F \cap (\bigcap_{i=1}^{\infty} F_i)))$ is small. 
+            \begin{equation*}
+                \begin{aligned}
+                    m (E - (F \cap (\bigcap_{i=1}^{\infty} F_i))) &= m ((E - F) \cup (E-\bigcap_{i=1}^{\infty} F_i))\\
+                    &\leq m (E - F) + m(E-\bigcap_{i=1}^{\infty} F_i)\\
+                    &\leq \frac{\epsilon}{2} +\frac{\epsilon}{2}\\
+                    &=  \epsilon
+                \end{aligned}
+            \end{equation*}
+            Then we proved the case that $E$ has finite measure.\par
+                For the case that $m(E) = +\infty$, we consider the ristirction of $f$ on $E_n = E \cap [-n,n]$. Clearly, $f|_{E_n}$ are  
+            measurable functions defined on finite measure sets, so by the Lusin's theorem for finite case, we can find $F_n$ for each 
+            $E_n$ such that $f = f|_{E_n}$ is continuous on $F_n$, and $m(E_n-F_n) < \frac{\epsilon}{2^{n+1}}$.\par
+                Let $F = \bigcup_{n=1}^{\infty} F_n$, which is measurable. By our construction, $f$ is continuous on $F$. With the fact that 
+            $\bigcup_{n=1}^{\infty}E_n - \bigcup_{n=1}^{\infty}F_n \subset \bigcup_{n=1}^{\infty}E_n -F_n$ we can obtain the estimation below,
+            \begin{equation*}
+                \begin{aligned}
+                    m(E-\bigcup_{n=1}^{\infty} F_n) &= m(\bigcup_{n=1}^{\infty}E_n - \bigcup_{n=1}^{\infty}F_n)\\
+                    &\leq m( \bigcup_{n=1}^{\infty}E_n - F_n)\\
+                    &\leq \sum_{n=1}^{\infty}m(E_n - F_n)\\
+                    &\leq \sum_{n=1}^{\infty} \frac{\epsilon}{2^{n+1}}\\
+                    &= \frac{\epsilon}{2} 
+                \end{aligned}
+            \end{equation*}
+                But this is not the end, since $F$ is not a close set. According to the inner approximation of measurable function, we can
+            find a close set of $F$, say $F'$, such that $m(F-F')< \frac{\epsilon}{2}$. Then 
+            \begin{equation*}
+                \begin{aligned}
+                    m(E-F') &= m ((E-F) \cup (F-F'))\\
+                    &= m(E-F) + m(F-F')\\
+                    &=\frac{\epsilon}{2} +\frac{\epsilon}{2}
+                    &=\epsilon 
+                \end{aligned}
+            \end{equation*}
+            \end{proof}
+            The continuous function on close set can be extended to $\RR$, so we can have the following form of Lusin' theorem.
+            \begin{theorem}[Lusin's theorem: another form]
+                Let $f$ be a measurable function which is finite a.e. on $E$, a measurable set. Then given $\delta > 0$, 
+            there exist a closed subset $F \subset E$, and a continuous function $g: \RR \to \RR$, such that $m(E-F)< \delta$, 
+            $f = g$ on $F$.
+            \end{theorem}   
+    
+    \chapter{Lebesgue Integration}
+        Now all the preparations have done, it is the time to define the integral. We will first define the the integral for simple functions
+    on sets of finite measure; then for the bounded measurable functions on finite measure sets; then for nonegative measurable functions on measurable sets;
+    finally the general measurable functions over measurable sets. Without other modifier, the word "integral" in this chapter means Lebesgue
+    integral.
+        \section{Integral of Simple Functions}
+            Remember that in the previous section, we have show that a simple function $\varphi:E \to \RR$ can be written in this form
+        $$\varphi(x)  = \sum_{n=1}^{N} a_n \chi{E_n}$$
+        where $E_n = E\{f=a_n\}$. This way of writting simple functions suggest a natrual way to define the integral for them.
+            \begin{definition}[The integral for simple functions]
+                Let $\varphi:E \to \RR$ be a simple function, where $E$ is a measurable set. We define the integral of $\varphi$ over $E$
+                \begin{equation}
+                    \int_E \varphi = \sum_{n=0}^{N} a_n \cdot m(E_n)
+                \end{equation}
+            where $\sum a_n \chi_{E_n}(x)$ is the canonical representation of $\varphi$. 
+            \end{definition}
+            \begin{lemma}\label{thm:simpleintlemma}
+                Let $\{E_i\}$ be a finite disjoint of subsets of a finite measure set $E$. Let $\{a_i\}$ be a sequence of real number, then
+            $$\varphi = \sum_{i=1}^n a_i \chi_{E_i} \mbox{ on } E \ \Rightarrow \ \int_E \varphi = \sum_{i=1}^{n} a_i \cdot m(E_i)$$\par
+                \textbf{Remark:} One may wonder why we should prove this(it just seems like have no difference to the definition of integral).
+            Since $\{a_i\}$ is not distinct, $\sum_{i=1}^n a_i \chi_{E_i}$ may not be the canonical representation of $\varphi$.\par
+            \end{lemma}
+            \begin{proof}
+                Let $\{\lambda_j\}$ be distinct values taken by $\varphi$ and $A_j=\{x:\varphi(x)=\lambda_j\}$. By the definition of integral,
+            $$\int_E \varphi = \sum_{j=1}^{m} \lambda_j \cdot m(A_j)$$ 
+            Let $I_j = \{i:a_i =\lambda_j\}$. It isn't hard to see that $\sum_{i \in I_j} m(E_i) = A_j$
+            \begin{equation}
+                \begin{aligned}
+                    \sum_{i=1}^{n} a_i \cdot m(E_i) &= \sum_{j=1}^{n} (\lambda_j \cdot \sum_{i \in I_j} m(E_i))\\
+                    &= \sum_{j=1}^{n} (\lambda_j \cdot m(A_i))\\
+                    &= \int_E \varphi
+                \end{aligned}
+            \end{equation}
+            \end{proof}
+            Of course we want to know the properties of the general Lebesgue integral, here is our first step in this direction.
+            \begin{proposition}[The linearity of the intergration: simple function]
+                Let $\varphi, \psi$ be simple functions on $E$, which is a set of finite measure. Then for $\alpha, \ \beta \in \RR$,
+                \begin{equation}
+                    \int_E (\alpha \varphi + \beta \psi) = \alpha \int_E \varphi + \beta \int_E \psi \label{lsf}
+                \end{equation}
+            \end{proposition} 
+            \begin{proof}
+                For linearity, we first prove $\int_E \alpha \varphi = \alpha \int_E \varphi$(scaler can 'go though' the integral sign), then prove \eqref{lsf} for the case of
+            $\alpha=\beta = 1$. We suppose $\varphi = \sum_{i=1}^n a_i \chi_{E_i}$ and $\psi = \sum_{i=1}^m b_i \chi_{F_i}$.
+            \begin{equation}
+                \begin{aligned}
+                    \int_E \alpha \varphi &= \sum_{i=1}^{n} \alpha \cdot a_i m(E_i) \\
+                    &= \alpha \sum_{i=1}^{n} a_i m(E_i)\\
+                    &= \alpha \int_E \varphi
+                \end{aligned}
+            \end{equation}
+                Let $A_{ij} = E_i \cap F_j$, where $1\leq i\leq n$, $1 \leq j \leq m$. For all $x \in E$, $x \in E_i$ and $x \in F_j$ for 
+            some $i, \ j$, and since $\{E_i\}$ and $\{F_j\}$ are disjoint, so $\{A_{ij}\}$ is a disjoint finite collection of subset of $E$
+            whose union is $E$. Let $a_{ij}, b_{ij}$ be the value of $\varphi, \ \psi$ on $A_{ij}$. By lemma \ref{thm:simpleintlemma},
+            \begin{equation*}
+                \begin{aligned}
+                    \int_E \varphi &= \sum_{1\leq i \leq n, \ 1 \leq j \leq m} a_{ij} m(A_{ij}) \\
+                    \int_E \psi &= \sum_{1\leq i \leq n, \ 1 \leq j \leq m} b_{ij} m(A_{ij}) \\
+                    \Rightarrow \int_E \varphi + \int_E \psi &= \sum_{1\leq i \leq n, \ 1 \leq j \leq m} a_{ij} m(A_{ij}) +\sum_{1\leq i \leq n, \ 1 \leq j \leq m} b_{ij} m(A_{ij}) \\
+                    &=\sum_{1\leq i \leq n, \ 1 \leq j \leq m} (a_{ij} + b_{ij}) m(A_{ij})\\
+                    &= \int_E \varphi +\psi 
+                \end{aligned}
+            \end{equation*}
+            \end{proof}
+            \begin{proposition}[Monotonicity of the integral]
+                Let $\varphi, \psi$ be simple functions on $E$, which is a set of finite measure. Then 
+            $$\varphi \leq \psi \Rightarrow \int_E \varphi \leq \int_E \psi$$
+            \end{proposition}
+            \begin{proof}
+                Just like what we did in the previous proposition, we define $A_{ij}, \ a_{ij}, \ b_{ij}$ such that 
+            \begin{equation*}
+                \begin{aligned}
+                    \int_E \varphi &= \sum_{1\leq i \leq n, \ 1 \leq j \leq m} a_{ij} m(A_{ij}) \\
+                    \int_E \psi &= \sum_{1\leq i \leq n, \ 1 \leq j \leq m} b_{ij} m(A_{ij}) 
+                \end{aligned}
+            \end{equation*}
+                It is easy to see that $a_{ij} \leq b_{ij}$, so is their finite sum.
+            \end{proof}
+
+        \section{Integral for Bounded Measurable Functions over Bounded Sets}
+            In this section, we define the integral over bounded sets for bounded measurable functions out of the integral for simple function.  
+            \begin{definition}[Upper integral, lower integral and integral]
+                Let $f:E \to \RR$ be a Bounded measurable function over a finite measure set. We define
+                \begin{equation*}
+                        \begin{aligned}
+                            &\sup{\int_E \varphi: \varphi \mbox{ is simple and } \varphi \leq f}\\
+                            &\sup{\int_E \psi: \psi \mbox{ is simple and } \psi \geq f}
+                        \end{aligned}
+                \end{equation*}
+            to be the upper integral and the lower integral of $f$ respectively, and denote them as 
+            $$\sup \int_E f, \ \ \inf \int_E f $$\par
+                If upper integral and lower integral of $f$ on $E$ are equal, we define there common value to be the \textbf{Lebesgue integral}
+            of $f$ on $E$. 
+            \end{definition}
+            \begin{theorem}[Lebesgue integral is a generalization of Riemann integral]
+                If a bounded function $f$ defined on close bounded interval $[a,b]$ is Riemann integrable, then it is Lebesgue integrable,
+            and two integrals are equal.
+            \end{theorem}
+            In this theorem, we use $(R)\int$ to represent Riemann integral. 
+            \begin{proof}
+                Since $f$ is Riemann integrable on $[a,b]$, it means 
+            $$\sup \{(R)\int_{[a,b]} \varphi(x):\varphi(x)\leq f \mbox{ is a step function }\}
+            = \inf \{(R)\int_{[a,b]} \psi(x):\psi(x)\geq f \mbox{ is a step function }\}$$
+            Each step function is a simple function, and we can easily observe that the Riemann integral and Lebesgue integral are equal(
+            since the lenth of the interval is the Lebesgue measure of the interval).
+            We can find a sequence of step functions, which are measurable functions, converge to $f$ pointwisely. So $f$ is a measurable 
+            function. The Riemann integralbility also indicate that $f$ is bounded. Then by the definition of Lebesgue integral for bounded
+            measurable functions, the Lebesgue integral exist and $$\int_{[a,b]} f = (R) \int_{[a,b]} f$$                
+            \end{proof}
+            \begin{theorem}[Bounded measurable functions are integralbe]
+                Let $f$ be a bounded measurable function which is defined on a set with finite measure, say $E$.
+            Then $f$ is measurable.
+            \end{theorem}         
+            \begin{proof}
+                Since $f$ is bounded and measurable, given $\epsilon> 0$, we can find two sequence of simple functions $\{\varphi_n\}, \ \{\psi_n\}$, such that 
+            \begin{equation*}
+                \varphi \leq f \leq \psi 
+            \end{equation*}
+            and $\psi - \varphi < \frac{\epsilon}{m(E)}$. By the definition of upper and lower integral and the linearity of 
+            the integral for simlpe functions  
+            \begin{equation*}
+                \begin{aligned}
+                    \int_E \varphi \leq \inf \int_E f &\leq \sup \int_E f \leq \int_E \psi\\ 
+                    \Rightarrow \sup \int_E f - \inf \int_E f &\leq \int_E \psi - \int_E \varphi\\
+                    &= \int_E (\psi - \varphi)\\
+                    &\leq \int_E \frac{\epsilon}{m(E)} \\
+                    &=\epsilon 
+                \end{aligned}
+            \end{equation*} 
+                Then by the arbritariness of $\epsilon$, $\sup \int_E f = \inf \int_E f$, thus the theorem is proved.
+            \end{proof}
+            
+            In fact, a bounded function over finite measure set is integrable if and only if it is measurable, we will prove this later.
+        Now we can establish the theorem for the linearity and monotonicity of the integral of bounded measurable functions.
+            \begin{theorem}[Linearity]
+                Let $E$ be a finite measure set, and $f, \ g$ be bounded measurable function define on $E$. Let $\alpha, \ \beta$ be
+            real numbers. Then
+                \begin{equation}
+                    \alpha \int_E f + \beta \int_E g = \int_E \alpha f + \beta g
+                \end{equation}
+            \end{theorem}
+            \begin{proof}
+                We first prove that $$\int_E \alpha f = \alpha \int_E f$$, then prove $$\int_E f + \int_E g = \int_E f+g $$
+            Suppose $\alpha>0$(the argument for $\alpha <0$ is similar), by simple approximate lemma, given $\epsilon$, there exist simple
+            functions $\varphi, \ \psi$, such that $\psi - \varphi < \frac{\epsilon}{\alpha \cdot m(E)}$
+                \begin{equation*}
+                    \begin{aligned}
+                        \varphi \leq &f \leq \psi \\
+                        \alpha \varphi \leq \alpha&f \leq \alpha\psi \\
+                    \end{aligned}
+                \end{equation*}
+            By the upper theorem, $\alpha f$ is integralbe. And by the definition of the integral, the linearity of the integral of simple functions,
+            \begin{equation*}
+                \begin{aligned}
+                    \int_E \alpha \varphi \leq &\int_E \alpha f \leq \int_E \alpha \psi\\
+                    \Rightarrow \alpha \int_E \varphi \leq &\int_E \alpha f \leq \alpha \int_E \psi\\ 
+                \end{aligned}
+            \end{equation*}
+            Notice that we also have 
+            $$\alpha \int_E \varphi \leq \alpha \int_E f \leq \alpha \int_E \psi$$
+            So 
+            \begin{equation*}
+                \begin{aligned}
+                    |\alpha \int_E f - \int \alpha f| &\leq \alpha \int_E \psi - \alpha \int_E \varphi \\
+                    &\leq \alpha \int_E \psi - \varphi \\
+                    &\leq \alpha \int_E \frac{\epsilon}{\alpha \cdot m(E)}\\
+                    &\leq \alpha \cdot m(E) \cdot \frac{\epsilon}{\alpha \cdot m(E)} = \epsilon 
+                \end{aligned}
+            \end{equation*}
+            Thus the first part of the theorem is proved. \par 
+                Since the sum of measurable function is still measurable, $f+g$ is integralbe over $E$. Suppose 
+            $\varphi_1, \ \varphi_2, \ \psi_1, \ \psi_2$ are simple functions such that 
+            $$\varphi_1 \leq f \leq \psi_1, \ \varphi_2 \leq g \leq \psi_2$$
+            We can see that 
+            \begin{equation*}
+                \begin{aligned}
+                    \int_E f+ g &= \sup \int_E f+g \\
+                    &\leq \int_E \psi_1 + \psi_2\\
+                    &= \int_E \psi_1 + \int_E \psi_2\\
+                \end{aligned}
+            \end{equation*}
+            Since the above inequality is true for all $\psi_1 > f$, $\psi_2 > g$, we have 
+            \begin{equation*}
+                \begin{aligned}
+                    \int_E f+ g &\leq \inf_{\psi_1 \geq f}\int_E \psi_1 +  \inf_{\psi_2 \geq g}\int_E \psi_2\\
+                    &= \int_E f +\int_E g 
+                \end{aligned}
+            \end{equation*}
+            On the other hand, 
+            \begin{equation*}
+                \begin{aligned}
+                    \int_E f+ g &= \inf \int_E f+g \\
+                    &\geq \int_E \varphi_1 + \varphi_2\\
+                    &= \int_E \varphi_1 + \int_E \varphi_2\\
+                \end{aligned}
+            \end{equation*}
+            This inequality is also true for all $\varphi_1 > f$, $\varphi_2 > g$, thus 
+            \begin{equation*}
+                \begin{aligned}
+                    \int_E f+ g &\geq \sup_{\varphi_1 \leq f}\int_E \varphi_1 +  \sup_{\varphi_2 \leq g}\int_E \varphi_2\\
+                    &= \int_E f +\int_E g 
+                \end{aligned}
+            \end{equation*}
+            Together the two inequality, we have 
+            $$\int_E f+ g = \int_E f +\int_E g $$.
+            Thus we prove the linearity of the integration for bounded measurable functions.
+            \end{proof}
+            \begin{theorem}[Monotonicity]
+                Let $E$ be a finite measure set, and $f, \ g$ be bounded measurable function define on $E$. If $f \leq g$ on $E$, then 
+                \begin{equation}
+                    \int_E f \leq \int_E g
+                \end{equation}
+            \end{theorem}
+            \begin{proof}
+                Let $h = g-f$, which is a non-negative measurable function. By linearity, 
+                $$\int_E g - \int_E f  = \int_E g-f = \int_E h$$
+                Since $h$ is non-negative, $h\geq 0$. Let $\psi = 0$, we can see that 
+                $$\int_E h \geq \int \psi = 0 $$
+            which shows that $$\int_E g - \int_E f  \geq 0$$
+            Thus the monotonicity of the integration of bounded measurable functions is proved.
+            \end{proof}
+            By the Monotonicity, and the fact that $-|f|\leq f\leq |f|$we can get the following useful conclusion.
+            \begin{corollary}[Absolute value]
+                Let $f$ be a bounded measurable function defined on a set of finite measure. Then
+                $$\int_E |f| \geq | \int_E f |$$ 
+            \end{corollary}
+            \begin{proposition}[The integral over measure zero set is zero]\label{The integral over measure zero set is zero}
+                Suppose $f$ is bounded measurable function on a measure zero set $ E$, then 
+                $$\int_E f = 0$$
+            \end{proposition}
+            \begin{proof}
+                Since $f$ is bounded, there exist a $M$, such that $|f|< M$ on $E$. So by monotonicity of the integral, we have 
+                \begin{equation*}
+                    \begin{aligned}
+                        \int_E |f| &\leq \int_E M\\
+                        &= M \cdot m(E) 
+                        &= 0 
+                    \end{aligned}
+                \end{equation*}
+                By previous corollary, the proposition is proved 
+            \end{proof}
+            Now we proved the last basic property of the integral: the additivity over domain. 
+            \begin{lemma}
+                Let $f$ be a bounded measurable function defined on $E$, and $E_0$ be a measurable subset. Then   
+                \begin{equation*}
+                    \int_{E_0} f = \int_E f \cdot \chi_{E_0}
+                \end{equation*}
+            \end{lemma}
+            \begin{proof}
+                For all simple functions $\varphi \leq f$, we exetend $\varphi$ to a new simple function on $E$ by letting 
+            $\varphi'(x) = 0$ for $x \in E-E_0$. Notice that the integral of two functions are the same: 
+            $$\int_{E_0} \varphi = \int_E \varphi'$$
+            For $x \in E_0$, $\varphi \leq f|_{E_0} = f \cdot \chi_{E_0}$; for $x \in E-E_0$, $\varphi = 0 \leq f\cdot \chi_{E_0}$. Thus  
+            \begin{equation*}
+                \begin{aligned}
+                    \int_{E_0} f &= \inf_{\varphi \leq f} \int_{E_0} \varphi \\
+                    &= \inf_{\varphi' \leq f} \int_E \varphi' \\
+                    &\leq \int_E f \cdot \chi_{E_0}
+                \end{aligned}
+            \end{equation*}
+                For simple functions $\psi \geq f$, the extension $\psi'$ on $E$ with $\psi'(x) = 0$ for $x \in E-E_0$, is also a simple 
+            funcion. For $x \in E_0$, $\psi' \geq f|_{E_0} = f \cdot \chi_{E_0}$; for $x \in E-E_0$, $\psi' = 0 \geq f\cdot \chi_{E_0}$.   
+            \begin{equation*}
+                \begin{aligned}
+                    \int_{E_0} f &= \sup_{\psi \geq f} \int_{E_0} \psi \\
+                    &= \inf_{\psi' \geq f} \int_E \psi' \\
+                    &\geq \int_E f \cdot \chi_{E_0}
+                \end{aligned}
+            \end{equation*}
+            Together the two inequality, we proved the theorem. 
+            \end{proof}
+            \begin{theorem}[The additivity over domain]
+                Let $f$ be bounded measurable functions over $E$, which is a finte measure set. Suppose $A$ and $B$ are disjoint subsets
+            of $E$, then 
+            $$\int_{A \cup B} f = \int_{A} f + \int_B f$$
+            \end{theorem}
+            \begin{proof}
+                By the linearity of the integral, and the lemma above,
+                \begin{equation*}
+                    \begin{aligned}
+                        \int_A f +\int_B f &= \int_{A \cup B} f \cdot \chi_A +\int_{A \cup B} f\cdot \chi_B\\
+                        &= \int_{A \cup B} f \cdot \chi_A + f\cdot \chi_B\\
+                        &= \int_{A \cup B} f \cdot \chi_{A\cup B}\\
+                        &= \int_{A \cup B} f 
+                    \end{aligned}
+                \end{equation*}
+            \end{proof}
+            From the additivity over domain, we can derive a interesting result, which can enhance many propositions which involving integral.
+            \begin{corollary}[Measure zero set does not influence the integral]
+                Let $f, \ g$ be bounded measurable function on $E$, which is a finite measure set. If $f = g$ a.e. on $E$, 
+                $$\int_E f = \int_E g$$
+            \end{corollary}
+            \begin{proof}
+                Let $E_0$ be the set that $f \neq g$. By additivity over domian,
+                \begin{equation*}
+                    \begin{aligned}
+                        \int_E f &= \int_{E_0} f + \int_{E-E_0} f\\
+                        \int_E g &= \int_{E_0} g + \int_{E-E_0} g\\
+                        \Rightarrow \int_E g - \int_E f &= \int_{E_0} g - \int_{E_0} f
+                    \end{aligned}
+                \end{equation*}
+                Since the integral over measure zero set is measure zero, the corollary is proved.
+            \end{proof}
+        
+        \section{The Lebesgue Integral for Non-negative Functions}
+            In this section, we push the definition of integral further, to non-negative measurable functions over general measurable 
+        sets. We allowed the function to take large value(not being bounded anymore, but don't take values at infinity), and define it on a larger space(without requiring
+        $E$ to have finite measure).\par  
+            To this purpose, it is convenient to establish the concept of \textbf{finite support functions}.
+            \begin{definition}[Support]
+                For a function $f:E \to \RR^*$, where $E$ is a subset of $\RR$, we say it's \textbf{support} $E_0$ is the closure of 
+            $$\{x\in E: f(x) \neq 0\}$$
+                If the support is finite, then we say $f$ is a function has finite support, or compact support(notice that $E_0$ is closed 
+            and bounded, thus compact).
+            \end{definition}\par
+            It is not hard to see that the linear combinenation of finite support functions are still finite support.\par 
+            We haven't defined the integral on a set which has infinite measure. Suppose $f:E\to \RR$ is bounded, measurable
+        and has a finite support $E_0$, then $$\int_E f := \int_{E_0} f$$
+        is a very natrual definition. Any thing we proved in the last section can be applied on this new definition. For non-negative 
+        measurable function, we can define it's integral through the integral of bounded measurable function of finte support.
+            \begin{definition}[Integral of non-negative measurable functions]
+                Let $f:E \to \RR^*$ be a non-negative measurable function defined on a measurable set. The integral of $f$ is defined as 
+            \begin{equation}
+                \int_E f := \sup\{\int_E \varphi : \varphi \mbox{ is bounded measurable and with finite support }; 0\leq \varphi \leq f\}
+            \end{equation}
+            \end{definition}
+            To prove the properties of the integral of non-negative functions, \textbf{Chebychev's inequality} is needed.
+            \begin{lemma}[Chebychev's inequality]
+                Let $f$ be a non-negative function on $E$. Then for any $\lambda >0$,
+                \begin{equation}
+                    m(\{x \in E: f(x) \geq \lambda\}) \leq \frac{1}{\lambda} \cdot \int_E f
+                \end{equation}
+            \end{lemma}
+            \begin{proof}
+                We denoted $\{x \in E: f(x) \geq \lambda\}$ as $E_{\lambda}$. Suppose $g$ is defined by the following:
+            $$g(x) := \left\{ \begin{matrix}
+                \lambda & \mbox{ if } x \in E_{\lambda}\\
+                0 & \mbox{ if } x \in E- E_{\lambda}
+            \end{matrix} \right.$$
+            Then $g \leq f$. If $m(E_{lambda})$, $g$ is measurable bounded with finite support. By definition, 
+            \begin{equation*}
+                \begin{aligned}
+                    \int_E g &\leq \int_E f\\
+                    \lambda \cdot m(E_{\lambda}) &\leq \int_E f\\
+                    m(E_{\lambda}) &\leq \frac{1}{\lambda}\int_E f\\
+                \end{aligned}
+            \end{equation*} 
+            If $m(E_{\lambda}) = +\infty$, let $E_{\lambda, n} := E_{\lambda} \cap [-n,n]$. Then $\psi_n = \chi_{E_{\lambda, n}}$
+            is a bounded measurable function with finite support. And we have $\psi_n \leq f$. By continuity of the measure,
+            \begin{equation*}
+                \begin{aligned}
+                    \lambda \cdot m(E_{\lambda}) &= \lambda \lim_{n \to \infty} E_{\lambda, n}\\ &= \int_E \psi_n\\ &\leq \int_E f\\
+                \end{aligned}
+            \end{equation*}
+            Times $\frac{1}{\lambda}$ on the both side of the inequality, then we obtained the desirable conclusion.                 
+            \end{proof}
+            \begin{proposition}[Non-negative function and measure zero set]\label{Non-negative function and measure zero set}
+                Let $f$ be a non-negative measurable function on $E$, then 
+                $$\int_E f = 0$$
+                if and only if $f= 0$ a.e. on $E$.
+            \end{proposition}
+            \begin{proof}
+                If $f = 0$ a.e. on $E$, it is bounded, measurable, finite support. Then by the conclusion in the last section, 
+            $$\int_E f = 0$$\par
+                Suppose $\int_E f = 0$, and there exist a $E' \subset E$ such that $m(E') > 0 $ and $f > 0$ on $E'$. We can see that 
+            $$E' = \bigcup_{n=1}^{\infty} \{x\in E: f(x) \geq \frac{1}{n} \}$$
+            Since countable union of measure zero set is still measure zero, there exist $N$ such that 
+            $m(\{x\in E: f(x) \geq \frac{1}{n} \}) > 0 $. By Chebychev inequality, 
+            $$m(\{x\in E: f(x) \geq \frac{1}{n} \}) \leq n \int_E f = 0$$
+            we arrive at a contradiction.
+            \end{proof}
+            \begin{theorem}[Linearity]
+                Let $f$ and $g$ be two non-negative measurable functions on a measurable set, say $E$. Let $\alpha$, $\beta$ be two non-negative
+            real numbers. Then
+            $$\int_E \alpha f + \beta g = \alpha\int_E f + \beta \int_E g$$
+            \end{theorem}
+            \begin{proof}
+                With ordinary method, we first prove the part of scalar multiple, then the part of addition.\par
+                $\int_E \alpha f = \alpha \int_E f$: Notice that for $\alpha > 0 $, $0 \leq h \leq f$ if and only if $0<\alpha h < \alpha f$.
+            Thus by the linearity of finite support, 
+            \begin{equation*}
+                \begin{aligned}
+                    \int_E \alpha f &= \sup_{h' < \alpha} \int_E h'\\
+                    &=\sup_{h < f} \int_E \alpha h \\
+                    &= \alpha \sup_{h < f} \int_E h \\
+                    &=\alpha \int_E f 
+                \end{aligned}
+            \end{equation*}
+            where $h$ is bounded and measurable, with finite support. Thus the part of scalar multiple is done.\par
+            Let $h , \ k$ be bounded and measurable with finite support, then their sum is also bounded and measurable, with finite support.
+            By the definition of the integral,
+            \begin{equation*}
+                \begin{aligned}
+                    \int_E h + \int_E k &=\int_E h + k\\
+                    &\leq \int_E f+g 
+                \end{aligned}
+            \end{equation*}
+            Thus for the supremum of the left side, the inequality still holds.
+            $$\int_E f +\int_E g \leq \int_E f+g$$
+            It remains to prove the inequality in the opposite side. Since $\int_E f+g$ is the supremum of $\int_E l$, where $l \leq f+g$
+            is a bounded measurable function with finite support. So it is surffice to  prove the inequality for all such $l$ in place of 
+            $f+g$.\par
+                For a such $l$, let $h = min(f, l), \ k= l-h$. Then if $l(x) \leq f(x)$, $h(x) = l(x)$ and $k(x)= 0$; if $l(x) > f(x)$,
+            $h(x)=f(x)$ and $k(x) = l(x)-f(x) < g(x)$. Then we can see that $h \leq f$, $k \leq g$. Thus by the additivity of the integral 
+            for bounded measurable fucntion of finite support,
+            \begin{equation*}
+                \begin{aligned}
+                    \int_E l &= \int_E l + min(f, l) - min(f,l)\\
+                    &=  \int_E min(f, l) + \int_E l - min(f,l)\\
+                    &= \int_E h + \int_E k \\
+                    &\leq \int_E f + \int_E g\\
+                \end{aligned}
+            \end{equation*}
+            Thus proved the the part of additivity.
+            \end{proof}
+            \begin{theorem}[Monotonicity]
+                Suppose $f$ and $g$ are non-negative measurable functions on measurable set, such that $ f \leq g$ on their domain $E$.
+            Then
+            $$\int_E f \leq \int_E g$$
+            \end{theorem}
+            \begin{proof}
+                Notice the fact that for all bounded measurable functions $\varphi$ on $E$, which satisfy $\varphi \leq f$, we have
+            $\varphi \leq g$. So we know that 
+                \begin{equation*}
+                    \begin{aligned}
+                        \sup_{\varphi <f} \int_E \varphi &\leq \sup_{\psi <g} \int_E \psi\\ 
+                        \int_E f &\leq \int_E g 
+                    \end{aligned}
+                \end{equation*}
+                Thus the theorem is proved.
+            \end{proof}
+            \begin{theorem}[Additivity over domain]
+                Let $f$ be a non-negative measurable function over a measurble set $E$. Suppose $E_1, E_2$ are disjoint measurable subsets,
+            then we have
+            $$\int_{E_1 \cup E_2 }f = \int_{E_1} f + \int_{E_2} f$$            
+            \end{theorem}
+            \begin{proof}
+                Observing that $f = f\chi_{E_1} +f\chi_{E_2}$ on $E_1 \cup E_2$, by linearity of the integral, 
+                \begin{equation*}
+                    \begin{aligned}
+                        \int_{E_1\cup E_2} f &= \int_{E_1\cup E_2} f\chi_{E_1} +f\chi_{E_2}\\
+                        &= \int_{E_1\cup E_2} f\chi_{E_1} + \int_{E_1\cup E_2} f\chi_{E_2}\\
+                    \end{aligned}
+                \end{equation*}
+                One can check that for all measurable bounded finite supported $\varphi $ on $E_1 \cup E_2$, $\varphi \leq f$ on $E_1 
+            \cup E_2$ if and only if $\varphi \chi_{E_1} \leq f \chi_{E_1}$ on $E_1$ and $\varphi \chi_{E_2} \leq f \chi_{E_2}$ on $E_2$. So
+            \begin{equation*}
+                \begin{aligned}
+                    \int_{E_1\cup E_2} f\chi_{E_1} + \int_{E_1\cup E_2} f\chi_{E_2} &= \sup_{\varphi<f} \int_{E_1} \varphi \chi_{E_1} +\sup_{\varphi<f} \int_{E_2} \varphi \chi_{E_2}\\
+                    &= \sup_{\varphi<f} \int_{E_1} \varphi +\sup_{\varphi<f} \int_{E_2} \varphi \\
+                    &= \int_{E_1} f + \int_{E_2} f \\
+                \end{aligned}
+            \end{equation*}
+            \end{proof}
+            
+        \section{The Lebesgue Integral in General}
+            For measurable function $f$ in general, our mean to construct it's integral is to express $f$ as the difference of
+        two non-negative functions. In the chapter of Lebesgue measure functions, we have a conclusion that maximum and minimumu of two 
+        measurable functions is still measurable, which allowe us to split $f$ into two part.
+            \begin{definition}[Positive part and negative part]
+                Let $f$ be a measurable function on $E$. We define it positive part $f^+$ and negative part $f^-$ as the following:
+                \begin{equation*}
+                    \begin{aligned}
+                        f^+ = max(f, 0)\\
+                        f^- = -min(f, 0) 
+                    \end{aligned}
+                \end{equation*} 
+            \end{definition}
+            It is not hard to find that $f^+$, $f^-$ are non-negative functions. And the relation 
+            $$f = f^+ - f^-$$
+        is also clear. But $\int f^+,  \ \int f^-$ might be infinity at the same time, then $\infty - \infty$ is not a well defined value. To fix this
+        problem, we introduce the concept of integralbe for non-negative measurable functions.
+            \begin{definition}[Integralbe]
+                Let $f$ be a non-negative function on $E$, $f$ is integralbe on $E$ if and only if $$\int_E f$$
+            is a finite value.
+            \end{definition}
+            \begin{proposition}\label{IntegralbeFiniteAE}
+                A non-negative function $f$ is integrable over $E$, then it is finite a.e. on $E$.
+            \end{proposition}
+            \begin{proof}
+                If $f$ is integrable, by Chebychev inequality,
+                $$m(\{x \in E: f(x) \geq \infty\}) \leq m(\{x \in E: f(x) \geq \lambda\}) \frac{1}{\lambda} \cdot \int_E f$$
+                Let $\lambda \to \infty$, we see that the measure of the subset where $f=\infty$ is zero.
+            \end{proof}
+            \begin{proposition}
+                 For a measurable function $f$ on $E$, $f^+$ and $f^-$ are integralbe on $E$ if and only if $|f|$ is integralbe on $E$. 
+            \end{proposition}
+            \begin{proof}
+                Suppose $|f|$ is integralbe on $E$. Notice that $|f|= f^+ + f^-$, suppose $f^+$ is not integralbe 
+                \begin{equation*}
+                    \begin{aligned}
+                        +\infty &= \int_E f^+ \\
+                        &\leq \int_E f^+ \int_E f^-\\
+                        &= \int_E |f|
+                    \end{aligned}
+                \end{equation*} 
+            Contradicting with the fact that $|f|$ is integralbe, $f^+$ is integralbe. One can show that $f^-$ is integralbe in the exact
+            same way. Then we proved one direction of the proposition.\par
+                Suppose $f^+$ and $f^-$ are integrable, which means their integrals are finite. Then 
+                \begin{equation*}
+                    \begin{aligned}
+                        \int_E |f| &= \int_E (f^+ +f^-)\\ 
+                        &= \int_E f^+ + \int_E f^-
+                    \end{aligned}
+                \end{equation*}
+            So $|f|$ is integralbe.
+            \end{proof}
+        \begin{definition}[Lebesgue integral for measurable functions]
+            Let $f$ be a measurable function on $E$. If $|f|$ is integrable on $E$, then we say $f$ is integrable, and define the integral of $f$ on $E$ as 
+            \begin{equation}
+                \int_E f = \int_E f^+ - \int_E f^-
+            \end{equation}
+        \end{definition}
+        \begin{proposition}
+            Let $f$ be integrable over $E$, then $f$ is finite a.e. on $E$, and 
+            \begin{equation}\label{GLIMeasureZeroSet}
+                \int_E f = \int_{E-E_0} f
+            \end{equation} 
+            where $E_0$ is a measure zero subset of $E$.
+        \end{proposition}
+        \begin{proof}
+            If $f$ is not finite almost every where, then $|f| = \infty$ on $F \in E$ where $m(F) > 0$. 
+        Then by the additivity over domain, and the monotonicity of integration,
+        \begin{equation*}
+            \begin{aligned}
+                \int_E |f| &= \int_{E- F} f + \int_{F} f\\
+                &\geq \int_{F} f\\
+                &= \infty \cdot m(F)\\
+                &= \infty
+            \end{aligned}
+        \end{equation*}
+        which contradict with the fact that $f$ is integral.\par
+        Now we prove \eqref{GLIMeasureZeroSet}. Notice that since the proposition \ref{The integral over measure zero set is zero}, being 
+        the supremum of $\{0\}$, $\int_{E_0} f^+ = \int_{E_0} f^- = 0$.
+        By the definition of the integral,
+        \begin{equation*}
+            \begin{aligned}
+                \int_{E} f &= \int_{E-E_0} f^+ - \int_{E-E_0} f^-\\
+                &= \int_{E-E_0} f^+ + \int_{E_0} f^+ - \int_{E-E_0} f^- - \int_{E_0} f^-\\
+                &= \int_{E-E_0} f^+ - \int_{E-E_0} f^-\\ 
+                &= \int_{E-E_0} f
+            \end{aligned}
+        \end{equation*}
+        Thus the proposition is proved.
+        \end{proof}
+        Now we prove the familiar basic properties of integration in the most general extend. The function will be the general measurable functions, 
+    which can take value at infinity. Although we can't even defined the sum of two measurable functions if they have too much value of 
+    infinite, but if we ask them to be integrable, every thing turns out to be nice.
+        \begin{theorem}[Linearity]
+            Let $f , \ g$ be two measurable functions which are integrable over $E$, $\alpha$ and $\beta$ are real numbers. Then 
+        $\alpha f+\beta g$ is integrable, and 
+            $$\int_E \alpha f+\beta g = \int_E \alpha f + \int_E \beta g $$
+        \end{theorem}
+        \begin{proof}
+            As usual, we first prove $\alpha f$ is integrable and $\int_E \alpha f = \alpha \int_E f$. Since $|\alpha f| = |\alpha| |f|$,
+        by the linerarity of the inftegral of non-negative functions,
+            \begin{equation*}
+                \begin{aligned}
+                    \int_E |\alpha f | = \int_E |\alpha| | f | = |\alpha| \int_E | f |\\ 
+                \end{aligned}
+            \end{equation*}
+            Since both $ |\alpha|$ and $\int_E | f |$ are finite,  $\alpha f $ is integrable. If $\alpha \geq 0$,
+            \begin{equation*}
+                \begin{aligned}
+                    \int_E \alpha f &= \int_E (\alpha f)^+ + \int_E (\alpha f)^- \\
+                    &= \alpha \int_E f^+ +  \alpha \int_E f^-\\
+                    &= \alpha \int_E f
+                \end{aligned}
+            \end{equation*}
+            If $\alpha < 0$, 
+            \begin{equation*}
+                \begin{aligned}
+                    \int_E \alpha f &= \int_E (\alpha f)^+ + \int_E (\alpha f)^- \\
+                    &= \alpha \int_E f^+ +  \alpha \int_E f^-\\
+                    &= \alpha \int_E f
+                \end{aligned}
+            \end{equation*}
+            By the proposition above, $f$ and $g$ are finite a.e. on $E$, thus their sum is well defined. By triangle inequality of real 
+        numbers, $|f+g| \leq |f|+|g|$. Then by the monotonicity of the integral of non-negative functions, one can see that $\int_E|f+g|$
+        is finite, which indecated that $f+g$ is integrable. \par
+            We have the following relationship:
+            \begin{equation*}
+                (f+g)^+ - (f+g)^- = f+g = (f^+ - f^-) + (g^+ -g^-)
+            \end{equation*}
+            Since the value on a measure zero set doesn't influence the integral, one can assuming that the above functions take finite 
+        value on $E$, so 
+            \begin{equation*}
+                (f+g)^+ + f^- +g^-  = (f+g)^- + f^+  + g^+ \mbox{ on } E
+            \end{equation*}
+            From the linearity of non-negative functions(notice that both side of the equality above is non-negative), 
+            \begin{equation*}
+                \begin{aligned}
+                    \int_E [(f+g)^+ + f^- +g^-]  &= \int_E [(f+g)^- + f^+  + g^+] \\
+                    \int_E (f+g)^+ + \int_E f^- +\int_E g^-  &= \int_E (f+g)^- + \int_E f^+  + \int_E g^+\\
+                \end{aligned}
+            \end{equation*}
+            Since $f$, $g$, $f+g$ are all integrable, the integral of non-negative function above are all finite. So it is allowed to 
+        move some of them to the other side.
+        \begin{equation*}
+            \begin{aligned}
+                \int_E (f+g)^+ - \int_E (f+g)^-  &= \int_E f^+ - \int_E f^- + \int_E g^+   - \int_E g^-\\
+                \int_E f+g &= \int_E f + \int_E g 
+            \end{aligned}
+        \end{equation*} 
+        \end{proof} 
+        \begin{theorem}[Monotonicity]
+            Let $f$ and $g$ be integralbe over $E$. If $f\leq g$ on $E$, then 
+            \begin{equation*}
+                \int_E g \geq \int_E f
+            \end{equation*}
+        \end{theorem}
+        \begin{proof}
+            Since $g \geq f$, it is not hard to see $g^+ \geq f^+$, and $g^- \leq f^-$. By monotonicity of the integral of non-negative
+        function, 
+        $$\int_E g^+ \geq \int_E f^+, \ \ \ \int_E g^- \leq \int_E f^-$$
+        which indicated 
+        \begin{equation*}
+            \begin{aligned}
+                \int_E g^+ - \int_E g^- &\geq \int_E f^+ - \int_E f^-\\
+                \int_E g &\geq \int_E f
+            \end{aligned}
+        \end{equation*} 
+        \end{proof}
+        \begin{theorem}[Additivity over domain]
+            Let $f$ be a integralbe function over $E$, and $E_1, \ E_2$ be measurable subset of $E$. Then $f$ is integrable over $E_1$ and 
+        $E_2$, and we have 
+        $$\int_{E_1 \cup E_2} f = \int_{E_1} f + \int_{E_2} f$$
+        \end{theorem}
+        \begin{proof}
+            By the symmetry of the proposition, we only need to prove that $f$ is integralbe $E_1$. By the additivity over domian of the 
+        integral of non-negative functions, and the fact that the integral of any non-negative function is non-negative,
+        \begin{equation*}
+            \begin{aligned}
+                \int_E |f| &= \int_{E-E_1} |f| +\int_{E_1} |f| \\
+                &\geq \int_{E_1} f \\
+            \end{aligned}
+        \end{equation*}
+        So it is clear that $f$ is integrable over $E_1$. \par 
+            By the additivity over domain of non-negative functions,
+        \begin{equation*}
+            \begin{aligned}
+                \int_{E_1\cup E_2} f &= \int_{E_1\cup E_2} f^+ - \int_{E_1\cup E_2} f^-\\
+                &= \int_{E_1} f^+ + \int_{E_2} f^+ - \int_{E_1} f^- - \int_{E_2} f^-\\
+                &= \int_{E_1} f + \int_{E_2} f
+            \end{aligned}
+        \end{equation*}
+        \end{proof}
+            Here we sum up the property of Lebesgue integral:
+            \begin{equation*}
+                \begin{aligned}
+                    \mbox{Measure zero sets and integral: }& m(E_0) = 0 \Rightarrow \int_E f = \int_{E-E_0} f\\
+                    \mbox{Linearity: }& \int_E f + \int_E g = \int_E (f+g)\\
+                    \mbox{Monotonicity: }& f \leq g \Rightarrow \int_E f \leq \int_E g\\
+                    \mbox{Additivity over domain: }& \int_{E_1} f + \int_{E_2} f = \int_{E_1 \cup E_2} f\\ 
+                \end{aligned}
+            \end{equation*}
+            The method of constructing the Lebesgue integral is very inspiring. When dealing with a rather gengeral mathematic concept,
+        one can first consider some special case, and extend the proposition or property to the more general case.  
+    \section{Lebesgue vs Riemann}
+        In this section we give some example, and discuss some difference between Lebesgue integral and Riemann integral. In the section of 
+    the integral for bounded measurabe function, we have show that any Riemann integralbe function is Lebesgue integralbe, but didn't show 
+    the converse is false. Now we give an counter-example.
+        \begin{example}
+            Let $f = \chi_{\RR -\QQ} \cap [0,1]$(the Dirichlet function). No matter how fine a Riemann partition is, the small interval
+        determined by the partition will contains a rational and a irrational, which means the upper Riemann integral will be $1$ and 
+        the lower will be $0$. So $f$ is not Riemann integralbe. \par
+            But with Lebesgue integral, $f$ is just a simple function, so is integralbe and it's integral is $1$.
+        \end{example}
+
+        \begin{theorem}[The Lebesgue condition for Riemann integral funciton]
+            
+        \end{theorem}
+        By the upper theorem, a Riemann integrable function on a closed bounded interval is continuous a.e. on it's domain; hbounded 
+    functions on intervals is Lebesgue integrable if and only if it is measurable. By Lusin's theorem, given any $\epsilon>0$, it is 
+    continouos on it's domain but a set whose measure is less than $\epsilon$. 
+
+\chapter{Limit and Itergral}
+        In the first section, we promised that Lebesgue integral will has better properties compare to Riemann integral. Now we have 
+    seen that Lebsegue integral have defined on more functions and sets. In this chapter, we will focus on the issue 
+    that under what condition, the following equation will hold: 
+    \begin{equation*}
+        \lim_{n \to \infty} \int_E f_n(x) = \int_E f(x) 
+    \end{equation*}
+    where $E$ is a measurable set, and $\{f_n\} \subset $\lmf{E} which converge to $f$.  
+        
+    \begin{theorem}[Bounded convergence theorem]
+        Let $\{f_n\}$ be a sequence of measurable function on $E$, where $m(E)<+\infty$. Suppose $f_n$ is uniform bounded on $E$. 
+    If $\{f_n\} \to f$ pointwisely a.e. on $E$, then 
+    $$\lim_{n \to \infty} \int_E f_n(x) = \int_E f(x) $$
+    \end{theorem}\par
+        Although we need to show that $f$ is integrable, this part is rather trivial, so is it left to the reader to check.
+        Our basic idea of the prove is by using Egoroff's theorem, to show that $\{f_n\}$ coverge uniformly on a very large subset.
+    Then for the part on that subset, the integral and the limit sign could commute. Out of the subset, the difference of integral 
+    will be small enough.
+    \begin{proof}
+        Since our result is the equation between integrals, we can assume $\{f_n\}$ converge pointwisely on $E$. Assuming $|f_n| < M$ 
+    for all possible $n$. Since $m(E)< +\infty$, Egoroff's theorem is available. Thus given $\epsilon >0 $, 
+    we can find a close subset of $E$, say $F$, such that $m(E - F) < \frac{\epsilon}{ 4M \cdot m(E) }$  and $f_n$ converge uniform to 
+    $f$. Also because the uniform convergence, for the same $\epsilon$ we can find a $N$ such that for $n\geq N$, 
+    $$|\int_F f_n -\int_F f| \leq \frac{\epsilon}{2}$$
+    Together with the above estimation and properties of integral,
+        \begin{equation*}
+            \begin{aligned}
+                |\int_E f_n - f| &= |\int_{E-F} f_n - \int_{E-F} f + \int_{F} f_n -\int_{F} f|\\
+                &\leq |\int_{E-F} f_n - \int_{E-F} f| + |\int_{F} f_n -\int_{F} f|\\
+                &\leq \int_{E-F} 2M  + \frac{\epsilon}{2}\\
+                &\leq 2M \cdot m(E-F) +\frac{\epsilon}{2}\\
+                &\leq 2M \cdot \frac{\epsilon}{ 4M \cdot m(E) } +\frac{\epsilon}{2}\\
+                &= \epsilon
+            \end{aligned}
+        \end{equation*}
+    Thus we show that the limit sign could go though the integral sign.
+    \end{proof}
+        Uniform bounded is weaker than uniform converge, but we can prove much more strong converge theorem under the context 
+    of Lebesgue integral. To prove the stronger converge theorems, it is conveneint to establish the following lemma.
+    \begin{lemma}[Fatou's lemma]
+        Let $\{f_n\}$ be a sequence of non-negative measurable functions on $E$. If $\{f_n\}$ converge pointwisely a.e. over $E$.
+    then 
+    $$\int_E f \leq \lim \inf \int_E f_n$$
+    \end{lemma}
+    Remember that $\lim \inf $ of a sequence $\{a_n\}$ is defined as $\sup \{\inf \{a_n\}_{n=k}^{\infty} : 1\leq i < \infty \}$.
+    \begin{proof}
+        First, measure zero sets doesn't influence the integral, thus one can assume $\{f_n\}$ converge pointwise on $E$.
+    Since the integral of non-negative functions is defined as the supremum of the integral of bounded measurable function of finite 
+    support, we only need to show that for all such function $\varphi \leq f$, 
+    $$\int_E \varphi \leq \lim \inf \int_E f_n$$\par
+        Let $\varphi_n = min(\varphi, f_n)$, then $\{\varphi_n\}$ coverge to $\varphi$ pointwisely. There exist a set of finite measure 
+    $E_0$ on which $\varphi$ and $\varphi_n$ support on. So by bounded converge theorem,
+    \begin{equation*}
+        \begin{aligned}
+            \int_E \varphi = \int_{E_0} \lim_{n \to \infty} h_n = \lim_{n \to \infty} \int_{E_0} h_n
+        \end{aligned}
+    \end{equation*}
+    By the basic properties of limit and integral, and the fact that $h_n \leq f_n$we have 
+    \begin{equation*}
+        \begin{aligned}
+            \int_E \varphi &= \lim_{n \to \infty} \int_E h_n\\
+            &\leq \lim \inf \int_E f_n
+        \end{aligned}
+    \end{equation*}
+    \end{proof}
+        The prove above illustrate that if you want to prove a proposition of non-egative function, you can first prove it for bounded 
+    measurable function of finite support. Also if yoou want to prove something for measurable function, it is always helpful to prove it 
+    for simple functions. 
+    \begin{theorem}[Monotone converge theorem]
+        Let $\{f_n\}$ be a sequence of nonegative measurable functions on $E$. If $f_m \leq f_n$ for $m<n$, and $\{f_n\} \to f$ pointwisely a.e. on
+    $E$, then 
+    $$\lim_{n \to \infty} \int_E f_n(x) = \int_E f(x) $$
+    \end{theorem}
+    \begin{proof}
+        We assume $\{f_n\}$ converge to $f$ pointwisely on $E$. Since the sequence is increasing, by monotoniciy, if $m<n$, we have
+        $$\int_E f_m \leq \int_E f_n$$
+        Thus by Fatou's lemma 
+        $$\int_E f \leq \lim \inf \int_E f_n = \lim_{n\to \infty}\int_E f_n$$
+    The last equality comes from the fact that $\{\int_E f_n\}$ is a increasing sequence. It remains to show the inequality from the other
+    side. Since $\{f_n\}$ converge to $f$ increasingly,$f> f_n$ for all $n$. Thus by the monotonicity of the integration,
+        $$\int_E f_n \leq \int_E f$$
+        $$\Rightarrow \lim_{n \to \infty} \int_E f_n \leq \int_E f$$
+    \end{proof}
+    Notice that the existence of the limit of the integration of the sequence of function is guaranteened because the general limit exist 
+    for monotonic sequences.
+    \begin{corollary}
+        Let $\{f_n\}$ be non-negative measurable function on $E$. If $f = \sum_{n=1}^{\infty} f_n$ converge pointwisely a.e. on $E$,
+        $$\int_E f = \sum_{n=1}^{\infty} \int_E f_n$$
+    \end{corollary}
+    \begin{proof}
+        Notice that the partial sum is coverge increasingly(since $f_n$ are non-negative), so we can apply the monotone converge theorem.
+    Let $F_k = \sum_{n=1}^{k} \int_E f_n$.
+        \begin{equation*}
+            \begin{aligned}
+                \int_E f &= \lim_{n \to \infty} \int_E F_k\\
+                &= \lim_{n \to \infty} \int_E \sum_{n=1}^{k} \int_E f_n\\
+                &= \sum_{n=1}^{\infty} \int_E f_n
+            \end{aligned}
+        \end{equation*}
+    \end{proof}
+    \begin{lemma}[Beppo Levi's Lemma]
+        Let $\{f_n\}$ be a sequence of non-negative measurable function on $E$. If $\{\int_E f_n\}$ is bounded, then $\{f_n\}$ converge 
+    pointwisely to a $f$ on $E$, which is finite a.e on $E$, and 
+    $$\lim{n \to \infty} \int_E f_n = \int_E f < \infty$$ 
+    \end{lemma}
+    \begin{proof}
+        Since every monotone sequence of real number converge to a extended real number, so for every $x\in E$, we can define 
+        $$f(x) = \lim_{n\to \infty} f_n (x)$$
+    Then it is obvious that $\{f_n\}$ converge to $f$ pointwisely, and increasingly. Thus we can use monotone converge theorem, which shows
+        $$\lim_{n\to \infty} \int_E f_n = \int_E f$$
+        Since $\{\int_E f_n\}$ is bounded, $\int_E f$ is a finite value. So $f$ is integralbe, which indicated $f$ is finite a.e. on $E$
+        (proposition \ref{IntegralbeFiniteAE}).
+    \end{proof}
+    \begin{theorem}[Legesgue dominated converge theorem]
+        Let $\{f_n\}$ be a sequence of measurable functions on $E$, which converge pointwisely a.e. to $f$ on $E$. If $f_n$ is dominated 
+    by a integrable function $g$, in the sense of $|f_n|\leq g$, then
+        $$\lim_{n \to \infty} \int_E f_n = \int_E f$$
+    \end{theorem}
+    \begin{proof}
+        Again, the \textsl{a.e.} can be ignored. Notice that $f$ is also dominated by $g$. By monotonicity of the integral,
+        $$\int_E |f| \leq \int_E g < \infty$$
+    $f$ is integralbe.
+        $g-f_n$ and $g-f$ are all non-negative functions, and $(g-f_n) \to (g-f)$ pointwisely as $n \to \infty$. Thus we can apply 
+    Fatou's lemma.
+        \begin{equation*}
+            \begin{aligned}
+                \int_E g-f &\leq \lim \inf \int_E g -f_n \\            
+                &= \int_E g - \lim \sup \int_E f_n\\
+                \Rightarrow \int_E g- \int_E f &\leq \int_E g - \lim \sup \int_E f_n\\
+                \Rightarrow \int_E f &\geq \lim \sup \int_E f_n\\
+            \end{aligned}
+        \end{equation*}
+    Observing that $g+ f_n$ and $g+f$ and also non-negative, and $(g+f_n) \to (g+f)$ pointwisely as $n \to \infty$,
+    using the same trick,
+        \begin{equation*}
+            \begin{aligned}
+                \int_E g+f &\leq \lim \inf \int_E g +f_n \\            
+                &= \int_E g + \lim inf \int_E f_n\\
+                \Rightarrow \int_E g+ \int_E f &\leq \int_E g + \lim \inf \int_E f_n\\
+                \Rightarrow \int_E f &\leq \lim \inf \int_E f_n\\
+            \end{aligned}
+        \end{equation*}
+    Together the two inequality, we have 
+        $$\int_E f \leq \lim \inf \int_E f_n \leq \lim \sup \int_E f_n \leq \int_E f$$
+    Thus $\lim_{n\to \infty} f_n$ exist and 
+    $$\int_E f = \lim_{n\to \infty} f_n$$ 
+    \end{proof}
+    \begin{theorem}[General dominated converge theorem]
+
+    \end{theorem}
+    \begin{definition}[Uniform integral]
+        
+    \end{definition}
+
+    \begin{theorem}[Vetali's converge theorem]
+        
+    \end{theorem}
+
+    \begin{theorem}[General Vetali's converge theorem]
+        
+    \end{theorem}
+    
+\chapter{Lp Space}
+    \section{Definition}
+
+    \section{Important Inequality}
+
+    \section{?}
+
+\chapter{Appendix 1: Non-measurable Sets, Non-measurable Functions}
+    For the purpose to illustrate the theory in a more clear way, we didn't talk about the existence of non-measurable sets, non-measurable functions and many 
+other counter examples. Counter-examples are important. Without showing there exsistence, our theory is meaningless(mabey all the sets are 
+measurable). In fact, many of them are quite hard to construct, which is the reason why we didn't mention them in the main body.   
+\end{document} 
