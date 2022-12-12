@@ -1,0 +1,18 @@
+\begin{proposition}[Lipschitz functions are abusolute continuous]
+    Let $f:[a,b] \to \RR$ be a Lipschitz function. Then it is of abusolute continuous functions.
+\end{proposition}
+\begin{proof}
+    Since $f$ is Lipschitz, so for all $a \leq c\leq d \leq b$, there exists $\lambda$ such that
+    $$f(d) - f(c) \leq \lambda (d-c)$$
+    Let $\epsilon> 0$, and collection of finite disjoint closed sub-intervals $\{[c_k,d_k]\}_{k=1}^n$ such that 
+$$\sum_{k=1}^n d_k -c_k < \frac{\epsilon}{\lambda}$$ 
+    Then
+    \begin{equation*}
+        \begin{aligned}
+            \sum_{k=1}^n f(d_k) -f(c_k) &\leq \sum_{k=1}^n \lambda (d_k - c_k)\\
+            &= \lambda \sum_{k=1}^n  (d_k - c_k)\\
+            &< \lambda \cdot \frac{\epsilon}{\lambda} = \frac{\epsilon} 
+        \end{aligned}
+    \end{equation*}
+    So the proposition is proved. 
+\end{proof}

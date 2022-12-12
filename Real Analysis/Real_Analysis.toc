@@ -14,8 +14,18 @@
 \contentsline {section}{\numberline {4.4}The Lebesgue Integral in General}{34}{section.4.4}%
 \contentsline {section}{\numberline {4.5}Lebesgue vs Riemann}{38}{section.4.5}%
 \contentsline {chapter}{\numberline {5}Limit and Itergral}{40}{chapter.5}%
-\contentsline {chapter}{\numberline {6}Lp Space}{44}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Definition}{44}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Important Inequality}{44}{section.6.2}%
-\contentsline {section}{\numberline {6.3}?}{44}{section.6.3}%
-\contentsline {chapter}{\numberline {7}Appendix 1: Non-measurable Sets, Non-measurable Functions}{45}{chapter.7}%
+\contentsline {section}{\numberline {5.1}From Bounded Convergence Theorem to Lebesgue Dominated Convergence Theorem}{40}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Uniform Integrability: The Vitali Convergence theorem}{45}{section.5.2}%
+\contentsline {chapter}{\numberline {6}Differentiation and Integration}{49}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Monotonic functions and Lebesgue's Theorem }{49}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Bounded Variation Functions}{56}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Absolute Continuous Functions}{58}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Integrating derivative and Differentiating Indefinite Integral}{62}{section.6.4}%
+\contentsline {chapter}{\numberline {7}Lp Space: Completeness and Approximation}{66}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Normed Linear Space of Functions}{66}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Important Inequalities}{69}{section.7.2}%
+\contentsline {section}{\numberline {7.3}Riesz Fischer Theorem: Lp is Complete}{72}{section.7.3}%
+\contentsline {section}{\numberline {7.4}Approximation and Separability}{76}{section.7.4}%
+\contentsline {chapter}{\numberline {8}Riesz Representation}{80}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Linear Functional and Dual Space}{80}{section.8.1}%
+\contentsline {chapter}{\numberline {9}Appendix 1: Non-measurable Sets, Non-measurable Functions}{81}{chapter.9}%

@@ -129,7 +129,7 @@
             \end{proposition}
             \begin{proof}
                 For every close interval $[a,b]$, one can find an open interval $(a-\epsilon,b+\epsilon)$ cover it, which has the lenth 
-            $b-a+2\epsilon$. Since episilon can be chosen freely, $m^*([a,b]) \leq b-a$. \par
+            $b-a+2\epsilon$. Since episilon can be choosen freely, $m^*([a,b]) \leq b-a$. \par
                 It remains to show $m^*([a,b]) \geq b-a$, which is
             equivalence to show for all countable open interval covers $\{I_n\}$, 
             \begin{equation}
@@ -463,13 +463,13 @@
         is needed. In the first chapter, the range of the function $f$ which we want to integrate is cut into small intervals, and we want to 
         measure the size of their inverse image(of course using the Lebesgue measure). Generaly, the inverse image of these small intervals are not
         measurable, so we make compromise, by working with a specific type of function. 
-            In this chapter, we would see three interesting and importent properties of measurable function, called Littlewood's three principle. It
+            In this chapter, we would see three interesting and important properties of measurable function, called Littlewood's three principle. It
         says \textbf{measurable sets are nearly finite union of open intervals}; \textbf{measurable functions are nearly continuous functions};
         \textbf{a sequence of measurable functions which converge pointwisely is almost converge uniformly}. The first Priciple has already 
         shown by \eqref{LittlewoodFirstPrinciple}. We will show the latter two by Egoroff's theorem and Lusin's theorem. Although the 
-        utterance of the principles are not in the rigourous mathematic laguagues, it is still important since it provide a intuitive 
+        utterance of the principles are not in the rigorous mathematic laguagues, it is still important since it provide a intuitive 
         understanding of those theorems. In my opinion, this kind of understanding is more in need in the mathematic learning, rather than
-        the rigourous proof.
+        the rigorous proof.
 
         \section{Definition and basic properties}
             Although we want to have $f^{-1}[a,b]$ to be measurable, it turned out that the following condition is equivalent to that.
@@ -566,9 +566,9 @@
         measurable functions are still measurable. But in general, the sum of two extended real valued is not even well defined. For example,
         if $f(x) = +\infty$ while $g(x) = -\infty$, then $f(x) + g(x)$ is not well defined. If we ask $f$ and $g$ to be finite a.e. in there 
         domain, then we can know the set of points which are not well defined is measure zero. By the former proposition, the value of a 
-        function in a measure zero set don't influence the fact whether it is measurable. So we are allowed to talk about whether $f + g$ is 
+        function in a measure zero set don't influence the fact whether it is measurable. So we are allowd to talk about whether $f + g$ is 
         measurable in a slightly different condition.
-            \begin{theorem}[Linear combinenation and mutlpilication]
+            \begin{theorem}[Linear combination and mutlpilication]
                 Let $f:E \to \RR^*, \ g: E \to \RR^*$ be measurable and finite a.e. on $E$, $r \in \RR$, then 
                 \begin{enumerate}
                     \item $r \cdot f$ is measurable.
@@ -688,7 +688,7 @@
                 One can see immediately that $\chi_A$ is a simple function if it is measurable. We can express any simple function by sum 
             of characteristic functions.
                 \begin{proposition}[Canonical representation of simple function]
-                    If $\phi:E \to \RR$ is a simple function, then there exist a finite distinct sequence of numbers $\{a_n\}$ and a finite sequence of disjiont measurable sets $\{A_n\}$,
+                    If $\phi:E \to \RR$ is a simple function, then there exist a finite distinct sequence of numbers $\{a_n\}$ and a finite sequence of disjoint measurable sets $\{A_n\}$,
                 such that 
                     \begin{equation}
                         \phi(x) = \sum_{n=1}^{N} a_n \chi_{A_n}(x) \label{sa}
@@ -1041,7 +1041,7 @@
             function. The Riemann integralbility also indicate that $f$ is bounded. Then by the definition of Lebesgue integral for bounded
             measurable functions, the Lebesgue integral exist and $$\int_{[a,b]} f = (R) \int_{[a,b]} f$$                
             \end{proof}
-            \begin{theorem}[Bounded measurable functions are integralbe]
+            \begin{theorem}[Bounded measurable functions are integrable]
                 Let $f$ be a bounded measurable function which is defined on a set with finite measure, say $E$.
             Then $f$ is measurable.
             \end{theorem}         
@@ -1083,7 +1083,7 @@
                         \alpha \varphi \leq \alpha&f \leq \alpha\psi \\
                     \end{aligned}
                 \end{equation*}
-            By the upper theorem, $\alpha f$ is integralbe. And by the definition of the integral, the linearity of the integral of simple functions,
+            By the upper theorem, $\alpha f$ is integrable. And by the definition of the integral, the linearity of the integral of simple functions,
             \begin{equation*}
                 \begin{aligned}
                     \int_E \alpha \varphi \leq &\int_E \alpha f \leq \int_E \alpha \psi\\
@@ -1102,7 +1102,7 @@
                 \end{aligned}
             \end{equation*}
             Thus the first part of the theorem is proved. \par 
-                Since the sum of measurable function is still measurable, $f+g$ is integralbe over $E$. Suppose 
+                Since the sum of measurable function is still measurable, $f+g$ is integrable over $E$. Suppose 
             $\varphi_1, \ \varphi_2, \ \psi_1, \ \psi_2$ are simple functions such that 
             $$\varphi_1 \leq f \leq \psi_1, \ \varphi_2 \leq g \leq \psi_2$$
             We can see that 
@@ -1238,7 +1238,7 @@
         
         \section{The Lebesgue Integral for Non-negative Functions}
             In this section, we push the definition of integral further, to non-negative measurable functions over general measurable 
-        sets. We allowed the function to take large value(not being bounded anymore, but don't take values at infinity), and define it on a larger space(without requiring
+        sets. We allowd the function to take large value(not being bounded anymore, but don't take values at infinity), and define it on a larger space(without requiring
         $E$ to have finite measure).\par  
             To this purpose, it is convenient to establish the concept of \textbf{finite support functions}.
             \begin{definition}[Support]
@@ -1247,7 +1247,7 @@
                 If the support is finite, then we say $f$ is a function has finite support, or compact support(notice that $E_0$ is closed 
             and bounded, thus compact).
             \end{definition}\par
-            It is not hard to see that the linear combinenation of finite support functions are still finite support.\par 
+            It is not hard to see that the linear combination of finite support functions are still finite support.\par 
             We haven't defined the integral on a set which has infinite measure. Suppose $f:E\to \RR$ is bounded, measurable
         and has a finite support $E_0$, then $$\int_E f := \int_{E_0} f$$
         is a very natrual definition. Any thing we proved in the last section can be applied on this new definition. For non-negative 
@@ -1336,7 +1336,7 @@
             $f+g$.\par
                 For a such $l$, let $h = min(f, l), \ k= l-h$. Then if $l(x) \leq f(x)$, $h(x) = l(x)$ and $k(x)= 0$; if $l(x) > f(x)$,
             $h(x)=f(x)$ and $k(x) = l(x)-f(x) < g(x)$. Then we can see that $h \leq f$, $k \leq g$. Thus by the additivity of the integral 
-            for bounded measurable fucntion of finite support,
+            for bounded measurable function of finite support,
             \begin{equation*}
                 \begin{aligned}
                     \int_E l &= \int_E l + min(f, l) - min(f,l)\\
@@ -1390,7 +1390,7 @@
         \section{The Lebesgue Integral in General}
             For measurable function $f$ in general, our mean to construct it's integral is to express $f$ as the difference of
         two non-negative functions. In the chapter of Lebesgue measure functions, we have a conclusion that maximum and minimumu of two 
-        measurable functions is still measurable, which allowe us to split $f$ into two part.
+        measurable functions is still measurable, which allow us to split $f$ into two part.
             \begin{definition}[Positive part and negative part]
                 Let $f$ be a measurable function on $E$. We define it positive part $f^+$ and negative part $f^-$ as the following:
                 \begin{equation*}
@@ -1403,12 +1403,12 @@
             It is not hard to find that $f^+$, $f^-$ are non-negative functions. And the relation 
             $$f = f^+ - f^-$$
         is also clear. But $\int f^+,  \ \int f^-$ might be infinity at the same time, then $\infty - \infty$ is not a well defined value. To fix this
-        problem, we introduce the concept of integralbe for non-negative measurable functions.
-            \begin{definition}[Integralbe]
-                Let $f$ be a non-negative function on $E$, $f$ is integralbe on $E$ if and only if $$\int_E f$$
+        problem, we introduce the concept of integrable for non-negative measurable functions.
+            \begin{definition}[Integrable]
+                Let $f$ be a non-negative function on $E$, $f$ is integrable on $E$ if and only if $$\int_E f$$
             is a finite value.
             \end{definition}
-            \begin{proposition}\label{IntegralbeFiniteAE}
+            \begin{proposition}\label{IntegrableFiniteAE}
                 A non-negative function $f$ is integrable over $E$, then it is finite a.e. on $E$.
             \end{proposition}
             \begin{proof}
@@ -1417,10 +1417,10 @@
                 Let $\lambda \to \infty$, we see that the measure of the subset where $f=\infty$ is zero.
             \end{proof}
             \begin{proposition}
-                 For a measurable function $f$ on $E$, $f^+$ and $f^-$ are integralbe on $E$ if and only if $|f|$ is integralbe on $E$. 
+                 For a measurable function $f$ on $E$, $f^+$ and $f^-$ are integrable on $E$ if and only if $|f|$ is integrable on $E$. 
             \end{proposition}
             \begin{proof}
-                Suppose $|f|$ is integralbe on $E$. Notice that $|f|= f^+ + f^-$, suppose $f^+$ is not integralbe 
+                Suppose $|f|$ is integrable on $E$. Notice that $|f|= f^+ + f^-$, suppose $f^+$ is not integrable 
                 \begin{equation*}
                     \begin{aligned}
                         +\infty &= \int_E f^+ \\
@@ -1428,7 +1428,7 @@
                         &= \int_E |f|
                     \end{aligned}
                 \end{equation*} 
-            Contradicting with the fact that $|f|$ is integralbe, $f^+$ is integralbe. One can show that $f^-$ is integralbe in the exact
+            Contradicting with the fact that $|f|$ is integrable, $f^+$ is integrable. One can show that $f^-$ is integrable in the exact
             same way. Then we proved one direction of the proposition.\par
                 Suppose $f^+$ and $f^-$ are integrable, which means their integrals are finite. Then 
                 \begin{equation*}
@@ -1437,7 +1437,7 @@
                         &= \int_E f^+ + \int_E f^-
                     \end{aligned}
                 \end{equation*}
-            So $|f|$ is integralbe.
+            So $|f|$ is integrable.
             \end{proof}
         \begin{definition}[Lebesgue integral for measurable functions]
             Let $f$ be a measurable function on $E$. If $|f|$ is integrable on $E$, then we say $f$ is integrable, and define the integral of $f$ on $E$ as 
@@ -1528,7 +1528,7 @@
                     \int_E (f+g)^+ + \int_E f^- +\int_E g^-  &= \int_E (f+g)^- + \int_E f^+  + \int_E g^+\\
                 \end{aligned}
             \end{equation*}
-            Since $f$, $g$, $f+g$ are all integrable, the integral of non-negative function above are all finite. So it is allowed to 
+            Since $f$, $g$, $f+g$ are all integrable, the integral of non-negative function above are all finite. So it is allowd to 
         move some of them to the other side.
         \begin{equation*}
             \begin{aligned}
@@ -1538,7 +1538,7 @@
         \end{equation*} 
         \end{proof} 
         \begin{theorem}[Monotonicity]
-            Let $f$ and $g$ be integralbe over $E$. If $f\leq g$ on $E$, then 
+            Let $f$ and $g$ be integrable over $E$. If $f\leq g$ on $E$, then 
             \begin{equation*}
                 \int_E g \geq \int_E f
             \end{equation*}
@@ -1556,12 +1556,12 @@
         \end{equation*} 
         \end{proof}
         \begin{theorem}[Additivity over domain]
-            Let $f$ be a integralbe function over $E$, and $E_1, \ E_2$ be measurable subset of $E$. Then $f$ is integrable over $E_1$ and 
+            Let $f$ be a integrable function over $E$, and $E_1, \ E_2$ be measurable subset of $E$. Then $f$ is integrable over $E_1$ and 
         $E_2$, and we have 
         $$\int_{E_1 \cup E_2} f = \int_{E_1} f + \int_{E_2} f$$
         \end{theorem}
         \begin{proof}
-            By the symmetry of the proposition, we only need to prove that $f$ is integralbe $E_1$. By the additivity over domian of the 
+            By the symmetry of the proposition, we only need to prove that $f$ is integrable $E_1$. By the additivity over domian of the 
         integral of non-negative functions, and the fact that the integral of any non-negative function is non-negative,
         \begin{equation*}
             \begin{aligned}
@@ -1592,13 +1592,13 @@
         one can first consider some special case, and extend the proposition or property to the more general case.  
     \section{Lebesgue vs Riemann}
         In this section we give some example, and discuss some difference between Lebesgue integral and Riemann integral. In the section of 
-    the integral for bounded measurabe function, we have show that any Riemann integralbe function is Lebesgue integralbe, but didn't show 
+    the integral for bounded measurable function, we have show that any Riemann integrable function is Lebesgue integrable, but didn't show 
     the converse is false. Now we give an counter-example.
         \begin{example}
             Let $f = \chi_{\RR -\QQ} \cap [0,1]$(the Dirichlet function). No matter how fine a Riemann partition is, the small interval
         determined by the partition will contains a rational and a irrational, which means the upper Riemann integral will be $1$ and 
-        the lower will be $0$. So $f$ is not Riemann integralbe. \par
-            But with Lebesgue integral, $f$ is just a simple function, so is integralbe and it's integral is $1$.
+        the lower will be $0$. So $f$ is not Riemann integrable. \par
+            But with Lebesgue integral, $f$ is just a simple function, so is integrable and it's integral is $1$.
         \end{example}
 
         \begin{theorem}[The Lebesgue condition for Riemann integral funciton]
@@ -1610,175 +1610,1874 @@
 
 \chapter{Limit and Itergral}
         In the first section, we promised that Lebesgue integral will has better properties compare to Riemann integral. Now we have 
-    seen that Lebsegue integral have defined on more functions and sets. In this chapter, we will focus on the issue 
+    seen that Lebesgue integral have defined on more functions and sets. In this chapter, we will focus on the issue 
     that under what condition, the following equation will hold: 
     \begin{equation*}
         \lim_{n \to \infty} \int_E f_n(x) = \int_E f(x) 
     \end{equation*}
     where $E$ is a measurable set, and $\{f_n\} \subset $\lmf{E} which converge to $f$.  
-        
-    \begin{theorem}[Bounded convergence theorem]
-        Let $\{f_n\}$ be a sequence of measurable function on $E$, where $m(E)<+\infty$. Suppose $f_n$ is uniform bounded on $E$. 
-    If $\{f_n\} \to f$ pointwisely a.e. on $E$, then 
-    $$\lim_{n \to \infty} \int_E f_n(x) = \int_E f(x) $$
-    \end{theorem}\par
-        Although we need to show that $f$ is integrable, this part is rather trivial, so is it left to the reader to check.
-        Our basic idea of the prove is by using Egoroff's theorem, to show that $\{f_n\}$ coverge uniformly on a very large subset.
-    Then for the part on that subset, the integral and the limit sign could commute. Out of the subset, the difference of integral 
-    will be small enough.
-    \begin{proof}
-        Since our result is the equation between integrals, we can assume $\{f_n\}$ converge pointwisely on $E$. Assuming $|f_n| < M$ 
-    for all possible $n$. Since $m(E)< +\infty$, Egoroff's theorem is available. Thus given $\epsilon >0 $, 
-    we can find a close subset of $E$, say $F$, such that $m(E - F) < \frac{\epsilon}{ 4M \cdot m(E) }$  and $f_n$ converge uniform to 
-    $f$. Also because the uniform convergence, for the same $\epsilon$ we can find a $N$ such that for $n\geq N$, 
-    $$|\int_F f_n -\int_F f| \leq \frac{\epsilon}{2}$$
-    Together with the above estimation and properties of integral,
+    \section{From Bounded Convergence Theorem to Lebesgue Dominated Convergence Theorem}    
+        \begin{theorem}[Bounded convergence theorem]
+            Let $\{f_n\}$ be a sequence of measurable function on $E$, where $m(E)<+\infty$. Suppose $f_n$ is uniform bounded on $E$. 
+        If $\{f_n\} \to f$ pointwisely a.e. on $E$, then 
+        $$\lim_{n \to \infty} \int_E f_n(x) = \int_E f(x) $$
+        \end{theorem}\par
+            Although we need to show that $f$ is integrable, this part is rather trivial, so is it left to the reader to check.
+            Our basic idea of the prove is by using Egoroff's theorem, to show that $\{f_n\}$ coverge uniformly on a very large subset.
+        Then for the part on that subset, the integral and the limit sign could commute. Out of the subset, the difference of integral 
+        will be small enough.
+        \begin{proof}
+            Since our result is the equation between integrals, we can assume $\{f_n\}$ converge pointwisely on $E$. Assuming $|f_n| < M$ 
+        for all possible $n$. Since $m(E)< +\infty$, Egoroff's theorem is available. Thus given $\epsilon >0 $, 
+        we can find a close subset of $E$, say $F$, such that $m(E - F) < \frac{\epsilon}{ 4M \cdot m(E) }$  and $f_n$ converge uniform to 
+        $f$. Also because the uniform convergence, for the same $\epsilon$ we can find a $N$ such that for $n\geq N$, 
+        $$|\int_F f_n -\int_F f| \leq \frac{\epsilon}{2}$$
+        Together with the above estimation and properties of integral,
+            \begin{equation*}
+                \begin{aligned}
+                    |\int_E f_n - f| &= |\int_{E-F} f_n - \int_{E-F} f + \int_{F} f_n -\int_{F} f|\\
+                    &\leq |\int_{E-F} f_n - \int_{E-F} f| + |\int_{F} f_n -\int_{F} f|\\
+                    &\leq \int_{E-F} 2M  + \frac{\epsilon}{2}\\
+                    &\leq 2M \cdot m(E-F) +\frac{\epsilon}{2}\\
+                    &\leq 2M \cdot \frac{\epsilon}{ 4M \cdot m(E) } +\frac{\epsilon}{2}\\
+                    &= \epsilon
+                \end{aligned}
+            \end{equation*}
+        Thus we show that the limit sign could go though the integral sign.
+        \end{proof}
+            Uniform bounded is weaker than uniform converge, but we can prove much more strong converge theorem under the context 
+        of Lebesgue integral. To prove the stronger converge theorems, it is conveneint to establish the following lemma.
+        \begin{lemma}[Fatou's lemma]
+            Let $\{f_n\}$ be a sequence of non-negative measurable functions on $E$. If $\{f_n\}$ converge pointwisely a.e. over $E$.
+        then 
+        $$\int_E f \leq \lim \inf \int_E f_n$$
+        \end{lemma}
+        Remember that $\lim \inf $ of a sequence $\{a_n\}$ is defined as $\sup \{\inf \{a_n\}_{n=k}^{\infty} : 1\leq i < \infty \}$.
+        \begin{proof}
+            First, measure zero sets doesn't influence the integral, thus one can assume $\{f_n\}$ converge pointwise on $E$.
+        Since the integral of non-negative functions is defined as the supremum of the integral of bounded measurable function of finite 
+        support, we only need to show that for all such function $\varphi \leq f$, 
+        $$\int_E \varphi \leq \lim \inf \int_E f_n$$\par
+            Let $\varphi_n = min(\varphi, f_n)$, then $\{\varphi_n\}$ coverge to $\varphi$ pointwisely. There exist a set of finite measure 
+        $E_0$ on which $\varphi$ and $\varphi_n$ support on. So by bounded converge theorem,
         \begin{equation*}
             \begin{aligned}
-                |\int_E f_n - f| &= |\int_{E-F} f_n - \int_{E-F} f + \int_{F} f_n -\int_{F} f|\\
-                &\leq |\int_{E-F} f_n - \int_{E-F} f| + |\int_{F} f_n -\int_{F} f|\\
-                &\leq \int_{E-F} 2M  + \frac{\epsilon}{2}\\
-                &\leq 2M \cdot m(E-F) +\frac{\epsilon}{2}\\
-                &\leq 2M \cdot \frac{\epsilon}{ 4M \cdot m(E) } +\frac{\epsilon}{2}\\
+                \int_E \varphi = \int_{E_0} \lim_{n \to \infty} h_n = \lim_{n \to \infty} \int_{E_0} h_n
+            \end{aligned}
+        \end{equation*}
+        By the basic properties of limit and integral, and the fact that $h_n \leq f_n$we have 
+        \begin{equation*}
+            \begin{aligned}
+                \int_E \varphi &= \lim_{n \to \infty} \int_E h_n\\
+                &\leq \lim \inf \int_E f_n
+            \end{aligned}
+        \end{equation*}
+        \end{proof}
+            The prove above illustrate that if you want to prove a proposition of non-egative function, you can first prove it for bounded 
+        measurable function of finite support. Also if yoou want to prove something for measurable function, it is always helpful to prove it 
+        for simple functions. 
+        \begin{theorem}[Monotone convergence theorem]
+            Let $\{f_n\}$ be a sequence of nonegative measurable functions on $E$. If $f_m \leq f_n$ for $m<n$, and $\{f_n\} \to f$ pointwisely a.e. on
+        $E$, then 
+        $$\lim_{n \to \infty} \int_E f_n(x) = \int_E f(x) $$
+        \end{theorem}
+        \begin{proof}
+            We assume $\{f_n\}$ converge to $f$ pointwisely on $E$. Since the sequence is increasing, by monotonicity, if $m<n$, we have
+            $$\int_E f_m \leq \int_E f_n$$
+            Thus by Fatou's lemma 
+            $$\int_E f \leq \lim \inf \int_E f_n = \lim_{n\to \infty}\int_E f_n$$
+        The last equality comes from the fact that $\{\int_E f_n\}$ is a increasing sequence. It remains to show the inequality from the other
+        side. Since $\{f_n\}$ converge to $f$ increasingly,$f> f_n$ for all $n$. Thus by the monotonicity of the integration,
+            $$\int_E f_n \leq \int_E f$$
+            $$\Rightarrow \lim_{n \to \infty} \int_E f_n \leq \int_E f$$
+        \end{proof}
+        Notice that the existence of the limit of the integration of the sequence of function is guaranteened because the general limit exist 
+        for monotonic sequences.
+        \begin{corollary}
+            Let $\{f_n\}$ be non-negative measurable function on $E$. If $f = \sum_{n=1}^{\infty} f_n$ converge pointwisely a.e. on $E$,
+            $$\int_E f = \sum_{n=1}^{\infty} \int_E f_n$$
+        \end{corollary}
+        \begin{proof}
+            Notice that the partial sum is coverge increasingly(since $f_n$ are non-negative), so we can apply the monotone converge theorem.
+        Let $F_k = \sum_{n=1}^{k} \int_E f_n$.
+            \begin{equation*}
+                \begin{aligned}
+                    \int_E f &= \lim_{n \to \infty} \int_E F_k\\
+                    &= \lim_{n \to \infty} \int_E \sum_{n=1}^{k} \int_E f_n\\
+                    &= \sum_{n=1}^{\infty} \int_E f_n
+                \end{aligned}
+            \end{equation*}
+        \end{proof}
+        \begin{lemma}[Beppo Levi's Lemma]
+            Let $\{f_n\}$ be a sequence of non-negative measurable function on $E$. If $\{\int_E f_n\}$ is bounded, then $\{f_n\}$ converge 
+        pointwisely to a $f$ on $E$, which is finite a.e on $E$, and 
+        $$\lim{n \to \infty} \int_E f_n = \int_E f < \infty$$ 
+        \end{lemma}
+        \begin{proof}
+            Since every monotone sequence of real number converge to a extended real number, so for every $x\in E$, we can define 
+            $$f(x) = \lim_{n\to \infty} f_n (x)$$
+        Then it is obvious that $\{f_n\}$ converge to $f$ pointwisely, and increasingly. Thus we can use monotone converge theorem, which shows
+            $$\lim_{n\to \infty} \int_E f_n = \int_E f$$
+            Since $\{\int_E f_n\}$ is bounded, $\int_E f$ is a finite value. So $f$ is integrable, which indicated $f$ is finite a.e. on $E$
+            (proposition \ref{IntegrableFiniteAE}).
+        \end{proof}
+        \begin{theorem}[Legesgue dominated convergence theorem]
+            Let $\{f_n\}$ be a sequence of measurable functions on $E$, which converge pointwisely a.e. to $f$ on $E$. If $f_n$ is dominated 
+        by a integrable function $g$, in the sense of $|f_n|\leq g$, then
+            $$\lim_{n \to \infty} \int_E f_n = \int_E f$$
+        \end{theorem}
+        \begin{proof}
+            Again, the \textsl{a.e.} can be ignored. Notice that $f$ is also dominated by $g$. By monotonicity of the integral,
+            $$\int_E |f| \leq \int_E g < \infty$$
+        $f$ is integrable.
+            $g-f_n$ and $g-f$ are all non-negative functions, and $(g-f_n) \to (g-f)$ pointwisely as $n \to \infty$. Thus we can apply 
+        Fatou's lemma.
+            \begin{equation*}
+                \begin{aligned}
+                    \int_E g-f &\leq \lim \inf \int_E g -f_n \\            
+                    &= \int_E g - \lim \sup \int_E f_n\\
+                    \Rightarrow \int_E g- \int_E f &\leq \int_E g - \lim \sup \int_E f_n\\
+                    \Rightarrow \int_E f &\geq \lim \sup \int_E f_n\\
+                \end{aligned}
+            \end{equation*}
+        Observing that $g+ f_n$ and $g+f$ and also non-negative, and $(g+f_n) \to (g+f)$ pointwisely as $n \to \infty$,
+        using the same trick,
+            \begin{equation*}
+                \begin{aligned}
+                    \int_E g+f &\leq \lim \inf \int_E g +f_n \\            
+                    &= \int_E g + \lim inf \int_E f_n\\
+                    \Rightarrow \int_E g+ \int_E f &\leq \int_E g + \lim \inf \int_E f_n\\
+                    \Rightarrow \int_E f &\leq \lim \inf \int_E f_n\\
+                \end{aligned}
+            \end{equation*}
+        Together the two inequality, we have 
+            $$\int_E f \leq \lim \inf \int_E f_n \leq \lim \sup \int_E f_n \leq \int_E f$$
+        Thus $\lim_{n\to \infty} f_n$ exist and 
+        $$\int_E f = \lim_{n\to \infty} f_n$$ 
+        \end{proof}
+        The dominated converge theorem has a more general version, the proof is simialr. 
+        \begin{theorem}[General dominated convergence theorem]
+            Let $\{f_n\}$ be a sequence of measurable functions on $E$, that converge pointwisely a.e. on $E$ to $f$. Suppose there is a 
+        sequence $\{g_n\}$ of non-negative functions on $E$, that converge to $g$ pointwisely a.e. on $E$. If $|f_n|<g_n$ on $E$ for all $n$,
+        and $$\lim_{n\to \infty} \int_E g_n = \int_E g < \infty$$
+        then we have 
+        $$\lim_{n \to \infty} \int_E f_n = \int_E f$$
+        \end{theorem}
+        \begin{proof}
+            Assume $\{f_n\}$ and $\{g_n\}$ converge to $f$ and $g$ on $E$. By monotonicity of limit, $g \geq |f|$, which shows $f$ is integrable
+        The sequence $\{g_n - f_n\}$ is non-negative and converge to  $g-f$. So by Fatou's lemma,
+        \begin{equation*}
+            \begin{aligned}
+                \int_E g-f &\leq \lim \inf \int_E g_n -f_n\\
+                \int_E g - \int_E f &\leq \lim \inf \int_E g_n - \lim \sup f_n \\ 
+                \int_E f &\leq \lim \sup f_n
+            \end{aligned}
+        \end{equation*}
+        On the other hand, $\{g_n + f_n\}$ is non-negative and converge to $g+f$ pointwisely on $E$. We have 
+        \begin{equation*}
+            \begin{aligned}
+                \int_E g+f &\leq \lim \inf \int_E g_n +f_n\\
+                \int_E g + \int_E f &\leq \lim \inf \int_E g_n + \lim \inf f_n \\ 
+                \int_E f &\leq \lim \inf f_n
+            \end{aligned}
+        \end{equation*}
+        So, together the two inequality, theorem is proved.
+        \end{proof}
+        Now we using the following theorem to show how to use the dominated converge theorem, while the result of the theorem is also 
+    important.
+        \begin{theorem}[Countable additivity over domian]
+            Let $f$ be a integrable function on $E$ and $\{E_n\}$ be a disjoint countable collection of measurable subsets of $E$, whose union is 
+        $E$. Then 
+        $$\int_E f = \sum_{n=1}^{\infty} \int_{E_n}f$$
+        \end{theorem}
+        \begin{proof}
+            Let $f_n = f \chi_{\cup_{i=1}^{n}E_i} = \sum_{i=1}^{n} f \chi_{E_i}$(the second equality comes from the property of 
+        characteristic functions that we have already proved). It is not hard to see that $\{f_n\}$ converge to $f$ pointwisely on $E$.
+        Notice that all the function here is dominated by the integrable function $f$, thus the Lebesgue dominated converge theorem is 
+        available:
+            \begin{equation*}
+                \begin{aligned}
+                    \int_E f &= \lim_{n \to \infty} \int_E f_n \\
+                    &= \lim_{n \to \infty} \int_E f \chi_{\cup_{i=1}^{n}E_i}\\
+                    &= \lim_{n \to \infty} \int_E \sum_{i=1}^{n} f \chi_{E_i}\\
+                    &= \lim_{n \to \infty} \sum_{i=1}^{n} \int_E f \chi_{E_i}\\
+                    &= \lim_{n \to \infty} \sum_{i=1}^{n} \int_{E_i} f\\
+                    &= \sum_{i=1}^{\infty} \int_{E_i} f
+                \end{aligned}
+            \end{equation*}
+        \end{proof}
+    
+    \section{Uniform Integrability: The Vitali Convergence theorem}
+            In this chapter, we will get into the concept of uniform integrability, and a new passage under integral sign. Here we first 
+        prove some useful lemma.
+        \begin{lemma}\label{UniformIntegrableLemma}
+            Let $E$ be a set of finite measure and $\delta > 0$, then we can write $E$ as a disjoint union of finite collection of measurable
+        set, each with measure less that $\delta$.
+        \end{lemma}
+        \begin{proof}
+            By continuity of the measure, we have 
+            $$\lim_{n \to \infty} m(E - [-n, n]) = 0$$
+        since as $n \to \infty$, $E-[-n,n] \to \varnothing$. So there exist a $N$ such that $m(E-[-N,N]) < {\delta}$. Since 
+        $E-[-N,N]$ is a bounded set, we can cover it with finite many set whose measure is less than $\delta$.
+        Thus we can cover $E$ with finite many disjoint sets, each of 
+        measure less than $\delta$.
+        \end{proof}
+        \begin{proposition}\label{EstimationOfIntOverSmallSet}
+            Given any integrable function $f$ on $E$. For an $\epsilon >0$,
+        There exists a $\delta$ such that for all measurable $E' \subset E$,
+        \begin{equation}\label{EstimationOfIntOverSmallSet1}
+            \int_{E'} |f| < \epsilon
+        \end{equation}
+        Conversely, in the case $m(E)< \infty$, if for any $\epsilon>0$,
+        there exist a $\delta$ such that \eqref{EstimationOfIntOverSmallSet1}
+        holds, then $f$ is integrable.
+        \end{proposition}
+        \begin{proof}
+            The proposition is proved by separate $f$ in to positive
+        and negative part. We first suppose $f$ is nonegative over
+        $E$. Assuming $f$ is integrable, indicating $\int_E f \leq
+        \infty$. By the definition of the integral of non-negative 
+        functions, we can find a sequence of bounded measurable Functions
+        of finite support, say $\{\varphi_n\}$, such that
+        $0 \leq \varphi_ \leq f$ and 
+        \begin{equation*}
+            \int_E f - \int \varphi_n < \frac{\epsilon}{2}
+        \end{equation*}
+            Since $f -\varphi_n>0$ on $E$, if $E'$ is measurable,
+        using the properties of integral for non-negative functions,
+        \begin{equation*}
+            \begin{aligned}
+                \int_{E'} f - \int \varphi_n &= \int_{E'} f -\varphi_n\\
+            &\leq \int_{E} f -\varphi_n\\
+            &\leq \frac{\epsilon}{2}\\
+            \end{aligned}
+        \end{equation*}
+        for $n \geq N$, where $N$ is some integer. Notice that $\varphi_N$ is
+        bounded by some $M$. Consequently, we have
+            \begin{equation*}
+                \int_{E'} f \leq \int_{E'} \varphi_N + \frac{\epsilon}{2} 
+                \leq M\cdot m(E') +\frac{\epsilon}{2}
+            \end{equation*}
+            Let $m(E')\leq \delta = \frac{\epsilon}{2M}$, we have 
+            $$\int_{E'} f \leq \epsilon$$
+            Then we prove the case when $f$ is non-negative. The case 
+        where $f$ is general integrable function follows the fact that $|f| = f^+ +f^-$
+        while $f^+$ and $f^-$ are both non-negative integrable function.\par
+            Suppose $E$ is finite, and for every $\epsilon >0$, there exists a 
+            $\delta$ such that for $m(E')< \delta$, 
+            \eqref{EstimationOfIntOverSmallSet1} is true.
+            Then by the previous lemma, $E$ can be expressed as the union of finite
+        collection of subsets $\{E_n\}$, where $m(E_n)<\delta$.
+            So letting, $\epsilon =1$
+            \begin{equation*}
+                \begin{aligned}
+                    \int_E |f| &= \int_{\cup_{n=1}^{N} E_n} |f|\\ 
+                    &= \sum_{n=1}^{N} \int_{E_n} |f| \\
+                    &< \sum_{n=1}^{N} 1 = N
+                \end{aligned}
+            \end{equation*}
+            Therefore $f$ is integrable. 
+        \end{proof}
+        \begin{definition}[Uniform integrable]
+            Let $\mathcal{F}$ be a collection of measurable functions on $E$,
+        a measurable set.
+        We say $\mathcal{F}$ is uniform integrable if and only if for all
+        $\epsilon >0$, there exists a $\delta$, such that for all $E'\subset E$, 
+        while $m(E') \leq \delta$, we have
+        \begin{equation}
+            \int_{E'} |f| < \epsilon 
+        \end{equation}
+        where $f$ is any function in $\mathcal{F}$.
+        \end{definition}
+        To get familiar with this concept, we establish the following
+        proposition.
+        \begin{proposition}
+            Let $\mathcal{F}$ be a finite collection of integrable functions over $E$.
+        Then $\mathcal{F}$ is uniformly intergrable.
+        \end{proposition}
+        \begin{proof}
+            The proof is not hard. By lemma \ref{UniformIntegrableLemma},
+        Given $\epsilon>0$, 
+        we can find a $\delta_n$ for $f_n$ such that for any $E'\subset E$,
+        which satisfy $m(E') < \delta_n$,
+        $$\int_{E'} |f_n| \leq \epsilon $$
+        Let $\delta = min(\delta_n)$, then the theorem is proved.
+        \end{proof}
+        \begin{proposition}\label{LimitFunctionOfUniformIntegrable}
+            Assume $E$ has finite measure, and $\{f_n\}$ be a collection of 
+        function which is uniformly integrable on $E$. If $f_n \to f$ 
+        pointwisely a.e. on $E$, $f$ is integrable.
+        \end{proposition}
+        \begin{proof}
+            Assuming $f_n \to f$ on $E$, by the condition of uniform integrable, 
+        $\forall \epsilon > 0$, $\exists \delta$ such that $\forall E' \subset E$,
+        whose measure is less than $\delta$, $\int_{E'} |f_n| < \epsilon$.
+            Since $m(E)$ is finite, we can find a finte disjoint collection of 
+        measurable sets $\{E_n\}$, with each $m(E)< \delta$whose 
+        union is $E$. So by the finite additivity over domain,
+        \begin{equation*}
+            \begin{aligned}
+                \int_E |f_n| &= \int_{\cup_{n=1}^{N}E_n} |f_n|\\
+                &= \sum_{n=1}^N \int_{E_n } |f_n|\\
+                &\leq N \epsilon 
+            \end{aligned}
+        \end{equation*}
+        Letting $\epsilon = 1$, then for each $n$, $|\int_E |f_n|<N$ , thus
+        by Fatou's Lemma, 
+        \begin{equation*}
+            \begin{aligned}
+                \int_E |f| &\leq \lim \inf \int_E |f_n|\\
+                &\leq N
+            \end{aligned}
+        \end{equation*}
+        we prove the proposition. 
+        \end{proof}
+            Now using the uniform integrability, we establish a new theorem of passage under integral sign.
+        \begin{theorem}[Vetali's convergence theorem]
+            Let $E$ be of finite measure, $\{f_n\}$ be a sequence of function,
+        which is uniformly integrable. If $f_n \to f$ pointwisely a.e. on 
+        $E$, 
+        $$\lim_{n \to \infty} \int_E f_n = \int_E f$$ 
+        \end{theorem}
+        \begin{proof}
+            By proposition \ref{LimitFunctionOfUniformIntegrable}, 
+        $f$ is integrable. One can easily figure out that 
+        $\mathcal{F} = \{f_n\}\cup \{f\}$ is still uniformly integrable.
+        Using the condition that $\mathcal{F}$ is uniformly integrable,
+        given $\epsilon$, $\exists \delta$ such that for $F \subset E 
+        , \ m(F)< \delta$, 
+        \begin{equation}\label{VitaliConvergenceTheorem1}
+            \int_F f_n < \frac{\epsilon}{4} , \ \ \ \int_F f < \frac{\epsilon}{4}
+        \end{equation}
+        Notice that $m(E)< \infty$ means we can use Egoroff's
+        theorem. The same $\delta >0$, we can find a closed $F \subset E$,
+        on which $|f_n|$ converge to $|f|$ uniformly, and $m(E-F) <\delta$.
+        For the smae $\epsilon$, there exists $N$, such
+        that for $n\geq N$, 
+        \begin{equation}\label{VitaliConvergenceTheorem2}
+            \int_F |f_n - f| \leq \int_F |f_n| - \int_F |f| < \frac{\epsilon}{2}
+        \end{equation}
+        Thus by \eqref{VitaliConvergenceTheorem1} and \eqref{VitaliConvergenceTheorem2},
+        \begin{equation*}
+            \begin{aligned}
+                |\inf_E f_n -\int_E f| &\leq \inf_E |f_n - f|\\
+                &= \inf_F | f_n -f| + \inf_{E-F} | f_n -f|\\
+                &< \frac{\epsilon}{2} + \inf_{E-F}|f_n| +\inf_{E-F}|f|\\
+                &< \frac{\epsilon}{2} +\frac{\epsilon}{4}+\frac{\epsilon}{4}\\
                 &= \epsilon
             \end{aligned}
         \end{equation*}
-    Thus we show that the limit sign could go though the integral sign.
-    \end{proof}
-        Uniform bounded is weaker than uniform converge, but we can prove much more strong converge theorem under the context 
-    of Lebesgue integral. To prove the stronger converge theorems, it is conveneint to establish the following lemma.
-    \begin{lemma}[Fatou's lemma]
-        Let $\{f_n\}$ be a sequence of non-negative measurable functions on $E$. If $\{f_n\}$ converge pointwisely a.e. over $E$.
-    then 
-    $$\int_E f \leq \lim \inf \int_E f_n$$
-    \end{lemma}
-    Remember that $\lim \inf $ of a sequence $\{a_n\}$ is defined as $\sup \{\inf \{a_n\}_{n=k}^{\infty} : 1\leq i < \infty \}$.
-    \begin{proof}
-        First, measure zero sets doesn't influence the integral, thus one can assume $\{f_n\}$ converge pointwise on $E$.
-    Since the integral of non-negative functions is defined as the supremum of the integral of bounded measurable function of finite 
-    support, we only need to show that for all such function $\varphi \leq f$, 
-    $$\int_E \varphi \leq \lim \inf \int_E f_n$$\par
-        Let $\varphi_n = min(\varphi, f_n)$, then $\{\varphi_n\}$ coverge to $\varphi$ pointwisely. There exist a set of finite measure 
-    $E_0$ on which $\varphi$ and $\varphi_n$ support on. So by bounded converge theorem,
-    \begin{equation*}
-        \begin{aligned}
-            \int_E \varphi = \int_{E_0} \lim_{n \to \infty} h_n = \lim_{n \to \infty} \int_{E_0} h_n
-        \end{aligned}
-    \end{equation*}
-    By the basic properties of limit and integral, and the fact that $h_n \leq f_n$we have 
-    \begin{equation*}
-        \begin{aligned}
-            \int_E \varphi &= \lim_{n \to \infty} \int_E h_n\\
-            &\leq \lim \inf \int_E f_n
-        \end{aligned}
-    \end{equation*}
-    \end{proof}
-        The prove above illustrate that if you want to prove a proposition of non-egative function, you can first prove it for bounded 
-    measurable function of finite support. Also if yoou want to prove something for measurable function, it is always helpful to prove it 
-    for simple functions. 
-    \begin{theorem}[Monotone converge theorem]
-        Let $\{f_n\}$ be a sequence of nonegative measurable functions on $E$. If $f_m \leq f_n$ for $m<n$, and $\{f_n\} \to f$ pointwisely a.e. on
-    $E$, then 
-    $$\lim_{n \to \infty} \int_E f_n(x) = \int_E f(x) $$
-    \end{theorem}
-    \begin{proof}
-        We assume $\{f_n\}$ converge to $f$ pointwisely on $E$. Since the sequence is increasing, by monotoniciy, if $m<n$, we have
-        $$\int_E f_m \leq \int_E f_n$$
-        Thus by Fatou's lemma 
-        $$\int_E f \leq \lim \inf \int_E f_n = \lim_{n\to \infty}\int_E f_n$$
-    The last equality comes from the fact that $\{\int_E f_n\}$ is a increasing sequence. It remains to show the inequality from the other
-    side. Since $\{f_n\}$ converge to $f$ increasingly,$f> f_n$ for all $n$. Thus by the monotonicity of the integration,
-        $$\int_E f_n \leq \int_E f$$
-        $$\Rightarrow \lim_{n \to \infty} \int_E f_n \leq \int_E f$$
-    \end{proof}
-    Notice that the existence of the limit of the integration of the sequence of function is guaranteened because the general limit exist 
-    for monotonic sequences.
-    \begin{corollary}
-        Let $\{f_n\}$ be non-negative measurable function on $E$. If $f = \sum_{n=1}^{\infty} f_n$ converge pointwisely a.e. on $E$,
-        $$\int_E f = \sum_{n=1}^{\infty} \int_E f_n$$
-    \end{corollary}
-    \begin{proof}
-        Notice that the partial sum is coverge increasingly(since $f_n$ are non-negative), so we can apply the monotone converge theorem.
-    Let $F_k = \sum_{n=1}^{k} \int_E f_n$.
+        Let $\epsilon \to 0$, we prove the theorem.
+        \end{proof}
+        \begin{theorem}[General Vetali's converge theorem]
+            
+        \end{theorem}
+        
+\chapter{Differentiation and Integration}
+    In Riemann integral , we have proved a very powerful theorem, \textbf{the fundamental theorem of calculus}. This theorem, in calculus
+textbook, is only apply to differentiable functions, Which is a very small collection of functions, comparing with continuous functions
+(let alone measurable functions). In this chapter, we will focus on the question that under what condition, or to say with what kinds of 
+functions, does 
+$$\int_a^b f = f(b) - f(a)$$
+hold. It turns out that monotonic functions has very good properties(better than continuous function), including it is differentiable a.e. over
+close bounded, and we have FTC with monotonic function. Further more, there is a large kinds of function can be express as the difference 
+of monotonic functions(which we say they are \textbf{absolute continuous}). And FTC does hold for them.
+    \section{Monotonic functions and Lebesgue's Theorem }
+        Remember, a function is differentiable at $x_0$ indicated that it is continuous at $x_0$. We first show that monotonic functions
+    are continuous a.e. on interior of their domain.
+        \begin{theorem}[Monotonic functions are almost continuous function]\label{MonotonicFunctionIsContinuous}
+            Let $f$ be a monotonic function on a open interval $(a,b)$. Then the discontinuity of $f$ is countable. 
+        \end{theorem}
+        \begin{proof}
+            Suppose $f$ is increasing(decreasing functions can be proved in the exact same way), and $(a,b)$ is bounded.
+        Let $D$ be the subset of points at which $f$ is discontinuous. $\forall x_0 \in D$, since the function is monotonic, 
+        $f(a)\leq f(x_0) \leq f(b)$. There exist a $(c,d) \subset (a,b)$ such that $c\neq d$ 
         \begin{equation*}
             \begin{aligned}
-                \int_E f &= \lim_{n \to \infty} \int_E F_k\\
-                &= \lim_{n \to \infty} \int_E \sum_{n=1}^{k} \int_E f_n\\
-                &= \sum_{n=1}^{\infty} \int_E f_n
+                \lim_{x \to x_0^-} f(x) = c\\
+                \lim_{x \to x_0^+} f(x) = d\\
             \end{aligned}
         \end{equation*}
-    \end{proof}
-    \begin{lemma}[Beppo Levi's Lemma]
-        Let $\{f_n\}$ be a sequence of non-negative measurable function on $E$. If $\{\int_E f_n\}$ is bounded, then $\{f_n\}$ converge 
-    pointwisely to a $f$ on $E$, which is finite a.e on $E$, and 
-    $$\lim{n \to \infty} \int_E f_n = \int_E f < \infty$$ 
-    \end{lemma}
-    \begin{proof}
-        Since every monotone sequence of real number converge to a extended real number, so for every $x\in E$, we can define 
-        $$f(x) = \lim_{n\to \infty} f_n (x)$$
-    Then it is obvious that $\{f_n\}$ converge to $f$ pointwisely, and increasingly. Thus we can use monotone converge theorem, which shows
-        $$\lim_{n\to \infty} \int_E f_n = \int_E f$$
-        Since $\{\int_E f_n\}$ is bounded, $\int_E f$ is a finite value. So $f$ is integralbe, which indicated $f$ is finite a.e. on $E$
-        (proposition \ref{IntegralbeFiniteAE}).
-    \end{proof}
-    \begin{theorem}[Legesgue dominated converge theorem]
-        Let $\{f_n\}$ be a sequence of measurable functions on $E$, which converge pointwisely a.e. to $f$ on $E$. If $f_n$ is dominated 
-    by a integrable function $g$, in the sense of $|f_n|\leq g$, then
-        $$\lim_{n \to \infty} \int_E f_n = \int_E f$$
-    \end{theorem}
-    \begin{proof}
-        Again, the \textsl{a.e.} can be ignored. Notice that $f$ is also dominated by $g$. By monotonicity of the integral,
-        $$\int_E |f| \leq \int_E g < \infty$$
-    $f$ is integralbe.
-        $g-f_n$ and $g-f$ are all non-negative functions, and $(g-f_n) \to (g-f)$ pointwisely as $n \to \infty$. Thus we can apply 
-    Fatou's lemma.
+        We can see for all $x> x_0$, $f(x) \geq d$; for all $x < x_0$, $f(x) \leq c$. So for any two $x_1, x_2 \in D$, 
+        the corresponding $(c_1, d_1), (c_2, d_2)$ are disjoint.
+        By the density of rationals in real number, for each $x_0 \in D$, we can find a $q \in (c,d)$. Thus there is bijection from
+        $D$ to a subset of $\QQ$, which shows that $D$ is countable. 
+            For a interval $I$ which is not bounded, we can divide it into countable union of bounded intervals $\bigcup_{n=1}^{infty} I_n$. 
+        By the previous argument, on each $I_n$, $f$ has countable discontinuities $D_n$. The discontinuities of $f$ on $I$ will be a
+        subset of $$(\bigcup_{n=i}^{\infty} U_n)\cup (\bigcup_{n=1}^{\infty} {a_n, b_n})$$
+        where $I_n = (a_n, b_n)$. So the proposition still holds for the case of un-bounded open interval.
+        \end{proof}
+        \begin{proposition}
+            Let $D$ be a countable subset on a open interval $(a,b)$. Then there is an increasing function $f$ which is continuous only
+        at $(a,b) - D$.
+        \end{proposition}
+        \begin{proof}
+            Let ${d_n}$ be a enumeration of $D$. We defined $f:(a,b)\to \RR$ by 
+            $$f(x) = \sum_{\{n: q_n \leq x\}} \frac{1}{2^n}$$ 
+        Since the positive series $\sum_{n=1}^{\infty}\frac{1}{2^n}$ is converge, so $f(x)$ is well define for all points in $(a,b)$ and 
+        f is increasing. Let $x'=q_k$, then for all $x <x'$ 
+        $$f(x') - f(x) = \frac{1}{2^k}$$
+        Thus $f$ is discontinuous on $D$.\par
+            Let $x' \in (a,b) - D$, For all natural number $n$, there eixst a interval $I_n$ such that $x' \in I_n \subset (a,b)$, but
+        $q_i \notin I_n$ for $i \leq n$. So for $x \in I_n$, $f(x) - f(x') \leq \frac{1}{2^n}$. Let $n \to \infty$, we conclude that $f$ 
+        is continuous at $x$.
+        \end{proof}
+        With the notion of continuity of generalized real valued functions, We can prove a stronger version of the theorem \ref{MonotonicFunctionIsContinuous}.
+        \begin{theorem}
+            Given any subset $E$ of $R$, if $f:E \to \RR$ is a monotonic function, then $f$ has only countable many discontinuities.
+        \end{theorem}
+        \begin{proof}
+            Since any function is continuous on isolated point, so we can assume $E$ has no isolated point. We can always find a open 
+        interval $(\inf E+1, \sup E+1) \supset E$(with $\infty +1 = \infty$, this interval is well defined). Consider the extension of 
+        $f$ on $(a, b)$ determined by the following condition:
+        \begin{enumerate}
+            \item For $x \in (\inf E +1, \inf E]$, let $f(x) = f(\inf E)$; 
+            \item For $x \in [\sup E, \sup E +1)$, let $f(x) = f(\sup E)$; 
+            \item For $x \in(\inf E, \sup E) - E$, let $f(x') = \sup_{x \in E; x<x'} f(x)$. 
+        \end{enumerate}
+            We denote the extension as $f'$. By construction, the ristirction of $f'$ on $E$ is $f$.  \par
+            Since the monotonic function on interval has only countable many discontinuities, and every discontinuity of a ristriction of 
+        a function is a discontinuity of the original function, there exist a injection from the discontinuities of $f$ to that of $f'$.
+        The above consideration indicated that, to prove the proposition, we only need to show $f'$ is monotonic.\par
+            If
+            \begin{enumerate} 
+                \item  $x' \in (\inf E +1, \inf E]$, and $x<x'$, $f'(x)= \inf f(x) \leq \inf f(x) =f'(x')$; 
+                \item  $x' \in [\sup E, \sup E +1)$, and $x<x'$, $f'(x') = \sup f(x) \geq f'(x)$; 
+                \item  $x' \in(\inf E, \sup E) - E$, and $x<x'$, 
+                \begin{enumerate}
+                    \item if $x\in E$, $f'(x') = \sup_{x \in E; x<x'} f(x) \geq f(x) = f'(x)$;
+                    \item if $x \notin E$, $f'(x') = \sup_{y \in E ;y<x'} f(y) \geq \sup_{y \in E ;y<x} f(y) = f'(x)$. 
+                \end{enumerate}
+                \item  $x' \in E$, and $x<x'$, 
+                \begin{enumerate}
+                    \item if $x \leq \inf E$, $f'(x) \leq f'(x')$ is trivial.
+                    \item if $x \in E$, then $f'(x) = f(x) \leq f(x') = f'(x')$.
+                    \item if $x \in (\inf E, \sup E) - E$, $f'(x') = f(x') \geq \sup_{y \in E; y<x} f = f'(x)$
+                \end{enumerate}
+            \end{enumerate}
+            Then the proposition is proved.
+        \end{proof}
+
+        \begin{definition}[Vitali cover]
+            A collection $\mathcal{F}$ of closed, bounded, non-degenerate intervals is said to be cover a set $E$ in the sense of Vitali
+        if for each point $x \in E$, and $\epsilon > 0$, there is an interval $I$ in $\mathcal{F}$ that contains $x$ such that 
+        $l(I) < \epsilon$.
+        \end{definition}
+        This concept and the following lemma is needed for the proof of Lebesgue theorem. 
+        \begin{lemma}[Vitali cover lemma]
+            Let $E$ be a set of finite outer measure and $\mathcal(F)$ a collection of closed bounded which is a Vitali cover of $E$.
+        Then for each $\epsilon > 0$, there is a finite disjoint sub-collection $\{I_n\}_{n=1}^N$ such that 
+        $$m*(E - \cup_{n=1}^{N} I_n) \leq \epsilon$$
+        \end{lemma}
+        \begin{proof}
+            Since $E$ has a finite outer measure, so there exist a open set $O \supset E$ such that $m*(E) > m*(O) -\epsilon$. We can legally
+        ask every element of the Vitali cover of $E$, namely $F \in \mathcal{F}$, to be subset of $O$. Then by the countable additivity and monotonicity 
+        of the measure, we have
+        $$\sum_{n=1}^{\infty} l(I_n) \leq m*(O) < +\infty$$
+        where $\{I_n\}$ is any disjoint sub-collection. \par
+            Since each $I_n$ is closed and for every $x \in E$, we can find a small enough interval cover $x$, take any finite 
+        sub-collection $\{I_n\}_{i=1}^{N}$, we have  
+        $$E - \bigcup_{i=1}^{N} I_n \subset \bigcup_{I \in \mathcal{F}_n} I$$
+        where 
+        \begin{equation}\label{FnInVitaliLemma}
+            \mathcal{F}_n = {I \in \mathcal{F}: I \cap \bigcup_{i=1}^{N} I_n = \varnothing}.
+        \end{equation}\par
+            \begin{remark}
+                The relation above holds is because the finite set which we have take out from $E$ is a close set, thus $O - \bigcup_{i=1}^{N}$ 
+        is open in $\RR$, which means any point is an interior point. 
+            \end{remark}
+            Suppose there is a $\{I_n\}_{n=1}^{N} \subset \mathcal{F}$, such that $\bigcup_{i=1}^{N} I_n \supset E$,
+        then we are done. Suppose for every ${I_n}_{n=1}^{N} \subset \mathcal{F}$, $ \bigcup_{i=1}^{N} I_n$ doesn't covers $E$. We inductively
+        construct the collection of disjoint close interval $\{I_k\}_{k=1}^{\infty}$ which has the following property:
+        \begin{equation}\label{SubcollectionInVitaliLemma}
+            E- \cup_{k=1}^{n} I_k \subset \bigcup_{k=n+1}^{\infty} 5*I_k
+        \end{equation}
+        for $n$ is any natural number, where $5*I_k$ is the interval which has the same mid-point as $I_k$ while $l(5*I_k) = 5l(I_k)$.\par
+            Now we begin the selection. Let $I_1$ be any interval in $\mathcal{F}$. Suppose for $k <n$, $I_k$ has already been choosen. 
+        Since $E- \bigcup_{k=1}^{n-1} I_k$ is not empty, the collection $\mathcal{F}_{n-1}$ defined as \eqref{FnInVitaliLemma} is not empty.
+        We define $s_n = \sup_{I \in \mathcal{F}_n} l(I)$. Choose $I_n$ to be a element in $\mathcal{F}_{n-1}$, such that $l(I)> \frac{s_{n-1}}{2}$.\par
+            By the selection above, clearly $\{I_k\}_{k=1}^{\infty}$ is disjoint. It remains to show the property \eqref{SubcollectionInVitaliLemma}.
+        We infer from the fact so that $\sum_{k=1}^{\infty} l(I_k)$ is finite that $\lim_{k \to \infty}l(I_k) = 0$.
+        Given $n>0$, $\forall x \in E- \cup_{k=1}^{n} I_k$, $x \in \bigcup_{I \in \mathcal{F}_n} I$. Which means $x \in I \in \mathcal{F}_n$
+        for some $I$. Then $I$ intersect with some $I_K$ because if not, $l(I_k) > \frac{I}{2}$ for all $I$, which contradict with the 
+        fact that $l(I_k) \to 0$. Then it is clear that $x \in 5*I_K$,
+        since $l(I) \leq  s_K \leq 2 l(I_K)$, and the fact that $I_K \cap I \neq \varnothing$. \par
+            Thus 
+            $$E- \cup_{k=1}^{n} \subset \bigcup_{k=n+1}^{\infty} 5*I_k$$
+            is varified. Given any $\epsilon>0$, let $N$ be the number such that 
+            $$\sum_{N+1}^{\infty} l(I_k) <\frac{\epsilon}{5}$$
+            Together with \eqref{SubcollectionInVitaliLemma} and the monotonicity, additivity of the measure, we prove the lemma.
+        \end{proof}
+        \begin{definition}[Dini derivative]
+            Let $f$ be a real valued function on $E$, and $x \in E$ is a interior point. We define the upper and lower derivative as 
+        the following:
         \begin{equation*}
             \begin{aligned}
-                \int_E g-f &\leq \lim \inf \int_E g -f_n \\            
-                &= \int_E g - \lim \sup \int_E f_n\\
-                \Rightarrow \int_E g- \int_E f &\leq \int_E g - \lim \sup \int_E f_n\\
-                \Rightarrow \int_E f &\geq \lim \sup \int_E f_n\\
+                \overline{D}f(x) &= \lim_{h \to 0} \left[ \sup_{0<|t|\leq h} \frac{f(x+t)-f(x)}{t}\right]\\
+                \underline{D}f(x) &= \lim_{h \to 0} \left[ \inf_{0<|t|\leq h} \frac{f(x+t)-f(x)}{t}\right]\\
             \end{aligned}
         \end{equation*}
-    Observing that $g+ f_n$ and $g+f$ and also non-negative, and $(g+f_n) \to (g+f)$ pointwisely as $n \to \infty$,
-    using the same trick,
+        We have $\overline{D}f(x) \geq \underline{D}f(x)$. If the upper derivative and the lower derivative are equal, we say $f$ is 
+        \textbf{differentiable} at $x$, and denote the common value as $f'(x)$. 
+        \end{definition}
+        One can easily check that the definition of differentiable above is compatible with the one that is familiar to us. It provides a  
+    method to distinguish the differentiable points from the non-differentiable points. You will see how does it work in the proof of the
+    following lemma and Lebesgue theorem.\par 
+        Recall The Mean Value Theorem in calculus, given a continuous function on close bounded interval $[c,d]$, which is differentiable
+    on $(a,b)$, we can conclude if $f'> c$ on $(a,b)$, $$c(b-a) \leq f(b) - f(a)$$
+        The following lemma is a generalization of the upper inequality for monotonic functions. It gives an estimation of the area 
+    of the upper derivative is bigger than a certain number, which is needed in the proof of Lebesgue theorem. 
+        \begin{lemma}
+            Let $f$ be an increasing function on the closed bounded interval $[a,b]$. Then for each $c>0$, 
+            $$m^*\{x \in (a,b) : \overline{D}f(x) \geq c\} \leq \frac{1}{c} [f(b) -f(a)]$$
+            and 
+            \begin{equation}\label{LemmaUpperDerivativeMeasureEstimationInfty}
+                m^*\{x \in (a,b): \overline{D}f(x) = \infty \} = 0                
+            \end{equation}
+        \end{lemma}
+        \begin{proof}
+            Let $c>0$, denote $E_c = \{x \in (a,b) : \overline{D} f(x) \geq c\}$. Choose $c' \in (0,c)$. Let $\mathcal{F}$ be the collection of 
+        closed bounded intervals $[d,e] \subset (a,b)$, for which 
+        \begin{equation}\label{InequalityOfUpperDerivativeEstimation}
+            c'(e-d) \leq f(e)-f(d)
+        \end{equation}
+            Now we prove that $\mathcal{F}$ is a Vitali cover of $E_c$. Since $$c' < c \leq \overline{D}f =\lim_{h \to 0} \left[ \sup_{0<|t|\leq h} \frac{f(x+t)-f(x)}{t}\right] $$ 
+        on $E_c$, for all $x \in E_c$
+            \begin{equation*}
+                \begin{aligned}
+                    \lim_{h \to 0} \left[ \sup_{0<|t|\leq h} \frac{f(x+t)-f(x)}{t}\right] &> c'\\
+                    \exists h', \ s.t. \ \forall h \leq h', \ \ \sup_{0<|t|\leq h} \frac{f(x+t)-f(x)}{t} &> c'\\
+                    \exists h', \ s.t. \ \forall h \leq h', \ \exists |t'| < h, \ \ \frac{f(x+t')-f(x)}{t'} &> c'\\
+                    \exists h', \ s.t. \ \forall h \leq h', \ \exists |t'| < h, \ \  f(x+t')-f(x) &> c'(x+t' - x)\\
+                \end{aligned}
+            \end{equation*}
+            So $[x, x+t]$ is in $\mathcal{F}$, which indicated $E_c \in \mathcal{F}$; since $h$ can be arbritarly small, so $\mathcal{F}$
+        is a Vitali cover of $E$. By Vitali cover lemma, we can find a finite disjoint sub-collection of closed bounded intervals, say 
+        $\{I_k\}_{k=1}^{n}=\{(d_k, e_k)\}_{k=1}^{n}$,
+        such that, $$ m^*(E_c - \bigcup_{k=1}^{n}I_k) < \epsilon$$\par
+            Since $E_c =( E_c - \bigcup_{k=1}^{n}I_k )\cup \bigcup_{k=1}^{n}I_k$, by the sub-additivity of the outer measure, 
+        additivity of the measure, and \eqref{InequalityOfUpperDerivativeEstimation} we have 
+            \begin{equation*}
+                \begin{aligned}
+                    m*(E_c) &\leq m^*(E_c-\bigcup_{k=1}^{n}I_k) + m(\bigcup_{k=1}^{n}I_k)\\
+                    &\leq \epsilon + \sum_{k=1}^{n}l(I_k)\\
+                    &= \sum_{k=1}^{n} (e_k - d_k) + \epsilon\\
+                    &= \frac{1}{c'}\sum_{k=1}^{n} (f(e_k) - f(d_k)) + \epsilon
+                \end{aligned}
+            \end{equation*} 
+            Notice that $[d_k, e_k] \subset (a,b)$ and they are disjoint, 
+            \begin{equation*}
+                \begin{aligned}
+                    m^*(E_c) \leq \frac{1}{c'}(b-a) + \epsilon 
+                \end{aligned}
+            \end{equation*} 
+            Let $\epsilon \to 0$ and $c' \to c$, we arrive at the desire conclusion. \par
+            Notice that, for each natural number $n$, we have $E_n \leq \frac{1}{n} [f(b) -f(a)]$. Let $n \to \infty $,
+        we have \eqref{LemmaUpperDerivativeMeasureEstimationInfty} proved.
+        \end{proof}
+        Now we are prepared to proof Lebesgue's theorem.
+        \begin{theorem}[Lebesgue's theorem]
+            If $f$ is monotone on $(a, b)$, then it is differentiable a.e. on $(a,b)$. 
+        \end{theorem}
+        \begin{proof}
+            Assume $f$ is increasing, and $(a,b)$ is bounded. If $f$ is not differentiable at $x$, then $\overline{D}f(x) > \underline{D}f$.
+        So $x$ will be in $$E_{\alpha, \beta} =\{x \in (a,b): \overline{D}f(x) > \alpha > \beta >\underline{D}f\}$$ 
+        where $\alpha, \beta$ are rationals. We only need to show that for every such $\alpha, \beta$, $m^(E_{\alpha, \beta}) = 0$. 
+        This is because countable union of measure zeor set is still measure zero.
+            Given a fixed $E=E_{\alpha, \beta}$. Let $\epsilon> 0$, let $O$ be a open set for which
+            \begin{equation}\label{LebesgueTheoremBoundedOpenSet}
+                E \subset O \subset (a, b) \mbox{ and } m(O) \leq m^*(E) + \epsilon
+            \end{equation}
+            Let $\mathcal{F}$ be the collection of intervals $[c,d]$ such that
+            $$ f(d) - f(c) < \beta(d-c)$$  
+            Since $\forall x \in E$ we have $\underline{D}f(x)< \beta$, $\mathcal{F}$ is a Vitali cover of $E$. The Vitali Covering Lemma
+        tells us $\forall \epsilon >0$, $\exists \{[c_k,d_k]\}_{k=1}^n$ a sub-collection, such that 
+            \begin{equation}\label{LebesgueTheoremEstimation1}
+                E- \bigcup_{k=1}^n [c_k, d_k] < \epsilon 
+            \end{equation}  
+            Futher more, we can ask $[c_k,d_k] \in O$, so by the monotonicity of outer measure,
+            \begin{equation}
+                \sum_{k=1}^{n} f(d_k) - f(c_k) < \beta \sum_{k=1}^{n} (d_k -c_k) \leq \beta m(O) \leq \beta [m^*(E) +\epsilon]
+            \end{equation} 
+            Consider the ristriction of $f$ on $[c_k,d_k]$, by the previous lemma, we have 
+            $$m^*(E \cap [c_k, d_k]) \leq \frac{1}{\alpha}[f(d_k)-f(c_k)]$$
+            Thus
+            \begin{equation*}
+                \begin{aligned}
+                    m^*(E) &\leq \sum_{k=1}^{n}m^*(E\cap(c_k,d_k))+\epsilon \\
+                    &\leq \sum_{k=1}^n \frac{1}{\alpha}[f(d_k)-f(c_k)] +\epsilon\\
+                    &\leq \frac{1}{\alpha}[\beta m^*(E) +\epsilon] +\epsilon\\
+                    &\leq \frac{\beta}{\alpha} m^*(E) +\frac{\epsilon}{\alpha} +\epsilon    
+                \end{aligned}
+            \end{equation*}
+            Let $\epsilon \to 0$, then 
+            $$m*(E) = \frac{\beta}{\alpha} m*(E)$$
+            From the fact that $\frac{\beta}{\alpha}<1$, $m^*(E)=0$. Then we prove the case of $[a,b]$ is bounded. If it is not bounded, write 
+        it as the countable union of bounded intervals. Since the countable union of measure zero set is still measure zero set, 
+        the theorem still holds for the unbounded intervals.
+
+        \end{proof}
+        Remember our goal in this chapter is to figure out under what condition, the Fundamental Theorem of Calculus holds. Now we know 
+    that a monotonic function $f$ is differentiable a.e. on closed intervals $[a,b]$, so we can find a function $g$, which equals the
+    $f'$ on the point that $f'$ is well defined. Since measure zero set doesn't influence the value of integral, 
+    $$\int_a^b g = \int_a^b f' = f(b) +f(a)$$
+    the upper equation might be true.\par
+        To illustrate this idea in more clear, and rigorous way, \textbf{divided difference function, average value function} are introduced:
         \begin{equation*}
             \begin{aligned}
-                \int_E g+f &\leq \lim \inf \int_E g +f_n \\            
-                &= \int_E g + \lim inf \int_E f_n\\
-                \Rightarrow \int_E g+ \int_E f &\leq \int_E g + \lim \inf \int_E f_n\\
-                \Rightarrow \int_E f &\leq \lim \inf \int_E f_n\\
+                \mbox{Diff}_h f(x) = \frac{f(x+h) - f(x)}{h}\\
+                \mbox{Av}_h f(x) = \frac{1}{h} \int_{x}^{x+h} f
             \end{aligned}
         \end{equation*}
-    Together the two inequality, we have 
-        $$\int_E f \leq \lim \inf \int_E f_n \leq \lim \sup \int_E f_n \leq \int_E f$$
-    Thus $\lim_{n\to \infty} f_n$ exist and 
-    $$\int_E f = \lim_{n\to \infty} f_n$$ 
-    \end{proof}
-    \begin{theorem}[General dominated converge theorem]
-
-    \end{theorem}
-    \begin{definition}[Uniform integral]
+        where $0 <h\leq 1$ is a fixed number, and $f$ is integrable function defined on a closed bounded interval $[a,b]$, which is extended
+    to $[a,b+1]$ by letting $f(x) = f(b)$ for $x \in (b,b+1]$.\par
+        \begin{remark}
+            By a change of variables, we have the following relation: for $a<u<v<b$, 
+            \begin{equation*}
+                \begin{aligned}
+                    \int_u^v \mbox{Diff}_h f(x) &= \frac{1}{h}\int_u^v f(x+h) - \frac{1}{h}\int_u^v f(x)\\
+                    &= \frac{1}{h}\int_{u+h}^{v+h} f(x) - \frac{1}{h}\int_u^v f(x)\\
+                    &= \frac{1}{h}\int_{v}^{v+h} f(x) - \frac{1}{h}\int_{u}^{u+h} f(x)+ \frac{1}{h}\int_{u}^{v} f(x) - \frac{1}{h}\int_u^v f(x)\\
+                    &= \frac{1}{h}\int_{v}^{v+h} f(x) - \frac{1}{h}\int_{u}^{u+h} f(x)\\
+                    &= \mbox{Av}_h f(v) - \mbox{Av}_h f(u)
+                \end{aligned}
+            \end{equation*}
+        \end{remark}
         
-    \end{definition}
-
-    \begin{theorem}[Vetali's converge theorem]
+        \begin{corollary}\label{IncreasingFunctionFTCLikeInequality}
+            Let $f$ be an increasing function on the closed bounded interval $[a,b]$. Then $f'$ is integrable over $[a,b]$ and 
+        \begin{equation}
+            \int_{a}^{b} f' \leq f(b) - f(a)
+        \end{equation}
+        \end{corollary}
+        \begin{proof}
+            With extending $f$ to $[a,b+1]$ by letting $f=f(b)$ on $(b,b+1)$, $f$ is a increasing function on $[a,b+1]$. By Lebesgue's
+        theorem, $f$ is differentiable a.e. on $[a, b+1]$. Since $f$ is measurable(monotonic functions are measurablel), $\mbox{Diff}_h f(x)$
+        is measurable. The sequence of function $\mbox{Diff}_{\frac{1}{n}}f$ is non-negative and converges to $f'$ pointwisely a.e. on $[a,b]$
+        According Fatou's Lemma, we have 
+        \begin{equation}\label{LebesgueCorolaryEstimation1} 
+            \int_a^b f' \leq \lim \inf \int_a^b \mbox{Diff}_{\frac{1}{n}}f    
+        \end{equation}
         
-    \end{theorem}
-
-    \begin{theorem}[General Vetali's converge theorem]
+        By the equality in the above remark,
+        \begin{equation*}
+            \begin{aligned}
+                \int_a^b \mbox{Diff}_{\frac{1}{n}}f &= \left[n \int_b^{b+\frac{1}{n}} f - n \int_a^{a+\frac{1}{n}} f \right]\\
+                &=\lim \left[n \int_b^{b+\frac{1}{n}} f - n \int_a^{a+\frac{1}{n}} f \right]\\
+                &\leq  f(b) - f(a)  
+            \end{aligned}
+        \end{equation*}
+        Thus 
+        \begin{equation}\label{LebesgueCorolaryEstimation2}
+            \lim \sup \int_a^b \mbox{Diff}_{\frac{1}{n}}f \leq f(b) -f(a)
+        \end{equation}
+        Together \eqref{LebesgueCorolaryEstimation1} and \eqref{LebesgueCorolaryEstimation2}, we have the corollary proved.
+        \end{proof}
+    \section{Bounded Variation Functions}
+        Since the monotonic functions are differentiable a.e., the difference of two monotonic funcitons is still differentiable a.e..
+    It turned out that the class of function which can be represent as the difference of two monotonic function is suprisingling large.
+    In this section, we first define what is bounded variation function, then prove the collection of bounded variation functions is 
+    the collection of the functions which can be express as the difference of monotonic functions.
+        \begin{definition}[Variation, total variation and bounded variation function]
+            Given $f:[a,b] \to \RR$, and a partition of $[a,b]$, $P= {a = x_1, x_2, \dots, x_n=b}$, we define the \textbf{variation} of $f$ on $[a,b]$ respect
+        to $P$ as 
+            \begin{equation}
+                V(f,P) = \sum_{k=1}^{n-1} |f(x_{k+1}) - f(x_k)|
+            \end{equation}
+            And define the \textbf{total variation} of $f$ on $[a,b]$ as 
+            \begin{equation}
+                TV(f) = \sup {V(f,P) : P \mbox{ is a partition of } [a,b]}
+            \end{equation}
+            If $TV(f)$ is finite , we say that $f$ is a \textbf{bounded variation function}.
+        \end{definition}
+        \begin{example}
+            Let $f$ be a monotonic function on $[a,b]$, than it is of bounded variation on $[a,b]$. One can easily varify that for any 
+        partition $P$,
+            $$V(f,P) = \sum_{k=1}^{n-1} |f(x_{k+1}) - f(x_k)| = |f(b)-f(a)|$$ 
+        \end{example}
+        \begin{example}
+            Let $f$ be Lipschitz on $[a,b]$, which means exists a $\lambda$ such that $\lambda (d-c) \geq |f(d) - f(c)|$ for any 
+        $a\leq c \leq d \leq d$. Then $f$ is of 
+        bounded variation on $[a,b]$. This is because given any partition $P$,
+            \begin{equation*}
+                \begin{aligned}
+                    T(f,P) &= \sum_{k=1}^{n-1} |f(x_{k+1}) - f(x_k)| \\  
+                    &\leq \sum_{k=1}^{n-1} \lambda (x_{k+1}-x_{k})\\
+                    &\leq \lambda (b-a)
+                \end{aligned}
+            \end{equation*}
+            Thus $TV(f) \leq \lambda (b-a)$
+        \end{example}
         
-    \end{theorem}
+        \begin{theorem}[Jordan's Theorem]
+            Let $f:[a,b] \to \RR$ be a function, where $[a,b]$ is bounded. $f$ is of the bounded variation on $[a,b]$ if and only if $$f = h - g$$ where $h$ and $g$
+        are increasing function.
+        \end{theorem} 
+        \begin{lemma}
+            Every function of bounded variation on a closed bounded interval $[a,b]$, can be express as the difference of two increasing
+        funcitons. 
+        \end{lemma}
+            This lemma is simply 'the half' of Jordan's Theorem. We prove it by construct two increasing functions whose difference 
+        is $f$ from the property of total variation.
+        \begin{proof}
+            Observing that given a partition $P$, and any number $c \in (a,b)- P$, 
+            \begin{equation*}
+                \begin{aligned}
+                    T(f,P \cup {c})- T(f,P) = |c - x_i|+|x_{i+1}-c|-|x_i-X_{i+1}| \geq 0
+                \end{aligned}
+            \end{equation*}
+            By the mathematic induction, we can conclude that for any refinement of $P$, say $P'$,
+            $$V(f.P)\leq V(f,P')$$
+            Thus 
+            $$TV(f|_{[a,b]}) = TV(f|_{[a,c]})+TV(f|_{[c,b]})$$
+            From the properties above, we can legally defined what we call the \textbf{total variation function }for $f$:
+            \begin{equation}
+                TV_f : x \mapsto TV(f|[a,x])
+            \end{equation}
+            We can see $TV_f$ is monotonic. We show that $f+TV_f$ is also monotonic. Given $x ,x' \in [a,b]$, and $x>x'$, then 
+            \begin{equation*}
+                \begin{aligned}
+                    f(x) +TV_f(x) - [f(x')+TV_f(x')] &= TV_f(x) - TV_f(x')  + f(x) - f(x')\\
+                    &= TV(f|_{[a,x]}) - TV(f|_{[a,x']}) + [f(x) - f(x')]\\
+                    &= TV(f|_{[x',x]}) +[f(x) - f(x')]
+                \end{aligned}
+            \end{equation*}
+            Notice $P={x,x'}$ is the roughest partition of the interval $[x,x']$, so by the fact that $TV$ is the supremum, $f(x) +TV_f(x) - [f(x')+TV_f(x')]$
+            above is bigger than zero. Thus $f+TV_f$ is also monotonic. Since  
+            $$f = (f +TV_f) - TV_f$$
+            Thus we find two increasing function whose difference is $f$.
+        \end{proof}
+        \begin{proof}\textbf{(Proof of Jordan's Theorem)}
+            By the above lemma, we prove the one direction of the theorem. \par
+            Suppose $f = h - g $, where $h, g$ are increasing functions on $[a,b]$. We need to show that $f$ is of bounded variation.
+        For any partition $P= \{a=x_0, x_1, \dots, x_n = b\}$ of $[a,b]$, 
+        \begin{equation*}
+            \begin{aligned}
+                V(f, P) &=\sum_{k=1}^{n} |f(x_i) -f(x_{i-1})|\\
+                &= \sum_{k=1}^{n} |h(x_i) - g(x_i) -h(x_{i-1})+g(x_{i-1})|\\
+                &\leq \sum_{k=1}^{n} |h(x_i) -h(x_{i-1})|+|g(x_{i-1})- g(x_i)|\\ 
+                &\leq \sum_{k=1}^{n} |h(x_i) -h(x_{i-1})|+\sum_{k=1}^{n}|g(x_{i-1})- g(x_i)|\\
+                &= V(h,P) +V(g, P) = h(a)-h(b) +g(a) -g(b)
+            \end{aligned}
+        \end{equation*}
+        By the property of supremum, 
+        $$TV(f) \leq TV(h) + TV(g) < +\infty$$
+        \end{proof}
+    \section{Absolute Continuous Functions}
+        \begin{definition}[Absolute continuous functions]
+            Let $f:[a,b] \to \RR$ be a function defined on a close bounded interval. We say $f$ is of \textbf{absolutely converge} on $[a,b]$ if and only 
+        if $\forall \epsilon > 0$, there exist a $\delta$, such that for any finite disjoint collection $\{[c_k,d_k]\}_{k=1}^n$(where 
+        $[c_k, d_k] \subset (a,b)$), which satisfy 
+        \begin{equation*}
+            \sum_{k=1}^n d_k -c_k < \delta
+        \end{equation*}
+        we have 
+        \begin{equation*}
+            \sum_{k=1}^n |f(d_k) -f(c_k)| < \epsilon
+        \end{equation*}
+        \end{definition}
+        \begin{proposition}[Absolute continuous is stronger than continuous]
+            Suppose $f:E \to \RR$ is absolutely continuous on 
+            $E$. Then $f$ is continuous.
+        \end{proposition}
+        \begin{proof}
+            $\forall \epsilon > 0$, we can find a $\delta$ such that
+        if $d -c < \delta$, $|f(d) -f(c)| < \epsilon$. Above statement
+        is the case when we take only one small interval, which is 
+        obviously equivalent to the definition of continuous. 
+        \end{proof}
+            Now we give some example of this type of functions.
+            \begin{proposition}[Lipschitz functions are absolute continuous]
+                Let $f:[a,b] \to \RR$ be a Lipschitz function. Then it is of absolute continuous functions.
+            \end{proposition}
+            \begin{proof}
+                Since $f$ is Lipschitz, so for all $a \leq c \leq d \leq b$, there exists $\lambda$ such that
+                $$f(d) - f(c) \leq \lambda (d-c)$$
+                Let $\epsilon> 0$, and collection of finite disjoint closed sub-intervals $\{[c_k,d_k]\}_{k=1}^n$ such that 
+            $$\sum_{k=1}^n d_k -c_k < \frac{\epsilon}{\lambda}$$ 
+                Then
+                \begin{equation*}
+                    \begin{aligned}
+                        \sum_{k=1}^n f(d_k) -f(c_k) &\leq \sum_{k=1}^n \lambda (d_k - c_k)\\
+                        &= \lambda \sum_{k=1}^n  (d_k - c_k)\\
+                        &< \lambda \cdot \frac{\epsilon}{\lambda} = \epsilon
+                    \end{aligned}
+                \end{equation*}
+                So the proposition is proved. 
+            \end{proof}
+            \begin{lemma}[Linear combination]
+                Let $f$ and $g$ be two absolute continuous functions on $[a,b]$, and $\alpha, \beta \in \RR$, then  
+            $\alpha f + \beta g$ is still a absolute continuous function.
+            \end{lemma}
+            \begin{proof}
+                We first prove the scaler multiple part. Given $\epsilon> 0$, we have $\delta,$ such that for all collection of sub-intervals $P$, 
+            of $[a,b]$ which satisfy
+            $$\sum_{k=1}^n d_k -c_k < \delta \\$$
+            we have 
+            $$\sum_{k=1}^n |f(d_k) -f(c_k)| <\frac{\epsilon}{|\alpha|} \\$$
+            It is not hard to see 
+            $$\sum_{k=1}^n |\alpha f(d_k) - \alpha f(c_k)| = |\alpha| \sum_{k=1}^n |f(d_k) -f(c_k)| \leq \epsilon \\$$
+                Now we prove the additivity. Given $\epsilon> 0$, we have $\delta, \delta_1, \delta_2$ such that for all collection of sub-intervals $P$, $P'$ of $[a,b]$ which satisfy
+            $$\sum_{k=1}^n d_k -c_k <\delta_1 \ \ \ \sum_{k=1}^n d'_k -c'_k <\delta_2$$
+            we have 
+            \begin{equation*}
+                \begin{aligned} 
+                    \sum_{k=1}^n |f(d_k) -f(c_k)| <\frac{\epsilon}{2} \\ 
+                    \sum_{k=1}^n |g(d'_k) -(g'_k)| <\frac{\epsilon}{2}    \\
+                \end{aligned}
+            \end{equation*}
+            Let $\delta = min{\delta_1, \delta_2}$, and $Q = \{[c''_k, d''_k]\}$ be the collection of sub-intervals such that 
+            $$\sum_{k=1}^n d_k -c_k < \delta$$
+            \begin{equation*}
+                \begin{aligned}
+                    \sum_{k=1}^n |f(d_k) + g(d_k) -f(c_k) -g(c_k)| &\leq  \sum_{k=1}^n |f(d_k) -f(c_k)| + \sum_{k=1}^n |g(d'_k) -(g'_k)|\\
+                    \leq \epsilon
+                \end{aligned}
+            \end{equation*}
+            Thus we finish this lemma.
+            \end{proof}
+            \begin{lemma}
+                Suppose $f$ is of absolutely converge, then $TV_f$ is also a absolutely converge.
+            \end{lemma}
+            \begin{proof}
+                Since $f$ is of absolutely converge, $\forall \epsilon>0, \ \exists \delta$ such that for any  
+            $\{[c_k, d_k]\}$, a finite collection of closed sub-intervals with the following property:
+                $$\sum_{k=1}^n d_k -c_k < \delta$$
+                we have
+                $$\sum_{k=1}^n |f(d_k) -f(c_k)| < \frac{\epsilon}{2}$$
+                Let $P_k$ be a partition of $[c_k, d_k]$, then we know 
+                $$\sum_{k=1}^n |V(f|_{[c_k,d_k]},P_k)| < \frac{\epsilon}{2}$$
+                This is because of we are only taking more points in the small intervals which is already in the collection.
+            The upper equation can be apply to any partition, so the following is true,
+                \begin{equation*}
+                    \begin{aligned}
+                        \epsilon &> \frac{\epsilon}{2}\\
+                        &\geq \sum_{k=1}^n |TV_{f|_{[c_k,d_k]}}|\\
+                        &=\sum_{k=1}^n |TV_{f|_{[a,d_k]}} -TV_{f|_{[a,c_k]}}|\\
+                        &=\sum_{k=1}^n |TV_f(d_k) -TV_f(c_k)|
+                    \end{aligned}
+                \end{equation*}
+                Thus we prove the lemma.
+            \end{proof}
+        \begin{theorem}[Absolute continuous means bounded variation]
+            If $f:[a,b] \to \RR$ is absolutely continuous on a closed bounded $[a,b]$, then $f$ is of bounded variation on $[a,b]$. More over,
+        we can find $f= g-h$ where $g$ and $h$ are increasing bounded variation functions on $[a,b]$.
+        \end{theorem}
+        \begin{proof}
+            We first prove that $f$ is of bounded variation on $[a,b]$. Since $f$ is absolutely continuous, given $\epsilon>0$, we can find a $\delta>0$,
+        such that for all $\{c_k,d_k\}_[k=1]^n$ which satisfy $\sum_{k=1}^n (d_k -c_k) < \delta$  
+        \begin{equation}
+            \sum_{k=1}^n |f(d_k) - f(c_k)| \leq \epsilon
+        \end{equation}
+            Take a partition $P = \{x_1, \dots x_n\}$ of $[a,b]$, such that $x_i - x_{i-1} \leq \delta$. Since the variation has a sense 
+        of monotonicity respect to the partition, it is surffice to consider such $P$ above. 
+            Due to the additivity of the total variance, we have 
+            \begin{equation}\label{AbusolutContinuousBoundedVariation1}
+                TV_f = \sum_{i=1}^{n-1} TV_{f|_{[x_i,x_i+1]}}
+            \end{equation}
+            Notice that since $x_{i+1} - x_i \leq \delta$, so no matter what partition $P'$ is taken, by the condition of absolute continuous,
+        we have 
+            $$ T(f,P') \leq \epsilon$$
+            Let $\epsilon =1$, together with \eqref{AbusolutContinuousBoundedVariation1}, we have 
+            \begin{equation*}
+                \begin{aligned}
+                    TV_f &\= \sum_{i=1}^{n-1} TV_{f|_{[x_i,x_i+1]}} \\
+                    &\leq N    
+                \end{aligned}
+            \end{equation*}
+            So we proved that $f$ is of the bounded variation. Now we need find two increasing absolutely continuous on $[a,b]$. By the 
+        above lemma $TV_f$ and $f-TV_f$ is absolute converge, so we prove the theorem.
+
+        \end{proof}
+
+
+        \begin{theorem}[Absolute continuous and uniform integrable]\label{AbsoluteContinuousUniformIntegrable}
+            Let $f:[a,b] \to \RR$ be a continuous function defined on a closed bounded interval. $f$ is of absolutely continuous if and only if 
+        the collection of function $$\{\mbox{Diff}_hf\}_{0<h\leq 1}$$ is uniform integrable.
+        \end{theorem}
+        \begin{proof}
+            Suppose $f$ is continuous and  
+        $\{\mbox{Diff}_hf\}_{0<h\leq 1}$ is uniformly integrable
+        on $E$. Let $\epsilon >0$, we have a $\delta$ such that 
+        for $E \subset [a,b]$, given any $0<h\leq 1$,
+            $$\int_E |\mbox{Diff}_h f| < \frac{\epsilon}{2}$$
+            Let $\{[c_k, d_k]\}$ be finite collection of sub-intervals
+        which has the total lenth less than $\delta$.
+            Remember the following equation holds
+            $$\int_{c_k}^{d_k} |\mbox{Diff}_h f| \leq |\int_{c_k}^{d_k} \mbox{Diff}_h f| = |Av_h (d_k)-Av_h (c_k)|$$
+            Since $f$ is continuous, 
+            $$\lim_{h \to \infty} |Av_h (d_k)-Av_h (c_k)| =|f(d_k) -f(c_k)|$$
+            Then 
+            $$\sum_{k=1}^{\infty} f(d_k)- f(c_k) \leq \frac{\epsilon }{2} <\epsilon$$
+            Now we prove the converse.
+            Suppose $f$ is absolutely continuous on $E$. 
+            By the previous theorem, one can always write a absolutely,
+            continuous function as the difference of two increasing function.
+            Since by triangle inequality, the difference of two set of uniformly
+            integrable functions $\{f_1 -f_2\}$, is uniformly integrable. So,
+            we only need to prove the case of $f$ an increasing. \par
+            Let $\epsilon> 0$, $\exists \delta$ such that for finite 
+        collection of sub-interval $\{[c_k,d_k]\}$,
+        $$\sum_{k=1}^{n} d_k-c_k < \delta \Rightarrow \sum_{k=1}^{n} f(d_k)-f(c_k) < \epsilon$$ 
+        Notice that to prove the uniform integrability, one need 
+        deal with all measurable subset, but in the condition of 
+        absolute continuity, only interval is provided. So we need to 
+        use some measure theory with link the general measurable set to 
+        finite many intevals.\par 
+            Given any measurable set $E$, we can find a $G_{\delta}$ set 
+        such that their difference is a measure zero. For this $G_{\delta}$ set ,
+        $$G_{\delta} = \bigcap_{n=1}^{\infty} O_n = \bigcap_{n=1}^{\infty} \bigcup_{m=1}^{\infty} I_{nm} $$
+        where $O_n$ is descending. By continuity
+        of the measure 
+        $$\lim_{n\to infty} O_n = G_{\delta} , \ 
+        \lim_{M\to \infty} \bigcup_{m=1}^M I_{nm} = O_n \ \Rightarrow 
+        \lim_{n\to \infty} \bigcup_{m=1}^n I_{nm} = G_{\delta} < \infty$$
+        Thus the only thing need to show is $\forall \epsilon > 0$, $\exists \delta$
+        such that for all finite collection of open intervals
+        $\{(c_k, d_k)\}$,
+        \begin{equation}
+            \sum_{k=1}^n d_k - c_k < \delta \Rightarrow 
+            \int_E f < \epsilon
+        \end{equation}
+        where $E = \cup_{k=1}^n (c_k,d_k)$.
+        Choose $\delta >0$ as the response to the $\frac{\epsilon}{2}$
+        challenge regarding the criterion for the absolute continuity
+        of $f$ on $[a, b+1]$. Let $g(t) = f(v+t) -f(u+t)$ for 
+        $t \in [0,1]$ $u<v, \ u,v\in [a,b]$
+        \begin{equation*}
+            \begin{aligned}
+                \int_u^v \mbox{Diff}_h f &= \mbox{Av}_hf(v) - \mbox{Av}_hf(u)\\
+            &= \frac{1}{h}[ \int_v^{v+h} f  -\int_u^{u+h} f]\\
+            &= \frac{1}{h}[ \int_0^{h} f(v+t)  -\int_0^{h} f(u+t)]\\
+            &=\frac{1}{h} \int_0^{h} g
+            \end{aligned}
+        \end{equation*}
+        Since $$\sum_{k=1}^n d_k- c_k <\delta \Rightarrow 
+        \sum_{k=1}^n d_k+t - c_k +t<\delta
+        \Rightarrow g < frac{\epsilon}{2}$$
+        Thus 
+        $$\int_E \mbox{Diff}_h f = \frac{1}{h} \int_0^{h} g < \epsilon $$
+        The theorem is proved.
+        \end{proof}
+    \section{Integrating derivative and Differentiating Indefinite Integral}
+        Now we have enough tools to link the derivative and the integral 
+    together in the context of Lebesgue integral. We have the 
+    discrete formulation of the fundamental theorem of caculus:
+        For a continuous $f$ on the closed bounded inteval $[a,b]$,
+    $$\int_a^b \mbox{Diff}_hf = \mbox(Av)_hf(b) - \mbox(Av)_hf(a)$$
+        Since $f$ is continuous the right hand side of the equation 
+    converge to $f(b)-f(a)$ as $n \to \infty$.
+        Now we prove that if $f$ is absolutely continuous, the
+    left hand side of the integral converge to $\int_a^b f'$, therefore
+    establish the fundamental theorem of integral calculus for Lebesgue
+    integral.
+        \begin{theorem}\label{LebesgueFNCIntegration}
+            Let the function $f$ be a absolute continuous function
+        on the closed bounded interval $[a,b]$. $f'$ is defined 
+        a.e. on $[a,b]$. $f'$ is integrable over $[a,b]$, and\
+        \begin{equation}\label{FTCIntegralLebesgue}
+            \int_a^b f' = f(b)-f(a)
+        \end{equation}
+        \end{theorem}
+        \begin{proof}
+            From the discrete formulation of the FTC which
+        mentioned above, 
+        \begin{equation*}
+            \lim_{n \to infty} \int_a^b \mbox{Diff}_h f = f(b)- f(a)
+        \end{equation*} 
+            Since absolute continuous functions are difference of 
+        monotonic functions, $f'$ is well defined a.e. on $[a,b]$.
+        By theorem \ref{AbsoluteContinuousUniformIntegrable}, 
+        $\{\mbox{Diff}_h f\}$ is uniformly integrable. We take a 
+        sequence of functions $\{\mbox{Diff}_{\frac{1}{n}} f\}_{n=1}^{\infty}$,
+        which converge to $f'$ a.e. on $[a,b]$. By proposition \ref{LimitFunctionOfUniformIntegrable},
+        $f'$ is integrable on $[a,b]$. By Vitali Convergence Theorem
+        (we are integrating over a bounded $[a,b]$),
+        \begin{equation*}
+            \begin{aligned}
+                \lim_{n \to \infty} \int_a^b \mbox{Diff}_{\frac{1}{n}} f
+                &= \int_a^b f' \\
+                \Rightarrow \int_a^b f' &= f(b) -f(a)\\ 
+            \end{aligned}
+        \end{equation*}
+        Thus the theorem is proved.
+        \end{proof}
+            Another half of the fundamental theorem is 
+        $$\frac{d }{d x} \int_a^x f = f(x)$$
+            To show this, we first need to define what is indefinite 
+        integral in the Lebesgue context, and prove some properties of it.
+            \begin{definition}[Indefinite integral]
+                Let $f$ be a function defined on a closed bounded intervals.
+            We say $f$ is a indefinite integral if there is a 
+            $g$ which is integrable over $[a,b]$ and 
+            $$f(x) = f(a) + \int_a^x g$$
+            for all $x \in [a,b]$
+            \end{definition}
+            \begin{theorem}\label{AbsoluteContinuousAndIndefiniteIntegral}
+                A function $f$ on a closed bounded $[a,b]$ is absolutely
+            continouos if and only if $f$ is a indefinite integral on $[a,b]$
+            \end{theorem}
+            \begin{proof}
+                If $f$ is a asbsolute continuous function, then by theorem
+            \ref{LebesgueFNCIntegration}, $f'$ is defined a.e on $[a,b]$,
+            and is integrable, and 
+            $$\int_a^b f' = f(b) - f(a)$$
+                Since the restriction of $f$ and $f'$ on $[a,x]$
+            still has the properties above,
+            $$f = f(a) +\int_a^x f'$$
+                On the other hand, suppose $f$ is an indefinite integral,
+            which means $f(x) = f(a) + \int_a^x g$, for some integrable
+            $g$.
+                \begin{equation*}
+                    \begin{aligned}
+                        |f(d_k) - f(c_k)| &= |f(a) + \int_a^{d_k}g -f(a) - \int_a^{c_k} g|\\
+                        &=| \int_{c_k}^{d_k} g|
+                    \end{aligned}
+                \end{equation*}
+                By \ref{EstimationOfIntOverSmallSet}, we proved
+            that $f$ is a function of absolute continuous.
+            \end{proof}
+            \begin{corollary}
+                Let $f$ be a monotone function on a closed bounded $[a,b]$.
+            Then $f$ is absolutely continuous if and only if 
+            $$\int_a^b f' = f(b) -f(a)$$
+            \end{corollary}
+            \begin{proof}
+                Suppose $f$ is absolute continuous, then by theorem 
+            \ref{LebesgueFNCIntegration}, we are done.\par
+                Suppose $f$ is monotone and 
+                $$\int_a^b f' = f(b) -f(a)$$
+                \begin{equation*}
+                    \begin{aligned}
+                        0 &= \int_a^b f' f(b) - f(a)\\
+                        &= \int_a^x f' -[f(x) -f(a)] + \int_x^b f' -[f(b)-f(x)]\\
+                    \end{aligned}
+                \end{equation*}
+                By corollary \ref{IncreasingFunctionFTCLikeInequality},
+            $\int_a^x f' -[f(x) -f(a)] \leq 0$ and $\int_x^b f' -[f(b) -f(x)] \leq 0$.
+            Two non-positive number's sum is zero, then they are all zero.
+                So 
+                $$\int_a^x f' = f(x) -f(a)$$
+                is true for all $x \in [a,b]$. Thus we have 
+                $$f(x) = f(a) +f(x) -f(a)= f(a) \int_a^x f' $$
+                By the theorem \ref{AbsoluteContinuousAndIndefiniteIntegral},
+            $f$ is absolutely contionuous on $[a,b]$.  
+            \end{proof}
+            
+            \begin{lemma}
+                Let $f$ be integrable over the closed, bounded interval $[a,b]$. 
+            $$f(x) = 0 \mbox{ for almost all } x \in [a,b]$$
+            if and only if 
+            $$\int_{x_1}^{x_2} f = 0 \mbox{ for all }(x_1,x_2) \subset [a,b]$$
+            \end{lemma}
+            \begin{proof}
+                $"\Rightarrow"$ part of the prove is trivial. \par 
+                Suppose $\int_{x_1}^{x_2} f = 0 \mbox{ for all }(x_1,x_2) \subset [a,b]$.
+            We claim that  
+            \begin{equation}\label{FTCDifferentiationLemma1}
+                \int_E f = 0 \mbox{ for all }E \subset [a,b]
+            \end{equation}
+            is true for every measurable subset. We are actually using the 
+            same argument in the proof of the 
+            theorem \ref{AbsoluteContinuousUniformIntegrable}. Using 
+            the continuity of the measure, one can finally show that for every
+            $G_{\delta}$ set, the above equation is true. Since for any 
+            measurable set we can find a $G_{\delta}$ such that their 
+            difference is a set of measure zero, which doesn't influence 
+            the integral. So \eqref{FTCDifferentiationLemma1} is true for 
+            any measurable subset of $[a,b]$.\par
+                Let $E^+ = \{x\in [a,b]: f(x) \geq 0\}$ and 
+            $E^- = \{x \in [a,b]:f(x)\leq 0\}$, which are both 
+            measurable. Thus we have the following two integrals of 
+            non-negative functions to be zero:
+            $$\int_{E^+} f = 0 = \int_{E^-} -f$$
+                The integral of non-negative function is zero 
+            if and only if the function equals $0$ a.e.. Thus 
+            $f= 0$ a.e. on $E^+$ and $-f = 0$ a.e. on $E^-$, which 
+            proves the lemma.
+            \end{proof}
+            \begin{theorem}
+                Let $f$ be integrable over the closed bounded 
+            interval $[a,b]$. Then
+            \begin{equation}\label{FTCDifferentiation}
+                \frac{d}{dx} \left[\int_a^x f\right] = f(x)
+            \end{equation}
+            for almost all $x \in (a,b)$ .
+            \end{theorem}
+            \begin{proof}
+                We defined $F(x) = \int_a^x f$ for $x\in [a,b]$.
+            Since $F$ is a indefinite integral, it is absolutely
+            continuous on $[a,b]$ and $f' = \frac{d}{dx} F $ exist a.e. on $[a,b]$.
+            To prove \eqref{FTCDifferentiation}, we only need to show 
+            $f = f'$ a.e. on $[a,b]$. Using the lemma above, 
+            it is surffice to show that 
+            $$\int_c^d f -f' = 0$$
+            for all $[c,d] \subset [a,b]$. Now take any sub inteval $[c,d]$,
+            by the properties of the integration, and the theorem \ref{LebesgueFNCIntegration}
+            \begin{equation*}
+                \begin{aligned}
+                    \int_c^d f -f' &= \int_c^d f -\int_c^df'\\
+                    &=\int_c^d f - [F(d) -F(c)]\\
+                    &=\int_c^d f - [\int_a^d f -\int_a^c f ]\\
+                    &= 0 
+                \end{aligned}
+            \end{equation*}
+            The theorem is proved.
+            \end{proof}
+            \begin{definition}[Singular]
+                Let $f$ be a function of bounded variation on a closed bounded
+            inteval. We say $f$ is singular if and only if it's derivative vanishes
+            a.e. on $[a,b]$.
+            \end{definition}
+            \begin{theorem}[Lebesgue decomposition]
+                Let $f$ be a function of bounded variation on a 
+            close bounded $[a,b]$. Then $f = g +h$ where $g$ is absolutely
+            continuous and $h$ is singular.
+            \end{theorem}
+            \begin{proof}
+                Since $f$ is of bounded variation, $f'$ is defined 
+            a.e. on $[a,b]$ and integrable(by Jordan's theorem and corollary \ref{IncreasingFunctionFTCLikeInequality}). 
+                We define $g = \int_a^x f'$, and $h = f -\int_a^x f'$.
+                $f=g+h$ is obvious. $g$ is a indefinite integral, so is 
+            absolutely continuous; from the theorem above, $h$ is singular.
+            \end{proof}
+\chapter{Lp Space: Completeness and Approximation}
+    In this chapter, we will study some of the Lebesgue integrable function,
+in a very different perspective. Instead of considering them as 
+isolated functions, we study the space where they lie in.
+You will see later how does the $L^p$ space defined, which
+is a normed linear spcace 
+Remember that 
+we have promised that comparing to Riemann integral, Lebesgue integral has many virtue.
+Our goal in this chapter is to prove a very pleasing virtue that 
+$L^p$ spcaces are complete, or namely, they are what we called 
+Banach space.
+    \section{Normed Linear Space of Functions}
+        A lineary space(or is called vector space)
+    is a set of object that has a linear structure on it, which
+    means we can do addition and scalar multiplication(usualy scalars are borrowed 
+    from a field) on it. Just like the vector spaces we have 
+    studied in the course of linear algebra, the set of measurable function, or continuous 
+    function are all linear spaces. 
+ 
+    Let's first have a quick review of what is a norm.
+        \begin{definition}[Norm]
+            Let $X$ be a linear space. We say the function $\lVert \cdot\rVert$, 
+        which maps the elements $X \times X$ to a real number, is a norm if the 
+        followings is satisfied:
+            \begin{enumerate}
+                \item (Non-negativity)
+                $$\lVert f \rVert \geq 0 \mbox{ and } \lVert f \rVert = 0 \Leftrightarrow f = 0$$
+                \item (Positive homogenety)
+                $$\lVert af \rVert = |a|\lVert f\rVert$$
+                \item (The triangle inequality)
+                $$\lVert f+g\rVert \leq \lVert f\rVert+\lVert g\rVert$$
+            \end{enumerate}
+            Particularly, if $X$ is a space of functions, for $f \in X$ whose norm
+        equals to 1, we call $f$ a \textbf{unite function}. $\frac{f}{\lVert f \rVert}$
+        is always a unite function, we call this function the normalization of $f$.
+        \end{definition}
+        A norm could act as a distance function in a metric space.
+    The norm we are going to defined on the $L^p$ space is the following:
+    $$\left(\int_E |f|^p\right)^{\frac{1}{p}}$$
+    To normalize the space, we need to show the three properties above
+    is satisfied. We first consider the nomarlization of the $L^1$ space.
+        \begin{definition}[$L^1$ space(not formal definition!)]
+            Let $L^1(E) = \{f:E \to \RR^*: f \mbox{ is integrable over }E \}$.
+        The norm we hope to define on $L^1$ is 
+        $$\left(\int_E |f|\right)$$
+        \end{definition} 
+        The first problem is not only the norm(though now it isn't a norm) of the zero function\
+    is zero. For every $f$, such that $f= 0$ a.e on $E$, 
+    $$\left(\int_E |f|\right) = 0$$
+        Our solution here is not to defined $L^1$ as the space on 
+    integrable functions, but on the equivalence classes of 
+    integrable functions. For which equivalence relation we should
+    take here is rather obvious.
+        \begin{definition}
+            Let $\mathcal{L}(E)$ be the collection of integrable 
+        functions defined on $E$. In this section, let $f\sim g$ 
+        to denote the relation for $f, g \in \mathcal{L}(E)$ such that $f= g + h$
+        where $h=0$ a.e. on $E$.
+        \end{definition}
+        \begin{proposition}[The $\sim$ is a equivalence relation]
+            Using the notation in the upper definition, let 
+        $f, f' ,f'' \in \mathcal{L}(E)$, such that $f\sim f'$,
+        $f'\sim f''$. we have 
+            \begin{enumerate}
+                \item $f \sim f $
+                \item $f' \sim f$
+                \item $f \sim f''$
+            \end{enumerate}
+        \end{proposition}
+        \begin{proof}
+            1. $f = f +0 \Rightarrow f \sim f$\par
+            2. $f \sim f' \Rightarrow f = f' +h \Rightarrow f' = f-h 
+            \Rightarrow f' \sim f$\par
+            3. $f sim f' \mbox{ and } f' sim f'' \Rightarrow 
+            f = f' +h \mbox{ and } f'= f'' +h' \Rightarrow f = f'' +( h-h')
+            \Rightarrow f \sim f''$\par
+        \end{proof}
+        We use $\mathcal{L}(E)/ \sim$ denote the collection of
+    the equivalence classes of the integrable functions which 
+    determined by the upper equivalence 
+    relation. The fact that our original addition and scalat multiplication
+    for integrable function is also well defined for this 
+    equivalence classes. The verification(whether the operation is 
+    regardless of the choice of representatives) is left to the reader.
+        Now we given the formal definition of the $L^1$ space,
+    and prove that $\left(\int_E |f|\right)$ is a norm.
+        \begin{definition}[$L^1$ space]
+            Let $L^1(E) = \mathcal{L}(E)/ \sim$ be the set 
+        of equivalence classes. With the original addition and 
+        scalar multiplication of integrable functions, $L^1$ is 
+        a linear space.     
+        \end{definition}
+        We will use $f$ instead of the usual notation for 
+    equivalence classes, $\bar{f}$, to denote the element in 
+    $L^1$(also $L^p$). Since it is more concise and 
+    won't cause any ambiguity in our discussion. In fact, 
+    in the most of time, we can just treat them as functions.
+        \begin{proposition}[$L^1$ is a normed linear space]
+            $\left(\int_E |f|\right)$ is a norm of $L^1$.
+        So $L^1$ is a normed linear space.
+        \end{proposition}
+        \begin{proof}
+            First of all, since measure zero set doesn't influence 
+        the integral, so $\left(\int_E |f|\right)$ is well defined 
+        for the equivalence classes. Let $f, g \in L^1$ and $a \in \RR$.\par
+            $\left(\int_E |f|\right)$
+        is a integral for non-negative functions, so 
+        $$\left(\int_E |f|\right) \geq 0$$.
+        By proposition \ref{Non-negative function and measure zero set}, 
+        $\left(\int_E |f|\right) = 0$ if and only if $f = 0$ a.e. on E.\par
+            By the linearity of integration,  
+            $$\left(\int_E |af|\right) = \left(\int_E |a||f|\right) = |a|\left(\int_E |f|\right)$$
+            Thus we have homogenety.\par
+            By the triangle inequality of real number,
+            $$\left(\int_E |f+g|\right) \leq 
+            \left(\int_E |f|+|g|\right) = \left(\int_E |f|\right)
+            +\left(\int_E |g|\right)$$
+            We have all the properties proved, so $L^1$ is a normed 
+        linear space under $\left(\int_E |f|\right)$
+        \end{proof}
+        We use the notation $\lVert \cdot\rVert_p$ to denote the $L^p$ norm,
+        $$\left[\int_E |f|^p\right]^{\frac{1}{p}}$$
+    Before discussing $L^p$ space, let we first have a look at $L^{\infty}$.
+        \begin{definition}[Essentially bounded]
+            Given $f \in \mathcal{L}(E)$, we say $f$ is \textbf{essentially bounded}
+        if there exist a $M\geq 0$ such that 
+        $$ |f(x)| \leq M \mbox{ for almost all } x\in E$$
+        an we say $M$ is a \textbf{essential upper bound} of $f$.
+        \end{definition}
+        \begin{definition}[$L^[\infty]$ space]
+            Let $L^{\infty}(E)$ be the set of equivalence classes of all 
+        essentially bounded functions. 
+        \end{definition}
+        \begin{proposition}[$L^{\infty}$ is a norm vector space]
+            For functions in $L^{\infty}$, we define 
+            \begin{equation}\label{NormOfLInftySpace}
+                \lVert f \rVert_{\infty} := \inf \{M : M \mbox{ is a essential upper bound of f } \}
+            \end{equation}
+            With $\lVert f \rVert_{\infty}$, $L^{\infty}$ is a normed linear space.
+        \end{proposition}
+        The prove is left to the readers. \par While for $L^p$ spaces with $p \in \NN^+$,
+    the triangle inequality below ,
+    $$\lVert f + g \rVert_p \leq \lVert f \rVert_p +\lVert g \rVert_p
+    \Leftrightarrow \left[\int_E |f +g|^p \right]^{\frac{1}{p}} \leq 
+    \left[\int_E |g|^p \right]^{\frac{1}{p}}+\left[\int_E |g|^p \right]^{\frac{1}{p}}$$
+    which is is call Mincowski inequality, is not that easy to prove 
+    $$$$
+    \section{Important Inequalities}
+        To prove Mincowski inequality, we need Holder's inequality; to prove 
+    Holder's inequality, we need Young's inequality. 
+        \begin{definition}[Conjugate numbers]
+            Given any $p> 1$, we define it's conjugate number $q = \frac{p}{p-1}$.
+        So we have $$\frac{1}{p} + \frac{1}{q} = 1$$. $1$, and $\infty$ are defined 
+        to be each other's conjugate.
+        \end{definition}
+        \begin{proposition}[Young's inequality]
+            For $p \in (1, \infty)$, with $q$ begin $p$'s conjugate, given any non-negative 
+        $a,b$,
+        $$ab \leq \frac{a^p}{p} +\frac{b^q}{q}$$
+        \end{proposition}
+        \begin{proof}
+            If one of $a ,  \ b$ is zero, then the inequality is trivial.
+        Suppose $a, \ b$ is positive. We define functions
+        $g := \frac{1}{p}x^p + \frac{1}{q}-x$ for $x > 0$. Since $g' = x-1$,
+        the derivative is increasing on $(1 , +\infty)$,
+        decreasing on $(0 1)$, and the fact that $g(1) = 0$,
+        we know that $g$ is nonegative on $[0, \infty)$.
+            Thus 
+            \begin{equation*}
+                \begin{aligned}
+                    x \leq \frac{1}{p}x^p + \frac{1}{q} 
+                \end{aligned}
+            \end{equation*}
+            Letting $x = \frac{a}{b^{q-1}}$
+            \begin{equation*}
+                \begin{aligned}
+                    \frac{a}{b^{q-1}} &\leq \frac{a^p}{pb^{p(q-1)}} + \frac{1}{q}\\
+                    \Rightarrow \frac{a}{b^{q-1}}b^q &\leq \frac{a^p}{pb^q}b^q + \frac{b^q}{q}\\
+                    \Rightarrow ab &\leq \frac{a^p}{p} + \frac{b^q}{q}\\
+                \end{aligned}
+            \end{equation*}
+        \end{proof}
+        \begin{theorem}[Holder's inequality]
+            Let $E$ be a measurable set, $1\leq p < \infty$, and let 
+        $q$ be the conjugate of $p$. If $f \in L^p(E)$ and $g \in L^q(E)$,
+        Then $f\cdot g$ is integrable, and we have the following inequality:
+        \begin{equation}\label{HolderInequality}
+            \int_E |f \cdot g| \leq \lVert f \rVert_p \lVert g \rVert_q 
+        \end{equation}        
+        \end{theorem}
+        \begin{proof}
+            First consider the case that $p=1$. Then is $g$ essentially
+        bounded. By the monotonicity of the integral,
+        $$\int_E |f \cdot g| \leq \int_E |f|\lVert g \rVert_{\infty}
+        = \lVert f \rVert_1 \lVert g \rVert_{\infty}$$\par
+            Suppose $1<p<\infty$. If one of $f$ and $g$ is zero function,
+        then we have nothing to prove. If $f$ and $g$ is not zero,
+        the Holder's inequality is equivalence to 
+        $$\int_E \frac{f}{\lVert f \rVert_p } \frac{g}{\lVert g \rVert_q } = 1$$
+        Namely, we only need to show the Holder's inequality for 
+        every $f$ and $g$ in $L^p(E)$ and $L^q(E)$, whose norm equals 
+        $1$.\par
+            By Young's inequality, 
+            \begin{equation*}
+                \begin{aligned}
+                \int_E |f \cdot g| &\leq \frac{1}{p} \int_E f^p  
+                + \frac{1}{q} \int_E g^q\\
+                &= \frac{1}{p} +\frac{1}{q} =1
+                \end{aligned}
+            \end{equation*}
+            Thus we proved the Holder's inequality.
+        \end{proof}
+        Now we establish one more lemma to reach the Mincowski 
+    inequality. 
+        \begin{lemma}[Conjugate functions]
+            Let $f \neq 0$ in $L^p(E)$, $f^* = \lVert f \rVert_p^{1-p} \cdot sgn(f) \cdot |f|^{p-1}$.
+        Then $f^*$ is in $L^q(E)$, and 
+        \begin{equation}\label{fStarMincowski}
+            \int_E f \cdot f^* = \lVert f \rVert_p \mbox{ and } \lVert f^* \rVert_q =1
+        \end{equation}
+        We call $f^*$ the conjugate function of $f$.
+        \end{lemma}
+        \begin{proof}
+            For $p = 1$, $f^*= sgn(f)$. Obviously $f^*$ is in $L^{\infty}$,
+        and $\lVert f\rVert_{|infty} = 1$. In this case, \eqref{fStarMincowski}
+        is  trivial. \par
+            For $p > 1 $,
+            $$\int_E |f^*|^q = \int_E \lVert f \rVert_p^{q(1-p)}
+            |f|^{q(p-1)} = \lVert f \rVert_p^{-p} \int_E |f|^p$$
+            Since $f$ is in $L^p$, $f^*$ is in $L^q$. From the 
+        upper equality,
+        \begin{equation*}
+            \begin{aligned}
+                \lVert f^* \rVert_q^q &= \lVert f \rVert_p^{-p} \int_E |f|^p\\\
+            &= 1\\
+            \Rightarrow \lVert f^* \rVert_q = 1\\    
+            \end{aligned}
+        \end{equation*}
+            \par
+            \begin{equation*}
+                \begin{aligned}
+                    \int_E f \cdot f^* &= \lVert f \rVert_p^{1-p} 
+                    \int_E |f|^{p}\\
+                    &=  \frac{\lVert f \rVert_p^{p}}{\lVert f \rVert_p^{p-1}}\\
+                    &= \lVert f \rVert_p
+                \end{aligned}
+            \end{equation*}
+        \end{proof}
+        \begin{theorem}[Mincowski inequality]
+            Let $1\leq p\leq \infty$, $f, \ g$ be functions in $L^p(E)$. Then $f+g$ is in $L^p(E)$ and
+            \begin{equation}\label{MincowskiInequality}
+                \lVert f + g\rVert_p \leq \lVert f \rVert_p +\lVert g \rVert_p
+            \end{equation}
+        \end{theorem}
+        \begin{proof}
+            Since we have already proved this inequality for $p= 1 ,\infty$,
+        now we only consider the case of $p \in (1, \infty)$.
+        Consider the conjugate function of $(f+g)$, $(f+g)^*$.
+        By the Holder's inequality and \eqref{fStarMincowski},
+        \begin{equation*}
+            \begin{aligned}
+                \lVert f+g \rVert_p &= \int_E (f+g)(f+g)^*\\
+                &=\int_E f(f+g)^* +\int_E g(f+g)^*\\
+                &\leq \lVert f \rVert_p \lVert( f +g )^*\rVert_q +
+                \lVert g \rVert_p \lVert( f +g )^*\rVert_q\\
+                &=  \lVert f \rVert_p  + \lVert g\rVert_p
+            \end{aligned}
+        \end{equation*}
+        So the inequality is proved.
+        \end{proof}
+        Notice that the Cauchy-Schwarz inequality is the special case 
+    of Mincowski inequality, when $p=2$. With the upper theorem, one can conclude that $L^p$ 
+    spaces are normed vector space with the norm $\lVert f \rVert_p$.
+        \begin{theorem}
+            $L^p(E)$ space is a normed linear space with the norm
+        $$\lVert f \rVert_p = \left| \int_E |f|^p \right|^{\frac{1}{p}}$$
+        \end{theorem}
+        \begin{proof}
+            We have already showed that $L^p(E)$ is a linear space. So 
+        it is suffcient to show that $\lVert f\rVert_p$ is a norm on $L^p(E)$.
+        Non-negativity is obvious, and only zero function is mapped to $0$
+        is provided by \ref{Non-negative function and measure zero set}.
+            Positive homogenety is indicated by the linearity of the 
+        integration. Finally, Mincowski inequality proves the triangle inequality.
+        \end{proof}
+        \begin{corollary}[$L^p$ norm and uniform integration]
+            Let $E$ be a  measurable set and $1<p< \infty$. Suppose
+        $\mathcal{F}$ is a family of function for which there exists a 
+        $M$ such that 
+        $$\lVert f\rVert_p \leq M$$
+        for all $f \in \mathcal{F}$, then $mathcal{F}$ is uniformly integrable
+        over $E$.
+        \end{corollary}
+        \begin{proof}
+            Let $A$ be any finite measure subset of $E$, and $q$ be the 
+        conjugate number of $p$, $g$ be the function that equals $1$
+        a.e. on $A$. Then $|fg| = |f|$ a.e. on $A$. Since $A$ has finite 
+        measure, $g$ is in $L^q(A)$. By Holder's inequality,
+        \begin{equation*}
+            \begin{aligned}
+                \int_A |f| &= \int_A |fg|\\
+                &\leq \lVert f \rVert_p \cdot \lVert g\rVert_q\\
+                &\leq M \cdot m(A)
+            \end{aligned}
+        \end{equation*}
+            From the estimation above, one can conclude that given 
+        $\epsilon > 0$, let the desired $\delta = \frac{\epsilon}{M+1}$,
+        then for every $A \subset E$ whose measure is less thant $delta$
+        $\int_A |f| < \epsilon$ for all $f \in \mathcal{F}$. Thus 
+        $mathcal{F}$ is unifromly integrable over $E$.  
+        \end{proof}
+        \begin{corollary}
+            Let $E$ be a measurable set of finite measure and 
+        $1 \leq p_1 <p_2 \leq \infty$, then $L^{p_2} \subset L^{p_1}$.
+        Moreover, 
+        $$\lVert f\rVert_{p_1} \leq c\lVert f\rVert_{p_2} \mbox{ 
+            for all } f \in L^{p_2}$$
+        where $c = m(E)^{\frac{p_2-p_1}{p_2p_1}}$ if $p_2 <\infty$
+        and $c = m(E)^{\frac{1}{p_1}}$ if $p_2 = \infty$.  
+        \end{corollary}
+        \begin{proof}
+            We first prove the case that $p_2 = \infty$. Suppose 
+        $f \in L^{p_2}(E)$, since $f$ is essentially bounded,
+        and $E$ has finite measure, it is not hard to see $|f|^{p_1}$
+        is integrable. Thus $L^{\infty} \subset L^{p_1}$ for every $p_1 \geq 1$.
+        For every $f \in \mathcal{F}$,
+            \begin{equation*}
+                \begin{aligned}
+                    \int_E |f| &\leq m(E) \lVert f\rVert_{\infty}\\
+                \Rightarrow \int_E |f|^{p_1} &\leq m(E) \lVert f\rVert_{\infty}^{p_1}\\
+                \Rightarrow \left[\int_E |f|^{p_1} \right]^{\frac{1}{p_1}} 
+                &\leq m(E)^{\frac{1}{p_1}} \lVert f\rVert_{\infty}\\
+                \end{aligned}
+            \end{equation*}
+        Thus the case of $p_2 = \infty $ is proved. Now suppose 
+        $p_2< \infty$. Define $p=\frac{p_2}{p_1}$. Given any
+        $f \in L^{p_2}(E)$, $f^{p_1}$ is in $L^p(E)$. Let $g=\chi_E$, 
+        which is in $L^q(E)$, where $q$ is the conjugate of 
+        $p$. By Holder's inequality,
+            \begin{equation*}
+                \begin{aligned}
+                    \int_E |f|^{p_1} &=\int_E |f|^{p_1} \cdot g \\
+                    &\leq \lVert f^{p_1} \rVert_p \cdot \lVert g \rVert_q\\
+                    &= \left[\int_E |f|^{p_1p}\right]^{\frac{1}{p}} \cdot m(E)^{\frac{1}{q}}\\
+                    &= \left[\int_E |f|^{p_2}\right]^{\frac{p_1}{p_2}} \cdot m(E)^{\frac{p_1(p_2-p_1)}{p_2p_1}}\\
+                    &= \lVert f\rVert_{p_2}^{p_1} \cdot m(E)^{\frac{p_1(p_2-p_1)}{p_2p_1}}\\
+                \end{aligned}
+            \end{equation*}
+            Take the both sides of the equation to the $\frac{1}{p_1}$ power, we obtain the desire 
+        inequality.
+        \end{proof}
+        \begin{remark}
+            The inclusion of $L^p$ space above is 
+        actualy strick. Let $-\frac{1}{p_1}\alpha <-\frac{1}{p_2}$,
+        then $f \in L^{p_1}(0,1] - L^{p_2}(0,1]$.\par
+            For set of infinite measure, we have no inclusion between 
+        $L^p$ spaces.
+        \end{remark}
+    \section{Riesz Fischer Theorem: Lp is Complete}
+        \begin{definition}[Convergence in normed vectore space]
+            Let $X$ be a normed vector space normed by $\lVert \cdot \rVert$. 
+        For a sequence of element $\{x_n\}$ and a $x$ in $X$, 
+        we say $\{x_n\}$ converge to $x$ in $X$ if and only if 
+        $$ \lim_{n \to \infty} \lVert x_n -x\rVert = 0$$
+        We denote this relation by $x_n \to x$ in $X$, or 
+        $\lim_{n\to \infty} x_n = x$ in $X$. When it is clear in 
+        the context, we can just say $\lim_{n\to \infty} x_n = x$. 
+        \end{definition}
+        Consider $C[a,b]$ with the maximum norm(the reader need to 
+    verify this is a normed linear space). The convergence in $C[a,b]$
+    is equivalence to what we called uniform convergence. 
+    $\lVert f_n -f \rVert_{\mbox{max}}$ is the maximum of the 
+    difference of the two functions, which illustrate the above 
+    idea. Of course we can defined what is \textbf{cauchy} in 
+    a normed linear space. \par
+        \begin{definition}[Cauchy sequence in normed linear space]
+            Let $X$ be a normed vector space normed by $\lVert \cdot \rVert$,
+        and $\{x_n\}$ be a sequence of element in $X$. We say that 
+        $\{x_n\}$ is cauchy if and only if $\forall \epsilon> 0, \ 
+        \exists N$ such that $\forall i,\ j \geq N$,
+        $$\lVert x_i - x_j \rVert < \epsilon$$
+        We say $X$ is \textbf{complete} if and only if 
+        every cauchy sequence converges in $X$. One usualy
+        call a complete normed linear space as \textbf{Banach space}.
+        \end{definition}
+        The final goal of this section is to prove that $L^p$ space is 
+    complete.
+        \begin{proposition}\label{SubcauchySequence}
+            Let $X$ be a normed vector space. Then every converge
+        sequence is cauchy. If a cauchy sequence $\{x_n\}$ has a converge 
+        subsequence, then $\{x_n\}$ converge. 
+        \end{proposition}
+        \begin{proof}
+            Let $\{x_n\}$ be a converge sequence in $X$. 
+        So for all $\epsilon > 0$, $\exists N$ such that,
+        $\lVert x_n - x\rVert <\frac{\epsilon}{2}$ is true for all $n\geq N$.
+        Let $i , \ j \geq N$. 
+        \begin{equation*}
+            \begin{aligned}
+                \lVert x_i - x_j \rVert &= \lVert x_i +x - x- x_j \rVert\\
+                &\leq\lVert x_i +x  \rVert+\lVert x- x_j \rVert\\
+                &< \frac{\epsilon}{2} + \frac{\epsilon}{2}\\
+                &= \epsilon 
+            \end{aligned}
+        \end{equation*}
+        So is $\{x_n\}$ cauchy.\par 
+            Suppose $\{x_n\}$ is a cauchy sequence and $\{x_{n_k}\}$ converges.
+        Given $\epsilon$, there exist $N_1, \ N_2$ such that 
+        \begin{equation*}
+            \begin{aligned}
+                \forall i, \ j\geq N_1, \ \ \lVert x_i - x_j \rVert < \frac{\epsilon}{2} \\
+                \forall n_k \geq N_1, \ \ \lVert x_{n_k} - x \rVert < \frac{\epsilon}{2} \\
+            \end{aligned}
+        \end{equation*}
+        Let $N = max( N_1 , N_2)$. For $n \geq N$, there exist $n_k > n$. So we have 
+        \begin{equation*}
+            \begin{aligned}
+                \lVert x_n - x \rVert &= \lVert x_n - x_{n_k} + x_{n_k}- x \rVert\\
+                &\leq \lVert x_n - x_{n_k} \rVert+\lVert x_{n_k}- x \rVert\\
+                &< \frac{\epsilon}{2} + \frac{\epsilon}{2}\\
+                &= \epsilon
+            \end{aligned}
+        \end{equation*}
+        \end{proof}
+        The proposition above provide a strategy to prove that a space is a Banach 
+    space: one can first show that a certain type of cauchy sequence converge, and 
+    then show that every cauchy sequence has a subsequence of this type. 
+        \begin{definition}[Rapidly cauchy sequences]
+            Let $X$ be a linear space normed by $\lVert \cdot \rVert$. A sequence $\{f\}$
+        is said to be \textbf{rapidly cauchy} provided there is a convergent series 
+        of positive numbers $\sum_{k=1}^{\infty} \epsilon_k$ for which 
+        $$\lVert f_{k+1} - f_{k} \rVert \leq \epsilon_k^2$$
+        for all $k$
+        \end{definition}
+        \begin{proposition}\label{RapidlyCauchy}
+            Let $X$ be a normed linear space as usual. Every rapidly cauchy sequence 
+        is cauchy. Every cauchy sequence has a rapidly cauchy subsequence. 
+        \end{proposition}
+        \begin{proof}
+            Let $\{f_k\}$ be a rapid cauchy sequence.
+            By definition, 
+            \begin{equation*}
+                \begin{aligned}
+                    \lVert f_k - f_{k+1} \rVert &\leq \epsilon_k^2\\
+                    \Rightarrow \sum_{k=n}^{m}\lVert f_k - f_{k+1} \rVert &\leq \sum_{k=n}^{m} \epsilon_k^2\\
+                \end{aligned}
+            \end{equation*}
+            Since the right hand side series converges, and 
+            $$\lVert f_n - f_m \rVert \leq \sum_{k=n}^{m-1}\lVert f_k - f_{k+1} \rVert$$
+            we have 
+            \begin{equation*}
+                \begin{aligned}
+                    \lVert f_n - f_m \rVert &\leq \sum_{k=n}^{m-1} \epsilon_k^2
+                    \leq \sum_{k=N}^{\infty} \epsilon_k^2    
+                \end{aligned}
+            \end{equation*}
+            where $n , \ m \geq N$ and $\sum_{k=N}^{\infty} \epsilon_k^2 \leq \epsilon$.
+            So rapidly cauchy indecates cauchy.\par 
+            Let $\{f_n\}$ be a cauchy sequence. Let $\epsilon'_k = \frac{1}{2^k}$, then
+        for each $\epsilon'_k$, we can find a $n(k) = N$, while $N$ is the number such that 
+        $\forall n,m >N, \ \lVert f_n -f_m \rVert < \epsilon'_k$. It is clear that 
+        $\lVert f_{n(k)} - f_{n(k+1)} \rVert \leq \epsilon'_k$. Since 
+        $$\sum_{k=1}^{\infty}\epsilon_k = \sum_{k=1}^{\infty} \sqrt{\epsilon'_k} 
+        = \sum_{k=1}^{\infty}\frac{1}{\sqrt{2}^k}$$
+        is a converge series, $\{f_{n(k)}\}$ is rapidly cauchy.
+        \end{proof}
+        \begin{lemma}[Borel-Cantelli lemma]
+            Let $\{E_k\}_{k=1^{\infty}}$ be a countable collection of measurable sets for 
+        which $\sum_{k=1}^{\infty} m(E_k)<\infty$. Then almost all $x \in \RR$ be longs to finite 
+        many of the $E_k$'s.
+        \end{lemma}
+        \begin{proof}
+            For each $n$, by subadditivity of the measure,
+            $$m(\bigcup_{k=n}^{\infty}E_K) \leq \sum_{k=n}^{\infty} m(E_K)$$
+            Thus by continuity of the measure 
+            $$m( \bigcap_{n=1}^{\infty}\bigcup_{k=n}^{\infty}E_K) = 
+            \lim_{n \to \infty} m(\bigcup_{k=n}^{\infty}E_K) 
+            \leq \lim_{n \to \infty} \sum_{k=n}^{\infty} m(E_K) 
+            =0$$
+            Therefore almost all $x \in \RR$ is not in 
+            $\bigcap_{n=1}^{\infty}\bigcup_{k=n}^{\infty}E_K)$. So every $x$ at most belongs to fintie 
+            many $E_k$s.
+        \end{proof}
+        \begin{theorem}[Riesz-Fischer theorem]
+            Let $E$ be a measurable set and $1\leq p \leq \infty$. Then $L^p(E)$
+        is a Banach space. Moreover, if $\{f_n\} \to f$ in $L^p(E)$, a subsequence 
+        of $\{f_n\}$ converge to $f$ pointwisely a.e. on $E$ to $f$.
+        \end{theorem}
+        \begin{proof}
+            To show that $L^p(E)$ is a Banach space, we need show that every cauchy
+        sequences converge. Since proposition \ref{SubcauchySequence} and lemma
+        \ref{RapidlyCauchy} have already been proved, it remains to show that every 
+        rapidly cauchy sequence converges.\par 
+            Let $\{f_k\} \subset L^p(E)$ be a rapidly cauchy sequence, and let 
+        $\sum_{k=1}^{\infty} \epsilon_k$ be the converge positive series such that 
+        $\lVert f_k-f_{k+1}\rVert \leq \epsilon^2_k$. \par 
+            Suppose $p=\infty$. \par 
+            Now suppose $p< \infty$. Notice that the condition of being rapidly cauchy indicates
+            \begin{equation}\label{RieszFischer1}
+                \int_E |f_{k+1} - f_k |^p \leq \epsilon_k^{2p}
+            \end{equation}
+            Given a fixed $k$. Since $|f_k(x) - f_{k+1}(x)| > \epsilon_k$ if and only if 
+            $|f_k(x) - f_{k+1}(x)|^p > \epsilon_k^p$, so by Chebychev's inequality and \eqref{RieszFischer1},
+        \begin{equation*}
+            \begin{aligned}
+                m(E\{|f_k(x) - f_{k+1}(x)|>\epsilon_k\}) &= m(E\{|f_k(x) - f_{k+1}(x)|^p>\epsilon_k^p\})\\
+                &\leq \frac{1}{\epsilon_k^p} \int_E |f_k(x) - f_{k+1}(x)|^p\\
+                &\leq \epsilon_k^{p}
+            \end{aligned}
+        \end{equation*}
+            We can legally assume all $\epsilon_k< 1$, so $\sum_{k=1}^{\infty} \epsilon_{k}^p$
+        is converge. Since $\sum_{k=1}^{\infty}m(E\{|f_k(x) - f_{k+1}(x)|>\epsilon_k\})
+        \leq \sum_{k=1}^{\infty} \epsilon_{k}^p$, by the Borel-Cantelli lemma, for almost every 
+        $x \in E$, or to say $ x \in E-E_0$ where $E_0$ is a measure zero subset, 
+        $|f_k(x) - f^{k+1}(x)|< \epsilon_k$. \par Since the fact that 
+        $\sum_{k=n}^{\infty}\epsilon_k$ converge and there exist $K(x)$ such that 
+        $$|f_n(x) - f_{m}(x)| \leq \sum_{k=n}^{m-1}|f_k(x) - f_{k+1}(x)| \leq 
+        \sum_{k=n}^{\infty}\epsilon_k$$
+        forall $x \in E-E_0$ and $k> K(x)$
+        $\{f_k(x)\}$ is cauchy sequence in $\RR$ for every $x \in E-E_0$, which also means 
+        $\lim_{k \to \infty} f_k(x)$ exist for all $x \in E-E_0$. Let $f = \lim_{k \to \infty} f_k$.
+        Then from \eqref{RieszFischer1},
+            $$\int_E |f_n - f_{n+k}|^p \leq 
+            \sum_{k=n}^{n+k-1}  |f_k -f_{k+1}|^p
+            \leq \sum_{k=n}^{\infty} \epsilon^{2p}_k$$ 
+        By Fatou's lemma,
+        $$\int_E |f_n-f|^p leq \left[\sum_{k=n}^{\infty} \epsilon^{2}_k\right]^p$$
+        Taking to the $\frac{1}{p}$ power on both side of the equation, we proved that the 
+        rapidly cauchy sequence $\{f_k\}$ have a limit, Which also indicated that 
+        $L^p(E)$ is a Banach space.\par
+            Moreover, the upper construction of $f$ suggest every rapidly cauchy sequence 
+        converge pointwisely a.e. to the function to which they converge in $L^p(E)$ in $\RR$. 
+        Since a cauchy sequence $\{f_n\}$ has a rapidly cauchy subsequence, every cauchy sequence 
+        has a subsequence whose pointwise limit exists and that limit function would be 
+        the limit of $\{f_n\}$ in the sense of $L^p(E)$ converge.
+        \end{proof}
+        \begin{remark}
+            One might be interested in what is the relationship between the $L^p$
+        convergence and the pointwise convergence. For $E=[0,1]$, $1\leq p <\infty$, and each 
+        $n \in \NN$, let $f_n= n^{\frac{1}{p}} \chi_{(0,1]}$. This function converge to 
+        zero pointwisely on $\RR$, but converge to $1$ with respect to the $L^p$ norm.
+        Neither $L^p$ or pointwise limit could directely determinded the other one, but 
+        this could be true if some more condition is added.
+        \end{remark}
+        \begin{theorem}
+            Let $E$ be a measurable set and $1 \leq p < \infty$. Suppose $\{f_n\} $ is a
+        sequence of function in $L^p(E)$ and it converges to $f\in L^p(E)$ pointwisely a.e.
+        on $E$. Then 
+        $$\{f_n\} \to f \mbox{ in } L^p(E) \Leftrightarrow 
+        \lim_{n \to \infty} \int_E |f_n|^p  = \int_E |f|^p $$
+        \end{theorem}
+        \begin{proof}
+            We assuming that $\{f_n\} \to f$ pointwisely on all $E$. Suppose that 
+        $\{f_n\} \to f$ in $L^p(E)$. Then Mincowski inequality implies 
+        $$|\lVert f \rVert_p -\lVert f_n \rVert_p| \leq \lVert f - f_n \rVert_p$$
+        So $\lim_{n \to \infty} \int_E f_n = \int_E f$.\par 
+            Suppose the passage under the integral sign is available. Let $\psi(t) = |t|^p$. Since only $p \geq 1$
+        is in our consideration, $psi$ is convex, thus 
+        $$\psi(\frac{a+b}{2}) \leq \frac{\psi(a)+\psi(b)}{2}$$
+        for all $a,\ b$, which means 
+        $$0 \leq \frac{|a|^p + |b|^p}{2} - |\frac{a+b}{2}|^p$$
+        for all $a , \ b$.
+            Let $h_n = \frac{|f_n(x)|^p + |f(x)|^p}{2} - |\frac{f_n(x)+f(x)}{2}|^p$. Then $h_n$ is 
+        non-negative and converge to $|f|^p$ pointwisely on $E$. By Fatou's lemma, and the passage under 
+        integral sign, 
+        \begin{equation*}
+            \begin{aligned}
+                \int_E |f|^p &\leq \liminf \int_E h_n\\
+                &= \liminf [\frac{|f_n(x)|^p + |f(x)|^p}{2} - |\frac{f_n(x)+f(x)}{2}|^p] \\
+                &\leq \int_E |f|^p - \limsup[\int_E |\frac{f_n(x)+f(x)}{2}|^p]\\
+            \end{aligned}
+        \end{equation*}
+            From this we can infer that $\limsup[\int_E |\frac{f_n(x)+f(x)}{2}|^p] \leq 0$, which indicates
+        that $\{f_n\} \to f$ in $L^p(E)$.  
+        \end{proof}
+
+    \section{Approximation and Separability}
+        Recall the Littlewood second priciple, any measurable function can be approximated by 
+    continuous function in some sense. The generalized idea is we can understand the structure of 
+    a class of function by study whether it can be approximated by a class of better functions. 
+    Now we have developed the convergence in $L^p$ spaces, so is natural to ask what kinds of functions
+    can be used to approximate the functions in $L^p$ spaces with respect to the $L^P$ norm. 
+        \begin{definition}[Dense]
+            Let $X$ be a linear space normed by $\lVert \cdot \rVert$, and $U \subset V$ are subsets of $X$. 
+        We say that $U$ is dense in $V$ if and only if given $f \in V$ $\epsilon > 0$, there exists a
+        $g \in U$ such that $\lVert f -g \rVert < \epsilon$.
+        \end{definition}
+        It is not har to see $U$ is dense in $V$ if and only if for any $f \in V$, there 
+    exist a sequence $\{f_n\} \in U$ such that $\lim_{n \to \infty} f_n = f$. The most familiar
+    example is that $\QQ$ is dense in $\RR$, with the absolute function as norm.
+        \begin{proposition}\label{DenseTransitivity}
+            Let $X$ be a linear space normed by $\lVert \cdot \rVert$, and $U \subset V \subset W$ are subsets of $X$. 
+        If $U$ is dense in $V$ and $V$ is dense in $W$, then $U$ is dense in $W$
+        \end{proposition}
+        The prove is quite naive so is left to the readers.
+        \begin{proposition}
+            Let $E$ be a measurable set and $1\leq p\leq \infty$. Then the subspace of simple functions
+        in $L^p(E)$ is dense in $L^p(E)$.
+        \end{proposition}
+        \begin{proof}
+            First we consider the case of $p= \infty$. Suppose $f$ is bounded on $E-E_0$ where 
+        $E_0$ is a measure zero set. Notice that $L^p$ norm is an integral, so what value of $f$
+        takes on a measure zero set can't change the norm. Assuming $f$ is bounded over $E$,
+        simple approximate theorem says there is a sequence of simple function $\{\varphi_n\}$
+        which converge to $f$ uniformly, which is equivalent to say that $\{\varphi_n\}$
+        converge to $f$ respect to the $L^{\infty}$ norm. \par 
+            Now consider the case of $1\leq p < \infty$. Again, by simple function approximation,
+        there exists $\{\varphi_n\}$ which converge to $f$ pointwisely, and 
+        $$|\varphi| \leq |f|$$ 
+        which shows $\varphi \in L^p(E)$. In order to use the dominated convergence theorem,
+        we first establish the inequality below.
+        $$\int_E |\varphi_n - f|^p \leq \int_E |2f|^p \leq \int _E 2^p|f|^p$$ 
+        this shows that $|\varphi_n - f|^p$ is bounded by $2^p|f|^p$, which is certain 
+        integrable on $E$. Notice that $|\varphi_n - f|^p \to 0$ as $n \to \infty$,
+        by applying the dominated convergence theorem,
+        $$\lim_{n \to \infty}\lVert \varphi_n -f \rVert_p 
+        = \lim_{n \to \infty} [\int_E |\varphi_n - f|^p]^{\frac{1}{p}} = 
+        [\int_E \lim_{n \to \infty}|\varphi_n - f|^p]^{\frac{1}{p}} = 0 $$
+        we proved that the simple function subspace of 
+        $L^p(E)$ is dense in $L^p(E)$.
+        \end{proof}
+        \begin{proposition}
+            Let $[a,b]$ be a colse bounded and $1\leq p\leq \infty$. Then the subspace of step functions
+        in $L^p([a,b])$ is dense in $L^p(a,b)$
+        \end{proposition}
+        \begin{proof}
+            By proposition \ref{DenseTransitivity}, we only need to show that the set of step functions
+        is dense in the set of simple functions.
+            Given any simple function, it can be represent as the linear combination of 
+        characteristic functions. Notice that the linear combination of step functions 
+        is still a step function. If for every characteristic function $\chi_{E_i}$, where 
+        $E_i$ is measurable subset of $[a,b]$
+        we can find a step function $\psi_i$ such that $\int_E|\psi_i -\chi_{E_i}|^p$ can be 
+        arbritarly small, then 
+        \begin{equation*}
+            \begin{aligned}
+            \int_{[a,b]} |\sum_{i=1}^n \psi_i - \sum_{i=1}^n \chi_{E_i}|^p &\leq 
+            \int_{[a,b]} |\sum_{i=1}^n \psi_i -\chi_{E_i}|^p \\
+            &\leq \int_{[a,b]} |n\max_{1\leq i \leq n}(\psi_i -\chi_{E_i})|^p \\
+            &\leq n^p\int_{[a,b]} |\max_{1\leq i \leq n}(\psi_i -\chi_{E_i})|^p \\
+            \end{aligned}
+        \end{equation*}
+        which shows simple functions can be approximate by step function. \par 
+            The only thing need to show is for every $\epsilon >0$ 
+        and characteristic function $\chi_{E}$, we can find a step function $\psi$ 
+        such that $$\int_{[a,b]}|\psi -\chi_{E}|^p< \epsilon$$
+        By the theorem which shows the Littlewood first priciple, there exist 
+        a finite disjoint collection of intervals $\{I_n\}$, such that 
+        $m(\bigcup_{n=1}^N I_n \Delta E) \leq \epsilon$. Then 
+        $\chi_{\bigcup_{n=1}^N I_n}$ is a step function, and 
+        $$\int_{[a,b]} |\chi_{\bigcup_{n=1}^N I_n} - \chi_E |^p= 
+        \int_{[a,b]} |\chi_{\bigcup_{n=1}^N I_n \Delta E}| = m(\bigcup_{n=1}^N I_n \Delta E) \leq \epsilon $$
+        Thus the proposition is proved.
+        \end{proof}
+        \begin{definition}[Separability]
+            Let $X$ be a normed linear space. We say $X$ is separable if and only if 
+        there is a countable subset dense in $X$.
+        \end{definition}
+        Again the easy example is $\RR$, since $\QQ$ is countable. 
+        \begin{theorem}
+            Let $E$ be a measurable set and $1\leq p < \infty$. Then the normed linear space is 
+        separable.
+        \end{theorem}
+        \begin{proof}
+            Let $[a,b]$ be closed bounded inteval. We use $S[a,b]$ to denote the collection
+        of step functions on $[a,b]$. Let $S'[a,b]$ be the set of step functions $\psi$ which take only rational 
+        value, and for $P=\{x_i\}_{i=1}^n$ is a partition of $[a,b]$ where $x_i$ are rationals, such 
+        that $\psi$ is constant on $(x_i, x_{i+1})$. \par 
+            \textbf{Claim:} $S'[a,b]$ is countable. $S'[a,b]$ is dense in $S[a,b]$.\\
+            Notice that step functions only has finite different values, we suppose the finite dimension
+        vector $V=\{v_i\} \subset Q$ where $f(x) = v_i$ if $x_i < x < x_{i-1}$. So each $\psi \in S'[a,b]$
+        is determinded by $V$ and $P$. Thus it is not hard to see that there is a injective 
+        map from the collection of all such $(V,P)$ to the collection of all sequence in $\QQ$. Since 
+        the latter one is injective(it is the countable union of countable sets), we can conclude that 
+        $S'[a,b]$ is countable. What value should $\psi$ talkes at the end points of each 
+        subinterval which is determinded by $P$ is not important, since considering the convergence 
+        in $L^p$, we only need to construct an sequence which convege a.e., while the set of end 
+        points is definitely of measure zero.\par 
+            Since $\QQ$ is dense in $\RR$, for every $r \in \RR$ we can find a sequence $\{q_n\}$ which    
+        converge  to $r$. Given $f \in S[a,b]$, $f(x) = \sum_{i=1}^n r_i \chi_{[x_i, x_{i+1}]}$.
+        Let $\{q_{ij}\}$ be the sequence converge to $r_i$ increasingly and $\{y_{ij}\} \to x_i$. 
+        Then $\{\psi_j\}$ is a sequence of functionsin $S'[a,b]$ which converge pointwisely to $f$ a.e. on $E$, 
+        where $\psi_j(x) = q_{ij}$ for $x_i< x <x_{i+1}$. Clearly $f$ is bounded by some $M$, and therefore
+        all but finite $\psi_j$ are bounded by $M+1$. Ignoring the finite terms, $|\psi_j|^p \to |f|^p$ 
+        and all theses functions are bounded by $(M+1)^p$, so $|f-\psi_j|^p$ is bounded by $2^p(M+1)^p$. 
+        Using the bounde converge theorem, and by the face $|f-\psi_j|^p \to 0$ a.e.,
+        \begin{equation*}
+            \begin{aligned}
+                \lim_{j \to \infty}\lVert f - \psi_j \rVert &= \lim_{n to \infty} 
+                [\int_a^b |f-\psi_j|^p]^{\frac{1}{p}} \\
+                &=  [\int_a^b \lim_{n to \infty} |f-\psi_j|^p]^{\frac{1}{p}} 
+                &= 0
+            \end{aligned}
+        \end{equation*}
+            Thus we proved that $S'[a,b]$ is dense in $S[a,b]$. So $S'[a,b]$ is also dense in 
+        $L^p([a,b])$.\par 
+            To prove that $S'(E)$ is dense in $L^p(E)$ where $E$ is any measurable set, let 
+        $\mathcal{F}_n$ be the set $S'[-n, n]$ which is countable. Let 
+        $$\mathcal{F} = \bigcup_{n=1}^{\infty} \mathcal{F}_n $$ 
+        which is also countable. By monotone convergence theorem,
+        $$\lim_{n \to \infty} \int_{-n}^n |f|^p = \int_{\RR} |f|^p$$
+        Thus $\mathcal{F}$ is dense in $L^p(\RR)$. For any measurable subset $E$,
+        consider the ristirction of the functions in $\mathcal{F}$, they form the countable 
+        set which dense in $E$. Therefor $L^p(E)$ is separable.
+        \end{proof}
+        %Why l\infty space is not separable?
+        Since we can use continuous function of compact support to approximate step 
+    functions, thus we have $C_c(E)$ dense in $L^p(E)$.
+        
+\chapter{Riesz Representation}
+    \section{Linear Functional and Dual Space}
+        \begin{definition}[linear functional]
+            
+        \end{definition}
     
-\chapter{Lp Space}
-    \section{Definition}
+        \begin{definition}[Bounded linear functional]
+            
+        \end{definition}
 
-    \section{Important Inequality}
-
-    \section{?}
-
+        \begin{proposition}
+            Let $X$ be a normed linear space, and $T$ be a 
+        bounded linear function on $X$. Then
+        $$\lVert T \rVert_* = \sup\{T(f): \lVert f \rVert leq 1 , \ f \in X \} $$
+        \end{proposition}
+        \begin{proof}
+            Let $s:=\sup\{T(f): \lVert f \rVert leq 1 , \ f \in X \} $. Since for 
+        any $f \in X$, $\lVert \frac{f}{\lVert f \rVert}\rVert \leq 1$,
+        $$\frac{T(f)}{\lVert f \rVert} = T(\frac{f}{\lVert f \rVert}) \leq s $$
+        Thus 
+        $$T(f) \leq s \lVert f \rVert \Rightarrow s \geq \lVert T \rVert_*$$
+        Suppose $\lVert T \rVert_* < s$. By the property of the supremum,
+        there exist a $\lVert f\rVert \leq 1$ such that
+        $$T(f) > \lVert T \rVert_* \Rightarrow T(f) > \lVert T \rVert_* \lVert f\rVert$$
+        which is contradict to the definition of $\lVert T \rVert_*$.
+        \end{proof}
 \chapter{Appendix 1: Non-measurable Sets, Non-measurable Functions}
     For the purpose to illustrate the theory in a more clear way, we didn't talk about the existence of non-measurable sets, non-measurable functions and many 
-other counter examples. Counter-examples are important. Without showing there exsistence, our theory is meaningless(mabey all the sets are 
-measurable). In fact, many of them are quite hard to construct, which is the reason why we didn't mention them in the main body.   
+other counter examples. Counter-examples are important. Without showing there existence, our theory is meaningless(mabey all the sets are 
+measurable). In fact, many of them are quite hard to construct, which is the reason why we didn't mention them in the main body. 
 \end{document} 

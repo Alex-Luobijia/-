@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.4.24)  14 NOV 2022 11:26
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.4.24)  13 DEC 2022 05:14
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1375,28 +1375,38 @@ Overfull \hbox (1.86316pt too wide) in paragraph at lines 1523--1525
 Chapter 5.
 [40
 
-] [41] [42] [43]
+] [41] [42] [43] [44] [45] [46] [47] [48]
 Chapter 6.
-[44
+[49
+
+] [50] [51] [52] [53] [54] [55] [56] [57] [58] [59]
+Missing character: There is no ̄ ("304) in font cmmi12!
+[60] [61] [62] [63] [64] [65]
+Chapter 7.
+[66
+
+] [67] [68] [69] [70] [71] [72] [73] [74] [75] [76] [77] [78] [79]
+Chapter 8.
+[80
 
 ]
-Chapter 7.
-[45
+Chapter 9.
+[81
 
 ] (./Real_Analysis.aux)
 Package rerunfilecheck Info: File `Real_Analysis.out' has not changed.
-(rerunfilecheck)             Checksum: FB34FB30AE0183E53197A9E91FE55414;4631.
+(rerunfilecheck)             Checksum: 7E400105DF9737137E0DCEAF2D35DDE3;7968.
 Package logreq Info: Writing requests to 'Real_Analysis.run.xml'.
 \openout1 = `Real_Analysis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 42100 strings out of 476151
- 870050 string characters out of 5812645
- 1800061 words of memory out of 5000000
- 62165 multiletter control sequences out of 15000+600000
+ 42269 strings out of 476151
+ 873203 string characters out of 5812645
+ 1807935 words of memory out of 5000000
+ 62334 multiletter control sequences out of 15000+600000
  476516 words of font info for 78 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  99i,15n,99p,771b,1316s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on Real_Analysis.pdf (47 pages).
+Output written on Real_Analysis.pdf (83 pages).
